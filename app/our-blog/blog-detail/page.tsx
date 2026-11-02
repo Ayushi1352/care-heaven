@@ -1,24 +1,21 @@
 import type { Metadata } from "next";
-import PageBanner from "@/components/PageBanner";
-import { pageTitle, routes, site } from "@/data";
-import BlogArticle from "@/components/BlogArticle";
+import rawData from "@/data/templates.json";
+import type { NGOTemplateData } from "@/types/templates.types";
+import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { BlogArticle } from "@/components/sections/BlogArticle";
+
+const templateData: NGOTemplateData = rawData;
+const sectionData = templateData.categories.NGO.sections;
+const commonData = templateData.common;
 
 // One common detail page for every post: all blog links point here.
-const { title, description } = site.pages.blogDetail;
-
-export const metadata: Metadata = { title: pageTitle(title), description };
+export const metadata: Metadata = { title: commonData.blogDetailBreadcrumb?.title, description: commonData.blogDetailBreadcrumb?.description };
 
 export default function BlogDetailPage() {
   return (
-    <>
-      <PageBanner
-        title={title}
-        crumbs={[
-          { label: site.pages.ourBlog.title, href: routes.ourBlog },
-          { label: title },
-        ]}
-      />
-      <BlogArticle />
-    </>
+    <main className="flex-1">
+      <Breadcrumb data={commonData.blogDetailBreadcrumb} ui={commonData.globalUI} />
+      <BlogArticle data={sectionData.Blogs?.variants?.NGOBlogs1?.detail} ui={commonData.globalUI} />
+    </main>
   );
 }

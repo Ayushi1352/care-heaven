@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
-import PageBanner from "@/components/PageBanner";
-import { pageTitle, site } from "@/data";
-import BlogGrid from "@/components/BlogGrid";
+import rawData from "@/data/templates.json";
+import type { NGOTemplateData } from "@/types/templates.types";
+import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { BlogGrid } from "@/components/sections/BlogGrid";
 
-const { title, description } = site.pages.ourBlog;
+const templateData: NGOTemplateData = rawData;
+const sectionData = templateData.categories.NGO.sections;
+const commonData = templateData.common;
 
-export const metadata: Metadata = { title: pageTitle(title), description };
+export const metadata: Metadata = { title: commonData.blogsBreadcrumb?.title, description: commonData.blogsBreadcrumb?.description };
 
 export default function OurBlogPage() {
   return (
-    <>
-      <PageBanner title={title} />
-      <BlogGrid />
-    </>
+    <main className="flex-1">
+      <Breadcrumb data={commonData.blogsBreadcrumb} ui={commonData.globalUI} />
+      <BlogGrid data={sectionData.Blogs?.variants?.NGOBlogs1} ui={commonData.globalUI} />
+    </main>
   );
 }

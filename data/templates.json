@@ -1,0 +1,1326 @@
+{
+  "common": {
+    "theme": {
+      "fonts": {
+        "primary": "var(--font-poppins), Arial, sans-serif",
+        "heading": "var(--font-newsreader), Georgia, serif",
+        "display": "var(--font-gilda-display), Georgia, serif",
+        "quote": "var(--font-source-serif), Georgia, serif",
+        "alt": "var(--font-montserrat), Arial, sans-serif",
+        "dm": "var(--font-dm-sans), Arial, sans-serif",
+        "form": "var(--font-roboto), Arial, sans-serif",
+        "nunito": "var(--font-nunito), Arial, sans-serif"
+      }
+    },
+    "metadata": {
+      "title": "CareHaven Foundation | A Better World For Everyone",
+      "siteName": "CareHaven Foundation",
+      "description": "CareHaven Foundation supports underprivileged children and communities through education, healthcare, food, relief and animal welfare programs.",
+      "icon": "/favicon.ico",
+      "lang": "en"
+    },
+    "globalUI": {
+      "mainNav": "Main",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "breadcrumb": "Breadcrumb",
+      "previous": "Previous",
+      "next": "Next",
+      "goToSlide": "Go to slide {n}",
+      "pagination": "Pagination",
+      "previousPage": "Previous page",
+      "nextPage": "Next page",
+      "page": "Page {n}",
+      "openImage": "Open image: {name}",
+      "close": "Close",
+      "previousImage": "Previous image",
+      "nextImage": "Next image",
+      "rating": "{n} out of 5 stars",
+      "readMoreAbout": "Read more about {title}",
+      "months": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ]
+    },
+    "company": {
+      "address": "123 Main Street,\nNew York, NY 10001, USA",
+      "email": "info@xyz.com",
+      "phone": "+1 0000000000",
+      "socialLinks": [
+        {
+          "id": "facebook",
+          "name": "Facebook",
+          "icon": "FaFacebookF",
+          "url": "https://www.facebook.com/",
+          "label": "CareHaven Foundation on Facebook"
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram",
+          "icon": "FaInstagram",
+          "url": "https://www.instagram.com/",
+          "label": "CareHaven Foundation on Instagram"
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn",
+          "icon": "FaLinkedinIn",
+          "url": "https://www.linkedin.com/",
+          "label": "CareHaven Foundation on LinkedIn"
+        },
+        {
+          "id": "youtube",
+          "name": "YouTube",
+          "icon": "FaYoutube",
+          "url": "https://www.youtube.com/",
+          "label": "CareHaven Foundation on YouTube"
+        },
+        {
+          "id": "x",
+          "name": "X",
+          "icon": "FaXTwitter",
+          "url": "https://x.com/",
+          "label": "CareHaven Foundation on X"
+        }
+      ]
+    },
+    "aboutBreadcrumb": {
+      "title": "About Us",
+      "description": "Learn about CareHaven Foundation, our mission, our values and the people working to build a better world for everyone.",
+      "bgImage": "/images/page-banner.webp",
+      "bgImageAlt": "",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "about-us",
+          "label": "About Us",
+          "url": ""
+        }
+      ]
+    },
+    "causesBreadcrumb": {
+      "title": "Our Causes",
+      "description": "Explore CareHaven's causes in education, healthcare, food, relief and animal welfare, and choose where your support goes.",
+      "bgImage": "/images/page-banner.webp",
+      "bgImageAlt": "",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "our-causes",
+          "label": "Our Causes",
+          "url": ""
+        }
+      ]
+    },
+    "causeDetailBreadcrumb": {
+      "title": "Causes Details",
+      "description": "See how this CareHaven cause works, the people it reaches and how your donation makes a difference.",
+      "bgImage": "/images/page-banner.webp",
+      "bgImageAlt": "",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "our-causes",
+          "label": "Our Causes",
+          "url": "/our-causes"
+        },
+        {
+          "id": "causes-details",
+          "label": "Causes Details",
+          "url": ""
+        }
+      ]
+    },
+    "teamsBreadcrumb": {
+      "title": "Our Teams",
+      "description": "Meet the CareHaven team of volunteers and staff who run our programs on the ground.",
+      "bgImage": "/images/page-banner.webp",
+      "bgImageAlt": "",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "our-teams",
+          "label": "Our Teams",
+          "url": ""
+        }
+      ]
+    },
+    "galleryBreadcrumb": {
+      "title": "Our Gallery",
+      "description": "Photos from CareHaven's classes, health camps, food drives and relief work.",
+      "bgImage": "/images/page-banner.webp",
+      "bgImageAlt": "",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "our-gallery",
+          "label": "Our Gallery",
+          "url": ""
+        }
+      ]
+    },
+    "blogsBreadcrumb": {
+      "title": "Our Blog",
+      "description": "News, stories and updates from CareHaven Foundation's programs and communities.",
+      "bgImage": "/images/page-banner.webp",
+      "bgImageAlt": "",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "our-blog",
+          "label": "Our Blog",
+          "url": ""
+        }
+      ]
+    },
+    "blogDetailBreadcrumb": {
+      "title": "Blog Detail",
+      "description": "Read the full story from the CareHaven Foundation blog.",
+      "bgImage": "/images/page-banner.webp",
+      "bgImageAlt": "",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "our-blog",
+          "label": "Our Blog",
+          "url": "/our-blog"
+        },
+        {
+          "id": "blog-detail",
+          "label": "Blog Detail",
+          "url": ""
+        }
+      ]
+    },
+    "faqsBreadcrumb": {
+      "title": "Faqs",
+      "description": "Answers to common questions about donating, volunteering and working with CareHaven Foundation.",
+      "bgImage": "/images/page-banner.webp",
+      "bgImageAlt": "",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "faqs",
+          "label": "Faqs",
+          "url": ""
+        }
+      ]
+    },
+    "contactBreadcrumb": {
+      "title": "Contact Us",
+      "description": "Get in touch with CareHaven Foundation by phone, email or our contact form.",
+      "bgImage": "/images/page-banner.webp",
+      "bgImageAlt": "",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "contact-us",
+          "label": "Contact Us",
+          "url": ""
+        }
+      ]
+    },
+    "Footer": {
+      "logo": "/images/logo-white.webp",
+      "logoAlt": "CareHaven Foundation - A Better World For Everyone",
+      "logoUrl": "/",
+      "logoSize": {
+        "width": 960,
+        "height": 329
+      },
+      "siteName": "CareHaven Foundation",
+      "menuTitle": "Menu Links",
+      "contactCards": [
+        {
+          "id": "our-location",
+          "icon": "FaMapMarkerAlt",
+          "title": "Our Location",
+          "field": "address"
+        },
+        {
+          "id": "email-address",
+          "icon": "FaRegEnvelope",
+          "title": "Email Address",
+          "field": "email"
+        },
+        {
+          "id": "call-us",
+          "icon": "FaPhoneAlt",
+          "title": "Call Us",
+          "field": "phone"
+        }
+      ],
+      "contactCircle": {
+        "top": "CONTACT",
+        "bottom": "US",
+        "href": "/contact-us"
+      },
+      "copyright": "© 2026 CareHaven Foundation. All Rights Reserved."
+    }
+  },
+  "categories": {
+    "NGO": {
+      "sections": {
+        "Header": {
+          "variants": {
+            "NGOHeader1": {
+              "logo": "/images/logo.webp",
+              "logoWhite": "/images/logo-white.webp",
+              "logoAlt": "CareHaven Foundation - A Better World For Everyone",
+              "logoUrl": "/",
+              "logoSize": {
+                "width": 960,
+                "height": 329
+              },
+              "siteName": "CareHaven Foundation",
+              "nav": [
+                {
+                  "id": "home",
+                  "label": "Home",
+                  "href": "/"
+                },
+                {
+                  "id": "about-us",
+                  "label": "About Us",
+                  "href": "/about-us"
+                },
+                {
+                  "id": "our-causes",
+                  "label": "Our Causes",
+                  "href": "/our-causes"
+                },
+                {
+                  "id": "our-teams",
+                  "label": "Our Teams",
+                  "href": "/our-teams"
+                },
+                {
+                  "id": "our-gallery",
+                  "label": "Our Gallery",
+                  "href": "/our-gallery"
+                },
+                {
+                  "id": "our-blog",
+                  "label": "Our Blog",
+                  "href": "/our-blog"
+                },
+                {
+                  "id": "faqs",
+                  "label": "Faqs",
+                  "href": "/faqs"
+                },
+                {
+                  "id": "contact-us",
+                  "label": "Contact Us",
+                  "href": "/contact-us"
+                }
+              ],
+              "button": {
+                "label": "Donate Now",
+                "href": "/contact-us"
+              }
+            }
+          }
+        },
+        "Hero": {
+          "variants": {
+            "NGOHero1": {
+              "eyebrow": "Need Help",
+              "titleTop": "BEING",
+              "titleHighlight": "LIFE SAVER",
+              "titleAfter": "FOR",
+              "titleBottom": "SOMEONE",
+              "image": {
+                "src": "/images/home/hero-girl-studying.webp",
+                "alt": "A girl writing in her notebook during a CareHaven learning class",
+                "width": 2114,
+                "height": 1468
+              },
+              "mission": {
+                "title": "Our Mission",
+                "text": "Our mission is to rescue, protect, and care for animals in need, providing with safe.",
+                "points": [
+                  "Second Chance Animal Mission",
+                  "Safe Haven for Animals",
+                  "Guardians of Compassion"
+                ]
+              }
+            }
+          }
+        },
+        "HowWeHelp": {
+          "variants": {
+            "NGOHowWeHelp1": {
+              "label": "How we help",
+              "title": "Delivering Solutions For People in",
+              "titleHighlight": "Need",
+              "cards": [
+                {
+                  "id": "child-assistance",
+                  "icon": "FaGraduationCap",
+                  "title": "Child Assistance",
+                  "text": "Education is the first to independence child.",
+                  "tone": "navy"
+                },
+                {
+                  "id": "crisis-response",
+                  "icon": "FaHandHoldingHeart",
+                  "title": "Crisis Response",
+                  "text": "Health care are essential for a child's growth.",
+                  "tone": "orange"
+                },
+                {
+                  "id": "animal-welfare",
+                  "icon": "FaBookOpen",
+                  "title": "Animal Welfare",
+                  "text": "We are protects animals across the globe.",
+                  "tone": "green"
+                },
+                {
+                  "id": "emergency-support",
+                  "icon": "FaAmbulance",
+                  "title": "Emergency Support",
+                  "text": "Health care are essential for a child's growth.",
+                  "tone": "navy"
+                }
+              ]
+            }
+          }
+        },
+        "AboutUs": {
+          "variants": {
+            "NGOAboutUs1": {
+              "badge": "About Our NGO",
+              "title": "Movement Built",
+              "titleHighlight": "Hope",
+              "titleEnd": "and Humanity",
+              "description": "We believe in the power of collective compassion. Through dedicated efforts and inclusive programs, we support vulnerable communities and create opportunities for a brighter, more equitable future.",
+              "image": {
+                "src": "/images/about/kids-waving.webp",
+                "alt": "Smiling children waving at the camera",
+                "width": 1652,
+                "height": 1942
+              },
+              "feature": {
+                "icon": "FaUsers",
+                "title": "Empowering Communities",
+                "text": "We work closely with community to I dentify real needs and create lasting change.",
+                "image": {
+                  "src": "/images/about/kids-reading.webp",
+                  "alt": "Children reading a book together",
+                  "width": 694,
+                  "height": 460
+                }
+              },
+              "button": {
+                "label": "More About Us",
+                "href": "/about-us"
+              }
+            }
+          }
+        },
+        "Stats": {
+          "variants": {
+            "NGOStats1": {
+              "items": [
+                {
+                  "id": "children-families-served",
+                  "value": 64,
+                  "suffix": "k",
+                  "label": "Children & families served"
+                },
+                {
+                  "id": "successful-campaigns",
+                  "value": 500,
+                  "suffix": "+",
+                  "label": "Successful Campaigns"
+                },
+                {
+                  "id": "receipts-we-have",
+                  "value": 240,
+                  "suffix": "+",
+                  "label": "Receipts we have"
+                },
+                {
+                  "id": "monthly-donors",
+                  "value": 430,
+                  "suffix": "+",
+                  "label": "Monthly Donors"
+                }
+              ]
+            }
+          }
+        },
+        "WhyChooseUs": {
+          "variants": {
+            "NGOWhyChooseUs1": {
+              "label": "Why choose us",
+              "titleTop": "MAKE A BETTER",
+              "titleHighlight": "TOMORROW",
+              "titleAfter": "FOR",
+              "titleBottom": "BRIGHTER LIVES",
+              "image": {
+                "src": "/images/about/smiling-girl.webp",
+                "alt": "A smiling girl with her friends",
+                "width": 1210,
+                "height": 736
+              },
+              "call": {
+                "label": "Call Us Anytime"
+              },
+              "lead": "We are a nonprofit that makes it easy and safe to give to projects anywhere in the world, while providing local organizations the tools, training, and support they need to become more effective.",
+              "missionTitle": "Our Mission",
+              "missionText": "We are committed to providing the highest level of care and support. Trust us to help create lasting change and a better world for future generations.",
+              "button": {
+                "label": "More About Us",
+                "href": "/our-causes"
+              }
+            }
+          }
+        },
+        "Testimonials": {
+          "variants": {
+            "NGOTestimonials1": {
+              "label": "Testimonials",
+              "title": "Review from",
+              "titleHighlight": "Our Supporters",
+              "subtitle": "Real Stories. Real Impact.",
+              "items": [
+                {
+                  "id": "lauren-wilson",
+                  "quote": "Every update shows exactly where my donation goes. Seeing children back in school because of this team makes giving feel truly meaningful.",
+                  "name": "Lauren Wilson",
+                  "role": "Monthly Donor",
+                  "rating": 5,
+                  "avatar": "/images/team/lauren-wilson.webp",
+                  "avatarPosition": "50% 22%"
+                },
+                {
+                  "id": "arc-joan",
+                  "quote": "Their transparency and commitment to making a real difference is unmatched. I'm proud to support a cause that brings hope to so many lives.",
+                  "name": "Arc Joan",
+                  "role": "Verified Supporter",
+                  "rating": 5,
+                  "avatar": "/images/testimonials/arc-joan.webp",
+                  "avatarPosition": "50% 50%"
+                },
+                {
+                  "id": "daniel-carter",
+                  "quote": "Volunteering at the health camp was life changing. The care and respect they show every family is something I will never forget.",
+                  "name": "Daniel Carter",
+                  "role": "Volunteer",
+                  "rating": 5,
+                  "avatar": "/images/team/daniel-carter.webp",
+                  "avatarPosition": "50% 18%"
+                }
+              ]
+            }
+          }
+        },
+        "Blogs": {
+          "variants": {
+            "NGOBlogs1": {
+              "label": "Our Blog",
+              "title": "Stories of",
+              "titleHighlight": "Change",
+              "description": "Insights, updates and stories from our journey towards a better tomorrow.",
+              "readMore": "Read More",
+              "homeCount": 2,
+              "rowsPerPage": 3,
+              "posts": [
+                {
+                  "id": "education-empowers-dreams",
+                  "title": "Education Empowers Dreams",
+                  "date": "2026-10-12",
+                  "excerpt": "Discover how access to quality education is helping children build brighter futures and stronger communities.",
+                  "image": "/images/blog/education-empowers-dreams.webp",
+                  "imageAlt": "A schoolgirl holding her notebooks"
+                },
+                {
+                  "id": "together-for-a-healthier-tomorrow",
+                  "title": "Together for a Healthier Tomorrow",
+                  "date": "2026-10-05",
+                  "excerpt": "Our community health initiatives are creating healthier and happier lives for underprivileged families.",
+                  "image": "/images/blog/healthier-tomorrow.webp",
+                  "imageAlt": "A volunteer helping two girls with their studies"
+                },
+                {
+                  "id": "small-actions-create-big-impact",
+                  "title": "Small Actions Create Big Impact",
+                  "date": "2026-09-28",
+                  "excerpt": "Learn how community participation and small acts of kindness are bringing positive change to vulnerable communities.",
+                  "image": "/images/blog/small-actions.webp",
+                  "imageAlt": "A boy holding a young plant in his hands"
+                },
+                {
+                  "id": "building-stronger-communities",
+                  "title": "Building Stronger Communities",
+                  "date": "2026-09-18",
+                  "excerpt": "From education to livelihood support, our programs are empowering families and strengthening communities.",
+                  "image": "/images/blog/stronger-communities.webp",
+                  "imageAlt": "Smiling students sitting in a classroom"
+                },
+                {
+                  "id": "healthcare-within-reach",
+                  "title": "Healthcare Within Reach",
+                  "date": "2026-09-10",
+                  "excerpt": "Our health camps are providing essential medical support to children and families in underserved areas.",
+                  "image": "/images/blog/healthcare-within-reach.webp",
+                  "imageAlt": "A doctor checking a young boy at a health camp"
+                },
+                {
+                  "id": "food-support-for-brighter-lives",
+                  "title": "Food Support for Brighter Lives",
+                  "date": "2026-09-02",
+                  "excerpt": "Our food distribution programs help ensure that no child or family goes to bed hungry.",
+                  "image": "/images/blog/food-support.webp",
+                  "imageAlt": "A volunteer serving rice to children"
+                }
+              ],
+              "detail": {
+                "date": "2026-10-12",
+                "title": "Education Empowers",
+                "titleHighlight": "Dreams",
+                "author": {
+                  "prefix": "By",
+                  "name": "Priya Sharma",
+                  "role": "Education & Community Development",
+                  "avatar": "/images/blog/author-priya.webp"
+                },
+                "intro": "Education is one of the most powerful tools to break the cycle of poverty and create equal opportunities for every child. At our organization, we believe that every child, regardless of their background, deserves access to quality education, a safe learning environment, and the support they need to reach their full potential.",
+                "sections": [
+                  {
+                    "id": "creating-opportunities",
+                    "title": "Creating Opportunities",
+                    "titleHighlight": "Through Education",
+                    "text": "Our education programs focus on providing school supplies, learning materials, tuition support, and mentorship to children from underprivileged communities. By removing barriers to education, we help children stay in school, gain confidence, and develop the skills they need for a brighter future.",
+                    "image": {
+                      "src": "/images/blog/detail-girl-writing.webp",
+                      "alt": "A smiling girl writing in her notebook",
+                      "width": 1466,
+                      "height": 996
+                    },
+                    "titleBreak": true
+                  },
+                  {
+                    "id": "real-impact",
+                    "title": "Real Impact",
+                    "titleHighlight": "in Communities",
+                    "text": "Through the support of our donors, volunteers, and community partners, we have helped hundreds of children continue their education. Many of them are now excelling in their studies, pursuing higher education, and inspiring others in their communities.",
+                    "image": {
+                      "src": "/images/blog/detail-kids-group.webp",
+                      "alt": "A group of happy school children",
+                      "width": 1374,
+                      "height": 736
+                    }
+                  },
+                  {
+                    "id": "looking",
+                    "title": "Looking",
+                    "titleHighlight": "Ahead",
+                    "text": "We remain committed to expanding our education initiatives to reach more children and communities. With continued support, we can create lasting change and ensure that every child has the opportunity to learn, grow, and achieve their dreams.",
+                    "image": {
+                      "src": "/images/blog/detail-boy-reading.webp",
+                      "alt": "A smiling boy reading at his desk",
+                      "width": 1420,
+                      "height": 778
+                    }
+                  }
+                ],
+                "quote": "“A child with education is a child with hope.\nWhen we educate a child, we empower a community\nand build a brighter tomorrow.”"
+              },
+              "detailPageUrl": "/our-blog/blog-detail"
+            }
+          }
+        },
+        "Causes": {
+          "variants": {
+            "NGOCauses1": {
+              "readMore": "Read More",
+              "rowsPerPage": 3,
+              "items": [
+                {
+                  "id": "education-support",
+                  "title": "Education Support",
+                  "description": "We provide access to quality education, learning resources, and skill development programs for underprivileged children.",
+                  "image": "/images/causes/education-support.webp",
+                  "imageAlt": "Smiling school children with their bags"
+                },
+                {
+                  "id": "hunger-relief",
+                  "title": "Hunger Relief",
+                  "description": "We work to ensure no child goes to bed hungry by providing nutritious food and support to families in need.",
+                  "image": "/images/causes/hunger-relief.webp",
+                  "imageAlt": "A boy happily eating a plate of food"
+                },
+                {
+                  "id": "women-empowerment",
+                  "title": "Women Empowerment",
+                  "description": "We support women with skill training, financial literacy, and opportunities to build a brighter, independent future.",
+                  "image": "/images/causes/women-empowerment.webp",
+                  "imageAlt": "A smiling woman with her self-help group"
+                },
+                {
+                  "id": "health-nutrition",
+                  "title": "Health & Nutrition",
+                  "description": "We focus on better health and nutrition through medical support, health camps, and awareness programs for children and families.",
+                  "image": "/images/causes/health-nutrition.webp",
+                  "imageAlt": "A doctor checking a young girl"
+                },
+                {
+                  "id": "animal-welfare",
+                  "title": "Animal Welfare",
+                  "description": "We care for animals and promote their safety, health, and well-being through rescue, medical care, and adoption programs.",
+                  "image": "/images/causes/animal-welfare.webp",
+                  "imageAlt": "A child hugging a happy dog"
+                },
+                {
+                  "id": "disaster-relief",
+                  "title": "Disaster Relief",
+                  "description": "We provide immediate assistance during natural disasters and emergencies, helping communities recover and rebuild their lives.",
+                  "image": "/images/causes/disaster-relief.webp",
+                  "imageAlt": "Relief volunteers handing supplies to an elderly woman"
+                }
+              ],
+              "detail": {
+                "image": {
+                  "src": "/images/causes/details-classroom.webp",
+                  "alt": "Children working on an activity in their classroom",
+                  "width": 2872,
+                  "height": 1282
+                },
+                "label": "Our Cause",
+                "title": "Education for",
+                "titleHighlight": "Children",
+                "intro": "We believe every child deserves access to quality education, learning opportunities, and a safe environment to grow and thrive.",
+                "howTitle": "How the program works",
+                "howText": "We identify children in underprivileged communities and provide them with the resources, support, and guidance they need to continue their education. Our program focuses on school supplies, tuition support, mentoring, and creating a positive learning environment. We work closely with local schools and community partners to ensure that every child gets the opportunity to learn, grow, and build a brighter future.",
+                "steps": [
+                  {
+                    "id": "identify-support",
+                    "icon": "FaBookOpen",
+                    "title": "Identify & Support",
+                    "text": "We work with local communities to identify children who need educational support.",
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "provide-resources",
+                    "icon": "FaUsers",
+                    "title": "Provide Resources",
+                    "text": "We provide school supplies, learning materials, and financial support for their education.",
+                    "tone": "green"
+                  },
+                  {
+                    "id": "track-progress",
+                    "icon": "FaGraduationCap",
+                    "title": "Track Progress",
+                    "text": "We monitor their progress and offer continuous guidance to help them achieve their goals.",
+                    "tone": "rose"
+                  }
+                ],
+                "sideImage": {
+                  "src": "/images/causes/details-girl.webp",
+                  "alt": "A smiling schoolgirl holding her books",
+                  "width": 844,
+                  "height": 1284
+                },
+                "gallery": [
+                  {
+                    "id": "details-students",
+                    "src": "/images/causes/details-students.webp",
+                    "alt": "A smiling girl in a classroom with her classmates",
+                    "width": 1328,
+                    "height": 750
+                  },
+                  {
+                    "id": "details-plant",
+                    "src": "/images/causes/details-plant.webp",
+                    "alt": "Hands holding a young plant in soil",
+                    "width": 1188,
+                    "height": 750
+                  }
+                ],
+                "impactTitle": "Our Impact",
+                "impactText": "Through this program, we have helped hundreds of children gain access to education and essential learning resources. Our efforts are creating brighter futures and stronger communities."
+              },
+              "detailPageUrl": "/our-causes/causes-details"
+            }
+          }
+        },
+        "Team": {
+          "variants": {
+            "NGOTeam1": {
+              "label": "Our Team",
+              "title": "Meet Our",
+              "titleHighlight": "Dedicated Team",
+              "description": "Our team is the heart of our organization, working together to create positive change and build stronger communities.",
+              "rowsPerPage": 3,
+              "members": [
+                {
+                  "id": "priya-sharma",
+                  "name": "Priya Sharma",
+                  "role": "Program Director",
+                  "image": "/images/team/priya-sharma.webp"
+                },
+                {
+                  "id": "rahul-mehta",
+                  "name": "Rahul Mehta",
+                  "role": "Operations Manager",
+                  "image": "/images/team/rahul-mehta.webp"
+                },
+                {
+                  "id": "neha-verma",
+                  "name": "Neha Verma",
+                  "role": "Community Outreach Lead",
+                  "image": "/images/team/neha-verma.webp"
+                },
+                {
+                  "id": "arjun-kapoor",
+                  "name": "Arjun Kapoor",
+                  "role": "Volunteer Coordinator",
+                  "image": "/images/team/arjun-kapoor.webp"
+                },
+                {
+                  "id": "sneha-iyer",
+                  "name": "Sneha Iyer",
+                  "role": "Project Manager",
+                  "image": "/images/team/sneha-iyer.webp"
+                },
+                {
+                  "id": "daniel-carter",
+                  "name": "Daniel Carter",
+                  "role": "Education Coordinator",
+                  "image": "/images/team/daniel-carter.webp"
+                },
+                {
+                  "id": "kavya-nair",
+                  "name": "Kavya Nair",
+                  "role": "Health & Wellness Lead",
+                  "image": "/images/team/kavya-nair.webp"
+                },
+                {
+                  "id": "vikram-singh",
+                  "name": "Vikram Singh",
+                  "role": "Fundraising Manager",
+                  "image": "/images/team/vikram-singh.webp"
+                },
+                {
+                  "id": "lauren-wilson",
+                  "name": "Lauren Wilson",
+                  "role": "Communications Lead",
+                  "image": "/images/team/lauren-wilson.webp"
+                }
+              ]
+            }
+          }
+        },
+        "Gallery": {
+          "variants": {
+            "NGOGallery1": {
+              "label": "Our Gallery",
+              "title": "Moments of",
+              "titleHighlight": "Change",
+              "description": "A glimpse into the lives we are touching. Explore our gallery to see real stories, real people, and real impact from our initiatives across communities.",
+              "rowsPerPage": 3,
+              "images": [
+                {
+                  "id": "boy-writing",
+                  "src": "/images/gallery/boy-writing.webp",
+                  "alt": "A smiling boy writing in class"
+                },
+                {
+                  "id": "girls-reading",
+                  "src": "/images/gallery/girls-reading.webp",
+                  "alt": "Girls reading together in a classroom"
+                },
+                {
+                  "id": "girl-with-books",
+                  "src": "/images/gallery/girl-with-books.webp",
+                  "alt": "A girl resting on a stack of books"
+                },
+                {
+                  "id": "teacher-reading",
+                  "src": "/images/gallery/teacher-reading.webp",
+                  "alt": "A teacher reading a story to children"
+                },
+                {
+                  "id": "boy-eating",
+                  "src": "/images/gallery/boy-eating.webp",
+                  "alt": "A boy enjoying a meal"
+                },
+                {
+                  "id": "kids-walking",
+                  "src": "/images/gallery/kids-walking.webp",
+                  "alt": "Children walking to school"
+                },
+                {
+                  "id": "girl-playing",
+                  "src": "/images/gallery/girl-playing.webp",
+                  "alt": "A girl playing outdoors with her arms open"
+                },
+                {
+                  "id": "boys-smiling",
+                  "src": "/images/gallery/boys-smiling.webp",
+                  "alt": "A group of boys smiling together"
+                },
+                {
+                  "id": "relief-aid",
+                  "src": "/images/gallery/relief-aid.webp",
+                  "alt": "Volunteers handing relief supplies"
+                },
+                {
+                  "id": "doctor-checkup",
+                  "src": "/images/gallery/doctor-checkup.webp",
+                  "alt": "A doctor checking a young girl"
+                },
+                {
+                  "id": "plant-in-hands",
+                  "src": "/images/gallery/plant-in-hands.webp",
+                  "alt": "Hands holding a young plant"
+                },
+                {
+                  "id": "boy-with-book",
+                  "src": "/images/gallery/boy-with-book.webp",
+                  "alt": "A smiling boy holding a book"
+                }
+              ]
+            }
+          }
+        },
+        "Faq": {
+          "variants": {
+            "NGOFaq1": {
+              "label": "FAQs",
+              "title": "Frequently Asked",
+              "titleHighlight": "Questions",
+              "description": "Here you'll find answers to some of the most common questions about our organization, our programs, and ways you can support our mission.",
+              "items": [
+                {
+                  "id": "what-is-the-main-focus-of-your-organization",
+                  "icon": "FaBookOpen",
+                  "tone": "orange",
+                  "question": "What is the main focus of your organization?",
+                  "answer": "Our main focus is to support underprivileged children and communities through education, healthcare, and essential resources. We work to create equal opportunities so that every child can learn, grow, and build a brighter future."
+                },
+                {
+                  "id": "how-can-i-support-your-cause",
+                  "icon": "FaUsers",
+                  "tone": "green",
+                  "question": "How can I support your cause?",
+                  "answer": "You can support us by donating, sponsoring a child, volunteering your time, or sharing our work with friends and family. Every contribution, big or small, helps us reach more children and families."
+                },
+                {
+                  "id": "are-my-donations-tax-deductible",
+                  "icon": "FaHeart",
+                  "tone": "pink",
+                  "question": "Are my donations tax deductible?",
+                  "answer": "Yes. Donations made to CareHaven Foundation are eligible for tax benefits as per applicable laws. You will receive an official receipt by email after every donation."
+                },
+                {
+                  "id": "how-do-you-select-the-communities-or-children-to-support",
+                  "icon": "FaGraduationCap",
+                  "tone": "blue",
+                  "question": "How do you select the communities or children to support?",
+                  "answer": "We work with local schools, community leaders and field volunteers to identify families with the greatest need. Each case is reviewed so support reaches the children who need it most."
+                },
+                {
+                  "id": "what-types-of-programs-do-you-run",
+                  "icon": "FaHandHoldingHeart",
+                  "tone": "amber",
+                  "question": "What types of programs do you run?",
+                  "answer": "We run education support, hunger relief, health and nutrition camps, women empowerment, animal welfare and disaster relief programs across the communities we serve."
+                },
+                {
+                  "id": "how-can-i-stay-updated-on-your-work",
+                  "icon": "FaFileAlt",
+                  "tone": "purple",
+                  "question": "How can I stay updated on your work?",
+                  "answer": "Follow us on social media and read our blog for regular stories and updates. Donors also receive periodic reports showing how their contributions are being used."
+                },
+                {
+                  "id": "can-i-volunteer-with-your-organization",
+                  "icon": "FaHandshake",
+                  "tone": "sage",
+                  "question": "Can I volunteer with your organization?",
+                  "answer": "Absolutely. We welcome volunteers for teaching, health camps, food drives and events. Contact us with your interests and availability, and our team will get in touch."
+                },
+                {
+                  "id": "do-you-work-with-schools-and-local-communities",
+                  "icon": "FaComments",
+                  "tone": "sky",
+                  "question": "Do you work with schools and local communities?",
+                  "answer": "Yes. We partner closely with schools, local organizations and community groups to run our programs and make sure our support creates lasting change."
+                }
+              ]
+            }
+          }
+        },
+        "Contact": {
+          "variants": {
+            "NGOContact1": {
+              "label": "Get in touch",
+              "title": "Ready to Get More",
+              "titleHighlight": "Information",
+              "description": "We'd love to hear from you. Reach out to learn more about our programs, volunteer opportunities, or how you can support our mission.",
+              "cards": [
+                {
+                  "id": "our-location",
+                  "icon": "FaMapMarkerAlt",
+                  "title": "Our Location",
+                  "field": "address"
+                },
+                {
+                  "id": "support-24-7",
+                  "icon": "FaHeadset",
+                  "title": "Support 24/7",
+                  "field": "phone"
+                },
+                {
+                  "id": "email-address",
+                  "icon": "FaEnvelope",
+                  "title": "Email Address",
+                  "field": "email"
+                }
+              ],
+              "map": {
+                "label": "Open in Maps"
+              },
+              "form": {
+                "title": "Send Us",
+                "titleHighlight": "Message",
+                "fields": [
+                  {
+                    "id": "name",
+                    "name": "name",
+                    "label": "Your Name",
+                    "placeholder": "Willie M. Stanley",
+                    "type": "text",
+                    "icon": "FaRegUser"
+                  },
+                  {
+                    "id": "phone",
+                    "name": "phone",
+                    "label": "Phone Number",
+                    "placeholder": "Willie M. Stanley",
+                    "type": "tel",
+                    "icon": "FaPhoneAlt"
+                  },
+                  {
+                    "id": "email",
+                    "name": "email",
+                    "label": "Email Address",
+                    "placeholder": "support@gmail.com",
+                    "type": "email",
+                    "icon": "FaRegEnvelope"
+                  },
+                  {
+                    "id": "subject",
+                    "name": "subject",
+                    "label": "Subject",
+                    "placeholder": "I would like to",
+                    "type": "text",
+                    "icon": "FaPencilAlt"
+                  },
+                  {
+                    "id": "message",
+                    "name": "message",
+                    "label": "Write Message",
+                    "placeholder": "Hello",
+                    "type": "textarea",
+                    "icon": "FaRegCommentDots"
+                  }
+                ],
+                "button": "Send Us Message",
+                "success": "Thank you! Your message has been sent. Our team will get back to you soon.",
+                "messages": {
+                  "requiredError": "Please fill in this field.",
+                  "emailError": "Please enter a valid email address.",
+                  "phoneError": "Please enter a valid phone number.",
+                  "sending": "Sending..."
+                }
+              }
+            }
+          }
+        }
+      },
+      "templateComponents": {
+        "shared": {
+          "Header": "NGOHeader1",
+          "Footer": "common.Footer"
+        },
+        "pages": {
+          "home": {
+            "components": [
+              {
+                "key": "Header",
+                "component": "NGOHeader1"
+              },
+              {
+                "key": "Hero",
+                "component": "NGOHero1"
+              },
+              {
+                "key": "HowWeHelp",
+                "component": "NGOHowWeHelp1"
+              },
+              {
+                "key": "AboutUs",
+                "component": "NGOAboutUs1"
+              },
+              {
+                "key": "Testimonials",
+                "component": "NGOTestimonials1"
+              },
+              {
+                "key": "Blogs",
+                "component": "NGOBlogs1"
+              },
+              {
+                "key": "Footer",
+                "component": "common.Footer"
+              }
+            ]
+          },
+          "about-us": {
+            "components": [
+              {
+                "key": "Header",
+                "component": "NGOHeader1"
+              },
+              {
+                "key": "Breadcrumb",
+                "component": "common.aboutBreadcrumb"
+              },
+              {
+                "key": "AboutUs",
+                "component": "NGOAboutUs1"
+              },
+              {
+                "key": "Stats",
+                "component": "NGOStats1"
+              },
+              {
+                "key": "WhyChooseUs",
+                "component": "NGOWhyChooseUs1"
+              },
+              {
+                "key": "Testimonials",
+                "component": "NGOTestimonials1"
+              },
+              {
+                "key": "Footer",
+                "component": "common.Footer"
+              }
+            ]
+          },
+          "our-causes": {
+            "components": [
+              {
+                "key": "Header",
+                "component": "NGOHeader1"
+              },
+              {
+                "key": "Breadcrumb",
+                "component": "common.causesBreadcrumb"
+              },
+              {
+                "key": "Causes",
+                "component": "NGOCauses1"
+              },
+              {
+                "key": "Footer",
+                "component": "common.Footer"
+              }
+            ]
+          },
+          "causes-details": {
+            "components": [
+              {
+                "key": "Header",
+                "component": "NGOHeader1"
+              },
+              {
+                "key": "Breadcrumb",
+                "component": "common.causeDetailBreadcrumb"
+              },
+              {
+                "key": "Causes",
+                "component": "NGOCauses1"
+              },
+              {
+                "key": "Footer",
+                "component": "common.Footer"
+              }
+            ]
+          },
+          "our-teams": {
+            "components": [
+              {
+                "key": "Header",
+                "component": "NGOHeader1"
+              },
+              {
+                "key": "Breadcrumb",
+                "component": "common.teamsBreadcrumb"
+              },
+              {
+                "key": "Team",
+                "component": "NGOTeam1"
+              },
+              {
+                "key": "Footer",
+                "component": "common.Footer"
+              }
+            ]
+          },
+          "our-gallery": {
+            "components": [
+              {
+                "key": "Header",
+                "component": "NGOHeader1"
+              },
+              {
+                "key": "Breadcrumb",
+                "component": "common.galleryBreadcrumb"
+              },
+              {
+                "key": "Gallery",
+                "component": "NGOGallery1"
+              },
+              {
+                "key": "Footer",
+                "component": "common.Footer"
+              }
+            ]
+          },
+          "our-blog": {
+            "components": [
+              {
+                "key": "Header",
+                "component": "NGOHeader1"
+              },
+              {
+                "key": "Breadcrumb",
+                "component": "common.blogsBreadcrumb"
+              },
+              {
+                "key": "Blogs",
+                "component": "NGOBlogs1"
+              },
+              {
+                "key": "Footer",
+                "component": "common.Footer"
+              }
+            ]
+          },
+          "blog-detail": {
+            "components": [
+              {
+                "key": "Header",
+                "component": "NGOHeader1"
+              },
+              {
+                "key": "Breadcrumb",
+                "component": "common.blogDetailBreadcrumb"
+              },
+              {
+                "key": "Blogs",
+                "component": "NGOBlogs1"
+              },
+              {
+                "key": "Footer",
+                "component": "common.Footer"
+              }
+            ]
+          },
+          "faqs": {
+            "components": [
+              {
+                "key": "Header",
+                "component": "NGOHeader1"
+              },
+              {
+                "key": "Breadcrumb",
+                "component": "common.faqsBreadcrumb"
+              },
+              {
+                "key": "Faq",
+                "component": "NGOFaq1"
+              },
+              {
+                "key": "Footer",
+                "component": "common.Footer"
+              }
+            ]
+          },
+          "contact-us": {
+            "components": [
+              {
+                "key": "Header",
+                "component": "NGOHeader1"
+              },
+              {
+                "key": "Breadcrumb",
+                "component": "common.contactBreadcrumb"
+              },
+              {
+                "key": "Contact",
+                "component": "NGOContact1"
+              },
+              {
+                "key": "Footer",
+                "component": "common.Footer"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

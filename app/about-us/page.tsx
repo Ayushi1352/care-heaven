@@ -1,23 +1,26 @@
 import type { Metadata } from "next";
-import PageBanner from "@/components/PageBanner";
-import AboutNgo from "@/components/AboutNgo";
-import Testimonials from "@/components/Testimonials";
-import { pageTitle, site } from "@/data";
-import Stats from "@/components/Stats";
-import WhyChooseUs from "@/components/WhyChooseUs";
+import rawData from "@/data/templates.json";
+import type { NGOTemplateData } from "@/types/templates.types";
+import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { AboutNgo } from "@/components/sections/AboutNgo";
+import { Stats } from "@/components/sections/Stats";
+import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
+import { Testimonials } from "@/components/sections/Testimonials";
 
-const { title, description } = site.pages.aboutUs;
+const templateData: NGOTemplateData = rawData;
+const sectionData = templateData.categories.NGO.sections;
+const commonData = templateData.common;
 
-export const metadata: Metadata = { title: pageTitle(title), description };
+export const metadata: Metadata = { title: commonData.aboutBreadcrumb?.title, description: commonData.aboutBreadcrumb?.description };
 
 export default function AboutUsPage() {
   return (
-    <>
-      <PageBanner title={title} />
-      <AboutNgo className="pt-64 pb-64 md:pt-80 md:pb-80 xl:pt-100 xl:pb-100" />
-      <Stats />
-      <WhyChooseUs />
-      <Testimonials className="pt-64 pb-64 md:pt-80 md:pb-80 xl:pt-100 xl:pb-100" />
-    </>
+    <main className="flex-1">
+      <Breadcrumb data={commonData.aboutBreadcrumb} ui={commonData.globalUI} />
+      <AboutNgo data={sectionData.AboutUs?.variants?.NGOAboutUs1} className="pt-[4rem] pb-[4rem] md:pt-[5rem] md:pb-[5rem] xl:pt-[6.25rem] xl:pb-[6.25rem]" />
+      <Stats data={sectionData.Stats?.variants?.NGOStats1} />
+      <WhyChooseUs data={sectionData.WhyChooseUs?.variants?.NGOWhyChooseUs1} company={commonData.company} />
+      <Testimonials data={sectionData.Testimonials?.variants?.NGOTestimonials1} ui={commonData.globalUI} className="pt-[4rem] pb-[4rem] md:pt-[5rem] md:pb-[5rem] xl:pt-[6.25rem] xl:pb-[6.25rem]" />
+    </main>
   );
 }

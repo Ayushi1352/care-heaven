@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
-import PageBanner from "@/components/PageBanner";
-import { pageTitle, site } from "@/data";
-import FaqList from "@/components/FaqList";
+import rawData from "@/data/templates.json";
+import type { NGOTemplateData } from "@/types/templates.types";
+import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { FaqList } from "@/components/sections/FaqList";
 
-const { title, description } = site.pages.faqs;
+const templateData: NGOTemplateData = rawData;
+const sectionData = templateData.categories.NGO.sections;
+const commonData = templateData.common;
 
-export const metadata: Metadata = { title: pageTitle(title), description };
+export const metadata: Metadata = { title: commonData.faqsBreadcrumb?.title, description: commonData.faqsBreadcrumb?.description };
 
 export default function FaqsPage() {
   return (
-    <>
-      <PageBanner title={title} />
-      <FaqList />
-    </>
+    <main className="flex-1">
+      <Breadcrumb data={commonData.faqsBreadcrumb} ui={commonData.globalUI} />
+      <FaqList data={sectionData.Faq?.variants?.NGOFaq1} />
+    </main>
   );
 }

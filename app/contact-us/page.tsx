@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
-import PageBanner from "@/components/PageBanner";
-import { pageTitle, site } from "@/data";
-import ContactInfo from "@/components/ContactInfo";
-import ContactForm from "@/components/ContactForm";
+import rawData from "@/data/templates.json";
+import type { NGOTemplateData } from "@/types/templates.types";
+import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { Contact } from "@/components/sections/Contact";
 
-const { title, description } = site.pages.contactUs;
+const templateData: NGOTemplateData = rawData;
+const sectionData = templateData.categories.NGO.sections;
+const commonData = templateData.common;
 
-export const metadata: Metadata = { title: pageTitle(title), description };
+export const metadata: Metadata = { title: commonData.contactBreadcrumb?.title, description: commonData.contactBreadcrumb?.description };
 
 export default function ContactUsPage() {
   return (
-    <>
-      <PageBanner title={title} />
-      <div className="relative overflow-hidden bg-white px-20 pt-64 pb-64 sm:px-32 md:pt-80 md:pb-80 xl:px-0 xl:pt-0 xl:pb-100">
-        <ContactInfo />
-        <ContactForm />
-      </div>
-    </>
+    <main className="flex-1">
+      <Breadcrumb data={commonData.contactBreadcrumb} ui={commonData.globalUI} />
+      <Contact data={sectionData.Contact?.variants?.NGOContact1} company={commonData.company} ui={commonData.globalUI} />
+    </main>
   );
 }

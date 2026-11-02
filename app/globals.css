@@ -1,52 +1,190 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-  /*
-    The design is drawn on a 1686px wide canvas. Every spacing utility is one "design pixel"
-    (w-307 = 307px in the design). From 1024px up the root font size follows the screen
-    (see <html> in app/layout.tsx), so the desktop layout keeps the design's proportions on
-    every screen; below 1024px one unit is simply 1px.
-  */
-  --spacing: 0.0625rem;
-  --breakpoint-xs: 30rem;
-  --breakpoint-sm: 40rem;
-  --breakpoint-md: 48rem;
-  /* Desktop layout (xl:) starts at 1024px, so 1024 shows the same design as 1440. */
-  --breakpoint-xl: 64rem;
+html {
+  scroll-behavior: smooth;
+}
 
-  /* Brand colours. These are only defaults: site.json (theme.colors) overrides them in app/layout.tsx. */
+:root {
+  --font-primary: Arial, sans-serif;
+  --font-heading: Georgia, serif;
+  --font-display: Georgia, serif;
+  --font-quote: Georgia, serif;
+  --font-alt: Arial, sans-serif;
+  --font-dm: Arial, sans-serif;
+  --font-form: Arial, sans-serif;
+  --font-nunito-face: Arial, sans-serif;
+
+  /* CareHaven theme */
+  --color-black-10: rgba(0, 0, 0, 0.1);
+  --color-black-18: rgba(0, 0, 0, 0.18);
+  --color-black-25: rgba(0, 0, 0, 0.25);
+  --color-black-28: rgba(0, 0, 0, 0.28);
+  --color-black-3: rgba(0, 0, 0, 0.03);
+  --color-black-30: rgba(0, 0, 0, 0.3);
+  --color-black-6: rgba(0, 0, 0, 0.06);
+  --color-black-8: rgba(0, 0, 0, 0.08);
+  --color-blue-003966: #003966;
+  --color-blue-01172d-92: rgba(1, 23, 45, 0.92);
+  --color-blue-011a33-55: rgba(1, 26, 51, 0.55);
+  --color-blue-01365f: #01365f;
+  --color-blue-03162a: #03162a;
+  --color-blue-03345e: #03345e;
+  --color-blue-033b66: #033b66;
+  --color-blue-042958: #042958;
+  --color-blue-05385e-80: rgba(5, 56, 94, 0.8);
+  --color-blue-062942: #062942;
+  --color-blue-0a3559: #0a3559;
+  --color-blue-14142b: #14142b;
+  --color-blue-17173a: #17173a;
+  --color-blue-173f7c: #173f7c;
+  --color-blue-1a73e8: #1a73e8;
+  --color-blue-1d5aa8: #1d5aa8;
+  --color-blue-1f5c99: #1f5c99;
+  --color-blue-dcebfb: #dcebfb;
+  --color-blue-e0ebfb: #e0ebfb;
+  --color-blush: #fef5ee;
+  --color-cloud: #f5f5f5;
+  --color-cream: #fbf8f3;
+  --color-gray: #747477;
+  --color-gray-4f4f55: #4f4f55;
+  --color-gray-55555a: #55555a;
+  --color-gray-575b64: #575b64;
+  --color-gray-5b5b66: #5b5b66;
+  --color-gray-5b5e66: #5b5e66;
+  --color-gray-5d5d63: #5d5d63;
+  --color-gray-66666b: #66666b;
+  --color-gray-6a6a6a: #6a6a6a;
+  --color-gray-6a6a70: #6a6a70;
+  --color-gray-6c6c70: #6c6c70;
+  --color-gray-6d6d70: #6d6d70;
+  --color-gray-6f6f75: #6f6f75;
+  --color-gray-8a8a90: #8a8a90;
+  --color-gray-a3a3a8: #a3a3a8;
+  --color-gray-d9d4d0: #d9d4d0;
+  --color-gray-dark: #5f6574;
+  --color-gray-e6dfdc: #e6dfdc;
+  --color-gray-ececec: #ececec;
+  --color-gray-eceef1: #eceef1;
+  --color-gray-edf2f7: #edf2f7;
+  --color-gray-efefef: #efefef;
+  --color-gray-f1f6fe: #f1f6fe;
+  --color-gray-fbf7f0: #fbf7f0;
+  --color-gray-fcf7f6: #fcf7f6;
+  --color-gray-fdf8f2: #fdf8f2;
+  --color-gray-fdfdfd: #fdfdfd;
+  --color-green: #519b17;
+  --color-green-24571a: #24571a;
+  --color-green-284f17: #284f17;
+  --color-green-2b6a1a: #2b6a1a;
+  --color-green-3b7139: #3b7139;
+  --color-green-3d6e1f: #3d6e1f;
+  --color-green-d6dccd: #d6dccd;
+  --color-green-dark: #2f5d13;
+  --color-green-e1efe1: #e1efe1;
+  --color-green-e2f0d8: #e2f0d8;
+  --color-green-e3f0d8: #e3f0d8;
+  --color-green-e5ead9: #e5ead9;
+  --color-green-e7f2e3: #e7f2e3;
+  --color-green-e8eddf: #e8eddf;
+  --color-green-e9f2e2: #e9f2e2;
+  --color-green-soft: #639532;
+  --color-ivory: #fbf8f1;
+  --color-maroon: #5e0629;
+  --color-mint: #f4f7f0;
   --color-navy: #033661;
+  --color-navy-45: rgba(3, 54, 97, 0.45);
   --color-navy-deep: #032a4f;
   --color-navy-ink: #04214a;
   --color-orange: #fb4c05;
+  --color-orange-ee4a1c: #ee4a1c;
+  --color-orange-f08419: #f08419;
+  --color-orange-f6a823: #f6a823;
+  --color-orange-f7b7a6: #f7b7a6;
   --color-orange-soft: #f45c19;
-  --color-green: #519b17;
-  --color-green-soft: #639532;
-  --color-green-dark: #2f5d13;
-  --color-maroon: #5e0629;
+  --color-peach-ece5d6: #ece5d6;
+  --color-peach-eedfd5: #eedfd5;
+  --color-peach-f3d9c9: #f3d9c9;
+  --color-peach-f6d3ca: #f6d3ca;
+  --color-peach-f6e1d2: #f6e1d2;
+  --color-peach-f6e4d8: #f6e4d8;
+  --color-peach-f8e1d0: #f8e1d0;
+  --color-peach-f8e3d5: #f8e3d5;
+  --color-peach-fbdcd3: #fbdcd3;
+  --color-peach-fbe3d5: #fbe3d5;
+  --color-peach-fbe4d6: #fbe4d6;
+  --color-peach-fde3d6: #fde3d6;
+  --color-peach-fde3d9: #fde3d9;
+  --color-peach-fde4da: #fde4da;
+  --color-peach-fdecd9: #fdecd9;
+  --color-peach-fdeee6: #fdeee6;
+  --color-peach-fdeee9: #fdeee9;
+  --color-peach-fdf1e9: #fdf1e9;
+  --color-peach-fdf1eb: #fdf1eb;
+  --color-pink-fde1e7: #fde1e7;
+  --color-purple-5c0426: #5c0426;
+  --color-purple-6b0a33: #6b0a33;
+  --color-purple-70052f: #70052f;
+  --color-purple-7553c4: #7553c4;
+  --color-purple-7a0a32: #7a0a32;
+  --color-purple-ebe5fa: #ebe5fa;
+  --color-red: #c4282f;
+  --color-red-3a1a22: #3a1a22;
+  --color-red-b3222a: #b3222a;
+  --color-red-cf1f4f: #cf1f4f;
+  --color-red-d6362e: #d6362e;
+  --color-red-dc3a40: #dc3a40;
+  --color-red-e0473f: #e0473f;
+  --color-red-e2474c: #e2474c;
+  --color-rose: #fde9e2;
+  --color-shadow-001432-10: rgba(0, 20, 50, 0.1);
+  --color-shadow-011e3c-35: rgba(1, 30, 60, 0.35);
+  --color-shadow-03162a-7: rgba(3, 22, 42, 0.07);
+  --color-shadow-03345e-8: rgba(3, 52, 94, 0.08);
+  --color-shadow-04214a-9: rgba(4, 33, 74, 0.09);
+  --color-shadow-3c1e0a-12: rgba(60, 30, 10, 0.12);
+  --color-shadow-5e0629-7: rgba(94, 6, 41, 0.07);
+  --color-shadow-5e0629-8: rgba(94, 6, 41, 0.08);
+  --color-shadow-6c042c-8: rgba(108, 4, 44, 0.08);
+  --color-shadow-70052f-35: rgba(112, 5, 47, 0.35);
+  --color-shadow-f05a3c-16: rgba(240, 90, 60, 0.16);
+  --color-shadow-f0783c-8: rgba(240, 120, 60, 0.08);
+  --color-shadow-f08c64-12: rgba(240, 140, 100, 0.12);
+  --color-white: #ffffff;
+  --color-white-10: rgba(255, 255, 255, 0.1);
+  --color-white-12: rgba(255, 255, 255, 0.12);
+  --color-white-14: rgba(255, 255, 255, 0.14);
+  --color-white-22: rgba(255, 255, 255, 0.22);
+  --color-white-25: rgba(255, 255, 255, 0.25);
+  --color-white-30: rgba(255, 255, 255, 0.3);
+  --color-white-35: rgba(255, 255, 255, 0.35);
+  --color-white-70: rgba(255, 255, 255, 0.7);
+  --color-white-85: rgba(255, 255, 255, 0.85);
+  --color-white-90: rgba(255, 255, 255, 0.9);
+  --color-white-95: rgba(255, 255, 255, 0.95);
   --color-wine: #6c042c;
   --color-yellow: #fed851;
-  --color-red: #c4282f;
-  --color-gray: #747477;
-  --color-gray-dark: #5f6574;
-  --color-gray-light: #8c8f94;
-  --color-line: #e7e2dc;
-  --color-cream: #fbf8f3;
-  --color-ivory: #fbf8f1;
-  --color-blush: #fef5ee;
-  --color-rose: #fde9e2;
-  --color-mint: #f4f7f0;
-  --color-cloud: #f5f5f5;
+  --color-yellow-fec423: #fec423;
+}
 
-  /* Fonts from site.json (theme.fonts) via app/fonts.generated.ts; the second part is the fallback. */
-  --font-heading: var(--font-heading-face, Georgia, serif);
-  --font-display: var(--font-display-face, Georgia, serif);
-  --font-quote: var(--font-quote-face, Georgia, serif);
-  --font-body: var(--font-body-face, Arial, sans-serif);
-  --font-alt: var(--font-alt-face, Arial, sans-serif);
-  --font-dm: var(--font-dm-face, Arial, sans-serif);
-  --font-form: var(--font-form-face, Arial, sans-serif);
-  --font-nunito: var(--font-nunito-face, Arial, sans-serif);
+body {
+  font-family: var(--font-primary);
+  color: var(--color-navy-deep);
+  background-color: var(--color-cloud);
+  max-width: 100%;
+}
 
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+::selection {
+  background-color: var(--color-orange);
+  color: var(--color-white);
 }
