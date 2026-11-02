@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /*
+    The design is drawn on a 1686px wide canvas. Every spacing utility is one "design pixel"
+    (w-307 = 307px in the design). From 1024px up the root font size follows the screen
+    (see <html> in app/layout.tsx), so the desktop layout keeps the design's proportions on
+    every screen; below 1024px one unit is simply 1px.
+  */
+  --spacing: 0.0625rem;
+  --breakpoint-xs: 30rem;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  /* Desktop layout (xl:) starts at 1024px, so 1024 shows the same design as 1440. */
+  --breakpoint-xl: 64rem;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Brand colours. These are only defaults: site.json (theme.colors) overrides them in app/layout.tsx. */
+  --color-navy: #033661;
+  --color-navy-deep: #032a4f;
+  --color-navy-ink: #04214a;
+  --color-orange: #fb4c05;
+  --color-orange-soft: #f45c19;
+  --color-green: #519b17;
+  --color-green-soft: #639532;
+  --color-green-dark: #2f5d13;
+  --color-maroon: #5e0629;
+  --color-wine: #6c042c;
+  --color-yellow: #fed851;
+  --color-red: #c4282f;
+  --color-gray: #747477;
+  --color-gray-dark: #5f6574;
+  --color-gray-light: #8c8f94;
+  --color-line: #e7e2dc;
+  --color-cream: #fbf8f3;
+  --color-ivory: #fbf8f1;
+  --color-blush: #fef5ee;
+  --color-rose: #fde9e2;
+  --color-mint: #f4f7f0;
+  --color-cloud: #f5f5f5;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  /* Fonts from site.json (theme.fonts) via app/fonts.generated.ts; the second part is the fallback. */
+  --font-heading: var(--font-heading-face, Georgia, serif);
+  --font-display: var(--font-display-face, Georgia, serif);
+  --font-quote: var(--font-quote-face, Georgia, serif);
+  --font-body: var(--font-body-face, Arial, sans-serif);
+  --font-alt: var(--font-alt-face, Arial, sans-serif);
+  --font-dm: var(--font-dm-face, Arial, sans-serif);
+  --font-form: var(--font-form-face, Arial, sans-serif);
+  --font-nunito: var(--font-nunito-face, Arial, sans-serif);
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
