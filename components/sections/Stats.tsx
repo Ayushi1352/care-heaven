@@ -5,7 +5,7 @@ export const Stats = ({ data: stats }: { data?: StatsData }) => {
   if (!stats) return null;
 
   return (
-    <section className="bg-[var(--color-blue-01365f)] px-[1.25rem] py-[2.75rem] sm:px-[2rem] xl:h-[17.375rem] xl:py-[3.0625rem] xl:pr-[7.9375rem] xl:pl-[8.1875rem]">
+    <section className="bg-[var(--color-bg-stats)] px-[1.25rem] py-[2.75rem] sm:px-[2rem] xl:h-[17.375rem] xl:py-[3.0625rem] xl:pr-[7.9375rem] xl:pl-[8.1875rem]">
       <ul data-reveal-stagger className="grid grid-cols-2 gap-y-[2.25rem] lg:grid-cols-4 xl:h-[11.5625rem] xl:gap-0">
         {stats.items.map((item, i) => (
           <li

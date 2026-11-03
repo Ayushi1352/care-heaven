@@ -15,11 +15,11 @@ export function Sparks({ className = "" }: DecorProps) {
 export function LeafSpray({ className = "" }: DecorProps) {
   return (
     <svg viewBox="0 0 240 390" fill="none" aria-hidden="true" className={className}>
-      <path d="M8 330C-6 230 28 120 126 46c18 98-22 210-118 284Z" fill="var(--color-gray-ececec)" />
+      <path d="M8 330C-6 230 28 120 126 46c18 98-22 210-118 284Z" fill="var(--color-border)" />
       <path d="M126 46C88 150 50 240 8 330" stroke="var(--color-white)" strokeWidth="3" />
-      <path d="M4 360c18-92 72-160 164-196-6 96-68 170-164 196Z" fill="var(--color-peach-fdeee6)" />
+      <path d="M4 360c18-92 72-160 164-196-6 96-68 170-164 196Z" fill="var(--color-decor-leaf)" />
       <path d="M168 164C110 228 54 300 4 360" stroke="var(--color-white)" strokeWidth="3" />
-      <path d="M0 384c58-64 132-92 238-80-46 62-124 92-238 80Z" fill="var(--color-peach-fdf1eb)" />
+      <path d="M0 384c58-64 132-92 238-80-46 62-124 92-238 80Z" fill="var(--color-decor-leaf-light)" />
       <path d="M238 304C160 320 76 350 0 384" stroke="var(--color-white)" strokeWidth="3" />
     </svg>
   );
@@ -38,8 +38,8 @@ export function HeartLine({ className = "" }: DecorProps) {
 export function OliveBranch({ className = "" }: DecorProps) {
   return (
     <svg viewBox="0 0 200 230" fill="none" aria-hidden="true" className={className}>
-      <path d="M6 222C46 170 92 108 172 20" stroke="var(--color-green-e5ead9)" strokeWidth="4" strokeLinecap="round" />
-      <g fill="var(--color-green-e8eddf)">
+      <path d="M6 222C46 170 92 108 172 20" stroke="var(--color-decor-stem)" strokeWidth="4" strokeLinecap="round" />
+      <g fill="var(--color-decor-dots)">
         <path d="M150 44c-6-24 6-40 34-44-2 24-14 40-34 44Z" />
         <path d="M152 48c22-10 40-4 48 18-22 6-38 0-48-18Z" />
         <path d="M116 84c-10-24 0-44 26-52 2 26-8 44-26 52Z" />

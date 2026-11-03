@@ -18,7 +18,7 @@ function DonateButton({ button, onClick, className = "" }: { button: LinkData; o
     <Link
       href={button.href}
       onClick={onClick}
-      className={`group shrink-0 items-center overflow-hidden rounded-[0.375rem] border border-[var(--color-red-e2474c)] bg-[linear-gradient(180deg,var(--color-red-dc3a40)_0%,var(--color-red)_55%,var(--color-red-b3222a)_100%)] text-[var(--color-white)] shadow-[0_4px_10px_var(--color-black-28)] transition-colors duration-300 hover:border-[var(--color-red)] hover:bg-[var(--color-white)] hover:bg-none hover:text-[var(--color-red)] xl:rounded-[0.5rem] ${className}`}
+      className={`group shrink-0 items-center overflow-hidden rounded-[0.375rem] border border-[var(--color-donate-border)] bg-[linear-gradient(180deg,var(--color-donate-light)_0%,var(--color-donate)_55%,var(--color-donate-dark)_100%)] text-[var(--color-white)] shadow-[0_4px_10px_var(--color-black-28)] transition-colors duration-300 hover:border-[var(--color-donate)] hover:bg-[var(--color-white)] hover:bg-none hover:text-[var(--color-donate)] xl:rounded-[0.5rem] ${className}`}
     >
       <span className="flex h-full w-[2.375rem] items-center justify-center border-r border-[var(--color-black-25)] shadow-[1px_0_0_var(--color-white-22)] xl:w-[4.5625rem]">
         <Icon name="FaChevronRight" className="size-[1.125rem] xl:size-[2.375rem]" />
@@ -62,7 +62,7 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
     <header className="sticky top-0 z-50 h-0">
       <div
         className={`flex items-center justify-between gap-[0.75rem] px-[1rem] transition-[background-color,box-shadow,padding] duration-300 sm:px-[1.5rem] xl:pr-[2.25rem] xl:pl-[2.375rem] ${
-          scrolled ? "bg-[var(--color-navy)] py-[0.5rem] shadow-[0_8px_24px_var(--color-shadow-011e3c-35)] xl:py-[0.625rem]" : "py-[0.625rem] xl:py-[1.0625rem]"
+          scrolled ? "bg-[var(--color-accent)] py-[0.5rem] shadow-[0_8px_24px_var(--color-shadow-header)] xl:py-[0.625rem]" : "py-[0.625rem] xl:py-[1.0625rem]"
         }`}
       >
         <Link
@@ -107,7 +107,7 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
 
       {/* Slide-in menu (every screen size: the design shows only the menu button) */}
       <div
-        className={`fixed inset-0 z-50 bg-[var(--color-blue-011a33-55)] backdrop-blur-[2px] transition-opacity duration-300 ${open ? "opacity-100" : "pointer-events-none opacity-0"}`}
+        className={`fixed inset-0 z-50 bg-[var(--color-menu-backdrop)] backdrop-blur-[2px] transition-opacity duration-300 ${open ? "opacity-100" : "pointer-events-none opacity-0"}`}
         onClick={() => setOpen(false)}
         aria-hidden="true"
       />
@@ -115,7 +115,7 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
         id="site-menu"
         aria-label={ui?.mainNav}
         inert={!open}
-        className={`fixed inset-y-0 right-0 z-50 flex w-[min(86vw,360px)] flex-col overflow-y-auto overscroll-contain bg-[var(--color-navy)] text-[var(--color-white)] transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] xl:w-[30rem] ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-[min(86vw,360px)] flex-col overflow-y-auto overscroll-contain bg-[var(--color-accent)] text-[var(--color-white)] transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] xl:w-[30rem] ${
           open ? "translate-x-0 shadow-[-12px_0_40px_var(--color-black-30)]" : "translate-x-full"
         }`}
       >
@@ -127,7 +127,7 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
             type="button"
             aria-label={ui?.closeMenu}
             onClick={() => setOpen(false)}
-            className="flex size-[2.5rem] items-center justify-center rounded-full border border-[var(--color-white-30)] transition-colors hover:border-[var(--color-orange)] hover:bg-[var(--color-orange)] xl:size-[3.375rem]"
+            className="flex size-[2.5rem] items-center justify-center rounded-full border border-[var(--color-white-30)] transition-colors hover:border-[var(--color-primary)] hover:bg-[var(--color-primary)] xl:size-[3.375rem]"
           >
             <Icon name="FaTimes" className="size-[1.25rem] xl:size-[1.625rem]" />
           </button>
@@ -143,7 +143,7 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
                   onClick={() => setOpen(false)}
                   aria-current={active ? "page" : undefined}
                   className={`group flex items-center justify-between py-[0.8125rem] font-alt text-[1rem] font-medium transition-colors xl:py-[1.125rem] xl:text-[1.375rem] ${
-                    active ? "text-[var(--color-orange)]" : "text-[var(--color-white)] hover:text-[var(--color-orange)]"
+                    active ? "text-[var(--color-primary)]" : "text-[var(--color-white)] hover:text-[var(--color-primary)]"
                   }`}
                 >
                   {link.label}
@@ -156,16 +156,16 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
 
         <div className="mt-auto flex flex-col gap-[0.875rem] border-t border-[var(--color-white-12)] px-[1.5rem] py-[1.375rem] font-sans text-[0.875rem] text-[var(--color-white-85)] xl:gap-[1.125rem] xl:px-[2.5rem] xl:py-[2rem] xl:text-[length:max(1.125rem,var(--text-min))]">
           <DonateButton button={header.button} onClick={() => setOpen(false)} className="inline-flex h-[2.75rem] self-start sm:hidden" />
-          <a href={contactHref("tel", company.phone)} className="flex items-center gap-[0.75rem] transition-colors hover:text-[var(--color-orange)]">
-            <Icon name="FaPhoneAlt" className="size-[1.125rem] shrink-0 text-[var(--color-orange)] xl:size-[1.375rem]" />
+          <a href={contactHref("tel", company.phone)} className="flex items-center gap-[0.75rem] transition-colors hover:text-[var(--color-primary)]">
+            <Icon name="FaPhoneAlt" className="size-[1.125rem] shrink-0 text-[var(--color-primary)] xl:size-[1.375rem]" />
             {company.phone}
           </a>
-          <a href={contactHref("mailto", company.email)} className="flex items-center gap-[0.75rem] break-all transition-colors hover:text-[var(--color-orange)]">
-            <Icon name="FaEnvelope" className="size-[1.125rem] shrink-0 text-[var(--color-orange)] xl:size-[1.375rem]" />
+          <a href={contactHref("mailto", company.email)} className="flex items-center gap-[0.75rem] break-all transition-colors hover:text-[var(--color-primary)]">
+            <Icon name="FaEnvelope" className="size-[1.125rem] shrink-0 text-[var(--color-primary)] xl:size-[1.375rem]" />
             {company.email}
           </a>
           <p className="flex items-start gap-[0.75rem]">
-            <Icon name="FaMapMarkerAlt" className="mt-[0.0625rem] size-[1.125rem] shrink-0 text-[var(--color-orange)] xl:size-[1.375rem]" />
+            <Icon name="FaMapMarkerAlt" className="mt-[0.0625rem] size-[1.125rem] shrink-0 text-[var(--color-primary)] xl:size-[1.375rem]" />
             <span className="whitespace-pre-line">{company.address}</span>
           </p>
           <ul className="flex gap-[0.625rem] pt-[0.25rem]">
@@ -176,7 +176,7 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="flex size-[2.375rem] items-center justify-center rounded-full bg-[var(--color-white-10)] transition-colors hover:bg-[var(--color-orange)] xl:size-[3rem]"
+                  className="flex size-[2.375rem] items-center justify-center rounded-full bg-[var(--color-white-10)] transition-colors hover:bg-[var(--color-primary)] xl:size-[3rem]"
                 >
                   <Icon name={social.icon} className="size-[1.0625rem] xl:size-[1.375rem]" />
                 </a>

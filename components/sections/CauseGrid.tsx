@@ -14,22 +14,22 @@ export const CauseGrid = ({ data: causes, ui }: { data?: CausesData; ui?: Global
         {causes.items.map((cause, i) => {
           const orange = accentAt(i) === "orange";
           return (
-            <li key={cause.id} className="group flex flex-col overflow-hidden rounded-[0.25rem] bg-[var(--color-white)] shadow-[0_6px_26px_var(--color-shadow-03345e-8)]">
+            <li key={cause.id} className="group flex flex-col overflow-hidden rounded-[0.25rem] bg-[var(--color-white)] shadow-[0_6px_26px_var(--color-shadow-cause-card)]">
               <Link href={causes.detailPageUrl} aria-label={fillLabel(ui?.readMoreAbout, { title: cause.title })} className="relative block aspect-[494/283] overflow-hidden">
                 <Image src={cause.image} alt={cause.imageAlt} fill quality={90} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.08]" />
               </Link>
               <div className="flex flex-1 flex-col px-[1.375rem] pt-[1.375rem] pb-[1.75rem] xl:px-[1.9375rem] xl:pt-[1.375rem] xl:pb-[1.875rem]">
-                <h2 className="font-heading font-bold text-[1.6875rem] leading-[1.2] text-[var(--color-blue-03345e)] xl:text-[2.09375rem] xl:leading-[2.625rem]">
-                  <Link href={causes.detailPageUrl} className="transition-colors hover:text-[var(--color-orange)]">
+                <h2 className="font-heading font-bold text-[1.6875rem] leading-[1.2] text-[var(--color-cause-card-heading)] xl:text-[2.09375rem] xl:leading-[2.625rem]">
+                  <Link href={causes.detailPageUrl} className="transition-colors hover:text-[var(--color-primary)]">
                     {cause.title}
                   </Link>
                 </h2>
-                <span className={`mt-[0.875rem] block h-[0.1875rem] w-[3.25rem] transition-[width] duration-500 group-hover:w-[5.625rem] xl:mt-[1.0625rem] xl:w-[3.875rem] ${orange ? "bg-[var(--color-orange)]" : "bg-[var(--color-green)]"}`} />
-                <p className="mt-[1rem] font-alt text-[1rem] leading-[1.6875rem] text-[var(--color-gray-575b64)] xl:mt-[1.125rem] xl:text-[1.25rem] xl:leading-[2rem]">{cause.description}</p>
+                <span className={`mt-[0.875rem] block h-[0.1875rem] w-[3.25rem] transition-[width] duration-500 group-hover:w-[5.625rem] xl:mt-[1.0625rem] xl:w-[3.875rem] ${orange ? "bg-[var(--color-primary)]" : "bg-[var(--color-secondary)]"}`} />
+                <p className="mt-[1rem] font-alt text-[1rem] leading-[1.6875rem] text-[var(--color-cause-card-text)] xl:mt-[1.125rem] xl:text-[1.25rem] xl:leading-[2rem]">{cause.description}</p>
                 <Link
                   href={causes.detailPageUrl}
                   className={`group/btn mt-[1.375rem] inline-flex h-[3.125rem] w-fit items-center gap-[1rem] rounded-[0.25rem] border px-[1.5rem] font-alt text-[1.0625rem] font-semibold text-[var(--color-white)] transition-colors duration-300 xl:mt-[1.375rem] xl:h-[3.8125rem] xl:w-[14.125rem] xl:justify-center xl:gap-[1.25rem] xl:px-0 xl:text-[1.25rem] ${
-                    orange ? "border-[var(--color-orange)] bg-[var(--color-orange)] hover:bg-[var(--color-white)] hover:text-[var(--color-orange)]" : "border-[var(--color-green)] bg-[var(--color-green)] hover:bg-[var(--color-white)] hover:text-[var(--color-green)]"
+                    orange ? "border-[var(--color-primary)] bg-[var(--color-primary)] hover:bg-[var(--color-white)] hover:text-[var(--color-primary)]" : "border-[var(--color-secondary)] bg-[var(--color-secondary)] hover:bg-[var(--color-white)] hover:text-[var(--color-secondary)]"
                   }`}
                 >
                   {causes.readMore}
