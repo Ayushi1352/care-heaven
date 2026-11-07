@@ -18,7 +18,7 @@ export const HowWeHelp = ({ data: help }: { data?: HowWeHelpData }) => {
           {help.label}
           <span className="h-[0.125rem] w-[2.5rem] bg-[var(--color-primary)] xl:w-[3.375rem]" />
         </p>
-        <h2 className="mx-auto mt-[0.625rem] max-w-[40rem] font-heading font-bold text-[1.90625rem] leading-[1.2] text-[var(--color-heading)] sm:text-[2.625rem] xl:mt-[0.625rem] xl:max-w-[56.25rem] xl:text-[4.375rem] xl:leading-[4.8125rem]">
+        <h2 className="mx-auto mt-[0.625rem] max-w-[22rem] font-heading font-bold text-[1.4375rem] leading-[1.25] text-[var(--color-heading)] xs:max-w-[26rem] xs:text-[1.625rem] sm:max-w-[40rem] sm:text-[2.625rem] xl:mt-[0.625rem] xl:max-w-[56.25rem] xl:text-[4.375rem] xl:leading-[4.8125rem]">
           {help.title} <span className="text-[var(--color-primary)]">{help.titleHighlight}</span>
         </h2>
       </div>

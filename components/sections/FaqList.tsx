@@ -30,7 +30,7 @@ export const FaqList = ({ data: faq }: { data?: FaqData }) => {
       <div data-reveal="up" className="relative text-center">
         <span className="mx-auto block h-[0.1875rem] w-[3.25rem] bg-[var(--color-primary)] xl:w-[4.25rem]" />
         <p className="mt-[1rem] font-alt text-[1.125rem] font-semibold text-[var(--color-primary)] xl:mt-[1.875rem] xl:text-[1.5625rem]">{faq.label}</p>
-        <h2 className="mt-[0.375rem] font-heading font-bold text-[2.03125rem] leading-[1.15] text-[var(--color-heading)] sm:text-[2.71875rem] xl:mt-[0.375rem] xl:text-[4.0625rem] xl:leading-[4.875rem]">
+        <h2 className="mt-[0.375rem] font-heading font-bold text-[1.5rem] leading-[1.2] text-[var(--color-heading)] xs:text-[1.75rem] sm:text-[2.71875rem] xl:mt-[0.375rem] xl:text-[4.0625rem] xl:leading-[4.875rem]">
           {faq.title} <span className="text-[var(--color-secondary-dark)]">{faq.titleHighlight}</span>
         </h2>
         <p className="mx-auto mt-[0.625rem] max-w-[42.5rem] font-alt text-[0.9375rem] leading-[1.625rem] text-[var(--color-text)] xl:mt-[1.25rem] xl:max-w-[68.4375rem] xl:text-[1.46875rem] xl:leading-[2.3125rem]">{faq.description}</p>

@@ -21,12 +21,12 @@ export const Footer = ({ data: footer, company, links }: { data?: FooterData; co
             </Link>
             <p className="mt-[2rem] font-sans text-[1.125rem] leading-none font-semibold tracking-[0.01em] uppercase xl:mt-[2.1875rem] xl:ml-[1.1875rem] xl:text-[1.375rem]">{footer.menuTitle}</p>
             <span className="mt-[0.75rem] block h-[0.1875rem] w-[3.25rem] bg-[var(--color-primary)] xl:ml-[1.1875rem] xl:w-[3.875rem]" />
-            <ul className="mt-[1.375rem] grid max-w-[26.25rem] grid-flow-col grid-cols-2 gap-y-[0.75rem] font-sans text-[1rem] xl:mt-[1.625rem] xl:ml-[1.4375rem] xl:max-w-none xl:grid-flow-col xl:grid-cols-[16.375rem_1fr] xl:gap-y-0" style={{ gridTemplateRows: `repeat(${half}, auto)` }}>
+            <ul className="mt-[1.375rem] grid max-w-[26.25rem] grid-flow-col grid-cols-2 gap-x-[1.25rem] gap-y-[0.75rem] font-sans text-[1rem] sm:gap-x-[2rem] xl:mt-[1.625rem] xl:ml-[1.4375rem] xl:max-w-none xl:grid-flow-col xl:grid-cols-[16.375rem_1fr] xl:gap-y-0" style={{ gridTemplateRows: `repeat(${half}, auto)` }}>
               {nav.map((link) => (
                 <li key={link.id} className="xl:h-[2.375rem]">
-                  <Link href={link.href} className="group inline-flex items-center gap-[0.75rem] text-[var(--color-white-90)] transition-colors hover:text-[var(--color-primary)] xl:gap-[1.25rem] xl:text-[1.25rem] xl:leading-[1.625rem]">
-                    <Icon name="FaChevronRight" className="size-[0.875rem] text-[var(--color-primary)] transition-transform duration-300 group-hover:translate-x-[0.1875rem] xl:size-[1rem]" />
-                    {link.label}
+                  <Link href={link.href} className="group inline-flex items-center gap-[0.75rem] whitespace-nowrap text-[var(--color-white-90)] transition-colors hover:text-[var(--color-primary)] xl:gap-[1.25rem] xl:text-[1.25rem] xl:leading-[1.625rem]">
+                    <Icon name="FaChevronRight" className="size-[0.875rem] shrink-0 text-[var(--color-primary)] transition-transform duration-300 group-hover:translate-x-[0.1875rem] xl:size-[1rem]" />
+                    <span className="whitespace-nowrap">{link.label}</span>
                   </Link>
                 </li>
               ))}
@@ -101,7 +101,9 @@ export const Footer = ({ data: footer, company, links }: { data?: FooterData; co
         </div>
 
         <div className="mt-[3rem] border-t border-[var(--color-white-25)] py-[1.5rem] xl:mt-[5.4375rem] xl:pt-[1.875rem] xl:pb-[2.875rem]">
-          <p className="font-sans text-[0.875rem] text-[var(--color-white-90)] xl:pl-[1.25rem] xl:text-[length:max(1.125rem,var(--text-min))]">{footer.copyright}</p>
+          <p className="font-sans text-[0.875rem] text-[var(--color-white-90)] xl:pl-[1.25rem] xl:text-[length:max(1.125rem,var(--text-min))]">
+            {footer.copyright}
+          </p>
         </div>
       </div>
     </footer>

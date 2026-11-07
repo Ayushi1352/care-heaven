@@ -46,8 +46,8 @@ export const BlogGrid = ({ data: blog, ui }: { data?: BlogsData; ui?: GlobalUIDa
                   <Icon name="FaRegCalendarAlt" className="size-[0.9375rem] xl:size-[1.125rem]" />
                   <time dateTime={post.date}>{formatDate(post.date, ui?.months)}</time>
                 </p>
-                <h2 className="mt-[0.875rem] font-heading font-bold text-[1.53125rem] leading-[1.22] text-[var(--color-blog-heading)] xl:mt-[1rem] xl:max-w-[20.625rem] xl:text-[2.09375rem] xl:leading-[2.5rem]">
-                  <Link href={blog.detailPageUrl} className="transition-colors hover:text-[var(--color-secondary-dark)]">
+                <h2 className="mt-[0.875rem] font-heading font-bold text-[1.25rem] leading-[1.25] text-[var(--color-blog-heading)] xs:text-[1.375rem] sm:text-[1.53125rem] xl:mt-[1rem] xl:max-w-[20.625rem] xl:text-[2.09375rem] xl:leading-[2.5rem]">
+                  <Link href={blog.detailPageUrl} className="line-clamp-2 transition-colors hover:text-[var(--color-secondary-dark)]">
                     {post.title}
                   </Link>
                 </h2>

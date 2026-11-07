@@ -14,12 +14,19 @@ export const WhyChooseUs = ({ data: whyChoose, company }: { data?: WhyChooseUsDa
           <span className="h-[0.125rem] w-[2.75rem] bg-[var(--color-highlight)] xl:h-[0.1875rem] xl:w-[3.6875rem]" />
           {whyChoose.label}
         </p>
-        <h2 className="mt-[0.625rem] font-heading font-bold text-[2.125rem] leading-[1.12] uppercase sm:text-[3.09375rem] xl:mt-[0.3125rem] xl:text-[5.03125rem] xl:leading-[5rem]">
-          {whyChoose.titleTop}
-          <br />
-          <span className="text-[var(--color-primary)]">{whyChoose.titleHighlight}</span> {whyChoose.titleAfter}
-          <br />
-          {whyChoose.titleBottom}
+        <h2 className="mt-[0.625rem] font-heading font-bold text-[1.4375rem] leading-[1.18] uppercase xs:text-[1.75rem] sm:text-[3.09375rem] xl:mt-[0.3125rem] xl:text-[5.03125rem] xl:leading-[5rem]">
+          <span className="sm:hidden">
+            {whyChoose.titleTop} <span className="text-[var(--color-primary)]">{whyChoose.titleHighlight}</span>
+            <br />
+            {whyChoose.titleAfter} {whyChoose.titleBottom}
+          </span>
+          <span className="hidden sm:inline">
+            {whyChoose.titleTop}
+            <br />
+            <span className="text-[var(--color-primary)]">{whyChoose.titleHighlight}</span> {whyChoose.titleAfter}
+            <br />
+            {whyChoose.titleBottom}
+          </span>
         </h2>
       </div>
 

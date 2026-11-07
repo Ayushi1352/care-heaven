@@ -20,7 +20,7 @@ export const Breadcrumb = ({ data, ui }: { data?: BreadcrumbData; ui?: GlobalUID
       />
       <div className="absolute inset-0 bg-[var(--color-banner-overlay)]" />
       <div className="relative flex flex-col items-center text-center">
-        <h1 data-intro="up" className={`font-heading font-bold text-[2.71875rem] leading-[1.1] text-[var(--color-white)] sm:text-[3.8125rem] md:text-[4.5rem] xl:text-[7.5rem] xl:leading-none ${introHidden}`}>
+        <h1 data-intro="up" className={`font-heading font-bold text-[2rem] leading-[1.15] text-[var(--color-white)] xs:text-[2.375rem] sm:text-[3.8125rem] md:text-[4.5rem] xl:text-[7.5rem] xl:leading-none ${introHidden}`}>
           {data.title}
         </h1>
         <nav aria-label={ui?.breadcrumb} data-intro="up" data-intro-delay="200" className={`mt-[0.625rem] sm:mt-[0.875rem] md:mt-[1.125rem] xl:mt-[1.5rem] ${introHidden}`}>
@@ -28,7 +28,7 @@ export const Breadcrumb = ({ data, ui }: { data?: BreadcrumbData; ui?: GlobalUID
             {data.paths.map((item, index) =>
               index === 0 ? (
                 <li key={item.id}>
-                  <Link href={item.url} className="text-[var(--color-white-90)] transition-colors duration-200 hover:text-[var(--color-primary)]">
+                  <Link href={item.url} className="whitespace-nowrap text-[var(--color-white-90)] transition-colors duration-200 hover:text-[var(--color-primary)]">
                     {item.label}
                   </Link>
                 </li>
@@ -38,11 +38,11 @@ export const Breadcrumb = ({ data, ui }: { data?: BreadcrumbData; ui?: GlobalUID
                     /
                   </span>
                   {item.url ? (
-                    <Link href={item.url} className="text-[var(--color-white-90)] transition-colors duration-200 hover:text-[var(--color-primary)]">
+                    <Link href={item.url} className="whitespace-nowrap text-[var(--color-white-90)] transition-colors duration-200 hover:text-[var(--color-primary)]">
                       {item.label}
                     </Link>
                   ) : (
-                    <span aria-current="page" className="font-semibold text-[var(--color-primary)]">
+                    <span aria-current="page" className="whitespace-nowrap font-semibold text-[var(--color-primary)]">
                       {item.label}
                     </span>
                   )}

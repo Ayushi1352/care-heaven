@@ -23,7 +23,7 @@ export const AboutNgo = ({ data: about, className = "" }: { data?: AboutUsData; 
             <span className="size-[0.375rem] rounded-full bg-[var(--color-primary)] xl:size-[0.4375rem]" />
             {about.badge}
           </p>
-          <h2 className="mt-[1rem] font-heading font-bold text-[2.125rem] leading-[1.15] text-[var(--color-tertiary-dark)] sm:text-[2.84375rem] xl:mt-[1.4375rem] xl:text-[4.375rem] xl:leading-[4.8125rem]">
+          <h2 className="mt-[1rem] font-heading font-bold text-[1.5rem] leading-[1.2] text-[var(--color-tertiary-dark)] xs:text-[1.75rem] sm:text-[2.84375rem] xl:mt-[1.4375rem] xl:text-[4.375rem] xl:leading-[4.8125rem]">
             {about.title} <span className="text-[var(--color-primary)]">{about.titleHighlight}</span>
             <br />
             {about.titleEnd}

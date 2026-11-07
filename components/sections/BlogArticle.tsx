@@ -17,7 +17,7 @@ function SectionText({
 }) {
   return (
     <div data-reveal="up" className={`min-w-0 ${className}`}>
-      <h2 className="font-heading font-bold text-[1.78125rem] leading-[1.18] text-[var(--color-blog-heading)] sm:text-[2.25rem] xl:text-[3.625rem] xl:leading-[4.375rem] xl:whitespace-nowrap">
+      <h2 className="font-heading font-bold text-[1.3125rem] leading-[1.22] text-[var(--color-blog-heading)] xs:text-[1.5rem] sm:text-[2.25rem] xl:text-[3.625rem] xl:leading-[4.375rem] xl:whitespace-nowrap">
         {section.title} {section.titleBreak && <br className="hidden xl:block" />}<span className="text-[var(--color-secondary-dark)]">{section.titleHighlight}</span>
       </h2>
       <span className={`mt-[0.875rem] block h-[0.1875rem] w-[3.75rem] bg-[var(--color-primary)] xl:h-[0.25rem] ${ruleClassName}`} />
@@ -45,7 +45,7 @@ export const BlogArticle = ({ data: detail, ui }: { data?: BlogDetailData; ui?: 
           <Icon name="FaRegCalendarAlt" className="size-[1rem] xl:size-[1.5rem]" />
           <time dateTime={detail.date}>{formatDate(detail.date, ui?.months)}</time>
         </p>
-        <h1 className="mt-[1rem] font-heading font-bold text-[2.03125rem] leading-[1.15] text-[var(--color-blog-heading)] sm:text-[2.84375rem] xl:mt-[1.5625rem] xl:text-[4.75rem] xl:leading-[5.625rem]">
+        <h1 className="mt-[1rem] font-heading font-bold text-[1.5rem] leading-[1.2] text-[var(--color-blog-heading)] xs:text-[1.75rem] sm:text-[2.84375rem] xl:mt-[1.5625rem] xl:text-[4.75rem] xl:leading-[5.625rem]">
           {detail.title} <span className="text-[var(--color-secondary-dark)]">{detail.titleHighlight}</span>
         </h1>
         <div className="mt-[1rem] flex items-center gap-[0.875rem] text-left xl:mt-[1.25rem] xl:gap-[1.5625rem]">

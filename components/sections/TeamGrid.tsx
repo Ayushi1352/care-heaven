@@ -17,7 +17,7 @@ export const TeamGrid = ({ data: team, ui }: { data?: TeamData; ui?: GlobalUIDat
           <span className="h-[0.125rem] w-[2.75rem] bg-[var(--color-primary)] xl:w-[3.6875rem]" />
           {team.label}
         </p>
-        <h2 className="mt-[0.5rem] font-heading font-bold text-[2.125rem] leading-[1.12] text-[var(--color-heading)] sm:text-[3.09375rem] xl:mt-[0.625rem] xl:text-[5.09375rem] xl:leading-[5.9375rem]">
+        <h2 className="mt-[0.5rem] font-heading font-bold text-[1.5rem] leading-[1.2] text-[var(--color-heading)] xs:text-[1.75rem] sm:text-[3.09375rem] xl:mt-[0.625rem] xl:text-[5.09375rem] xl:leading-[5.9375rem]">
           {team.title} <span className="text-[var(--color-primary)]">{team.titleHighlight}</span>
         </h2>
         <p className="mx-auto mt-[0.75rem] max-w-[40rem] font-sans text-[1rem] leading-[1.6875rem] text-[var(--color-text)] xl:mt-[1.125rem] xl:max-w-[56.25rem] xl:text-[1.53125rem] xl:leading-[2.5625rem] xl:text-[var(--color-team-description)]">{team.description}</p>

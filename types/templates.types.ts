@@ -115,6 +115,7 @@ export interface FooterData {
   contactCards: ContactCard[];
   contactCircle: ContactCircle;
   copyright: string;
+  poweredBy?: string;
 }
 
 export interface CommonData {

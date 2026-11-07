@@ -59,21 +59,21 @@ export const Paginated = ({ children, rows, columns, className, variant = "boxed
 
   const boxed = variant === "boxed";
   const arrow = boxed
-    ? "size-[2.875rem] rounded-[0.375rem] bg-[var(--color-pagination-boxed-bg)] text-[var(--color-accent-dark)] xl:h-[4.125rem] xl:w-[4.25rem]"
-    : "size-[2.75rem] rounded-[0.375rem] bg-[var(--color-pagination-bg)] text-[var(--color-pagination-text)] xl:h-[3rem] xl:w-[3.125rem]";
+    ? "size-[2.375rem] shrink-0 rounded-[0.375rem] bg-[var(--color-pagination-boxed-bg)] text-[var(--color-accent-dark)] sm:size-[2.875rem] xl:h-[4.125rem] xl:w-[4.25rem]"
+    : "size-[2.375rem] shrink-0 rounded-[0.375rem] bg-[var(--color-pagination-bg)] text-[var(--color-pagination-text)] sm:size-[2.75rem] xl:h-[3rem] xl:w-[3.125rem]";
 
   return (
     <div ref={top} className="scroll-mt-[7.5rem]">
       <ul key={current} data-reveal-stagger className={className}>
         {items.slice(current * perPage, current * perPage + perPage)}
       </ul>
-      <nav aria-label={ui?.pagination} className={`flex flex-wrap items-center justify-center ${boxed ? "gap-[0.5rem] xl:gap-[0.75rem]" : "gap-[0.625rem] xl:gap-[1.25rem]"} ${navClassName}`}>
+      <nav aria-label={ui?.pagination} className={`flex items-center justify-center ${boxed ? "gap-[0.375rem] sm:gap-[0.5rem] xl:gap-[0.75rem]" : "gap-[0.375rem] sm:gap-[0.625rem] xl:gap-[1.25rem]"} ${navClassName}`}>
         <button type="button" aria-label={ui?.previousPage} disabled={current === 0} onClick={() => go(current - 1)} className={`flex items-center justify-center transition-colors enabled:hover:bg-[var(--color-primary)] enabled:hover:text-[var(--color-white)] disabled:opacity-60 ${arrow}`}>
-          <Icon name="FaChevronLeft" className="size-[1.25rem] xl:size-[1.625rem]" />
+          <Icon name="FaChevronLeft" className="size-[1rem] sm:size-[1.25rem] xl:size-[1.625rem]" />
         </button>
         {pageList(current, pageCount).map((p, i) =>
           p === "gap" ? (
-            <span key={`gap-${i}`} className="px-[0.125rem] font-dm text-[1.125rem] font-bold text-[var(--color-accent-dark)] xl:text-[1.25rem]">
+            <span key={`gap-${i}`} className="px-[0.125rem] font-dm text-[1rem] font-bold text-[var(--color-accent-dark)] xl:text-[1.25rem]">
               …
             </span>
           ) : (
@@ -85,8 +85,8 @@ export const Paginated = ({ children, rows, columns, className, variant = "boxed
               onClick={() => go(p)}
               className={
                 boxed
-                  ? `flex size-[2.875rem] items-center justify-center rounded-[0.375rem] font-dm text-[1.125rem] font-semibold transition-colors xl:h-[4.125rem] xl:w-[4.25rem] xl:text-[1.625rem] ${p === current ? "bg-[var(--color-primary)] text-[var(--color-white)]" : "bg-[var(--color-pagination-boxed-bg)] text-[var(--color-accent-dark)] hover:bg-[var(--color-primary)] hover:text-[var(--color-white)]"}`
-                  : `flex size-[3rem] items-center justify-center rounded-full font-alt text-[1.0625rem] font-medium transition-colors xl:size-[4.125rem] xl:text-[1.3125rem] ${p === current ? "bg-[var(--color-primary)] text-[var(--color-white)]" : "text-[var(--color-pagination-text)] hover:bg-[var(--color-pagination-bg)]"}`
+                  ? `flex size-[2.375rem] shrink-0 items-center justify-center rounded-[0.375rem] font-dm text-[0.9375rem] font-semibold transition-colors sm:size-[2.875rem] sm:text-[1.125rem] xl:h-[4.125rem] xl:w-[4.25rem] xl:text-[1.625rem] ${p === current ? "bg-[var(--color-primary)] text-[var(--color-white)]" : "bg-[var(--color-pagination-boxed-bg)] text-[var(--color-accent-dark)] hover:bg-[var(--color-primary)] hover:text-[var(--color-white)]"}`
+                  : `flex size-[2.375rem] shrink-0 items-center justify-center rounded-full font-alt text-[0.9375rem] font-medium transition-colors sm:size-[3rem] sm:text-[1.0625rem] xl:size-[4.125rem] xl:text-[1.3125rem] ${p === current ? "bg-[var(--color-primary)] text-[var(--color-white)]" : "text-[var(--color-pagination-text)] hover:bg-[var(--color-pagination-bg)]"}`
               }
             >
               {String(p + 1).padStart(2, "0")}
@@ -94,7 +94,7 @@ export const Paginated = ({ children, rows, columns, className, variant = "boxed
           ),
         )}
         <button type="button" aria-label={ui?.nextPage} disabled={current === pageCount - 1} onClick={() => go(current + 1)} className={`flex items-center justify-center transition-colors enabled:hover:bg-[var(--color-primary)] enabled:hover:text-[var(--color-white)] disabled:opacity-60 ${arrow}`}>
-          <Icon name="FaChevronRight" className="size-[1.25rem] xl:size-[1.625rem]" />
+          <Icon name="FaChevronRight" className="size-[1rem] sm:size-[1.25rem] xl:size-[1.625rem]" />
         </button>
       </nav>
     </div>

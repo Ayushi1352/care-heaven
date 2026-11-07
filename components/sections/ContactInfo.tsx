@@ -19,7 +19,7 @@ export const ContactInfo = ({ data: contact, company }: { data?: ContactData; co
           <span className="h-[0.125rem] w-[2.75rem] bg-[var(--color-primary)] xl:w-[3.875rem]" />
           {contact.label}
         </p>
-        <h2 className="mt-[0.625rem] font-heading font-bold text-[2.125rem] leading-[1.14] text-[var(--color-tertiary)] sm:text-[2.84375rem] xl:mt-[0.875rem] xl:text-[4.5625rem] xl:leading-[5rem]">
+        <h2 className="mt-[0.625rem] font-heading font-bold text-[1.5rem] leading-[1.2] text-[var(--color-tertiary)] xs:text-[1.75rem] sm:text-[2.84375rem] xl:mt-[0.875rem] xl:text-[4.5625rem] xl:leading-[5rem]">
           {contact.title}
           <br />
           <span className="text-[var(--color-primary)]">{contact.titleHighlight}</span>

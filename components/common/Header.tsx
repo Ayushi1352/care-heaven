@@ -142,12 +142,12 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
                   href={link.href}
                   onClick={() => setOpen(false)}
                   aria-current={active ? "page" : undefined}
-                  className={`group flex items-center justify-between py-[0.8125rem] font-alt text-[1rem] font-medium transition-colors xl:py-[1.125rem] xl:text-[1.375rem] ${
+                  className={`group flex items-center justify-between py-[0.8125rem] font-alt text-[1rem] font-medium whitespace-nowrap transition-colors xl:py-[1.125rem] xl:text-[1.375rem] ${
                     active ? "text-[var(--color-primary)]" : "text-[var(--color-white)] hover:text-[var(--color-primary)]"
                   }`}
                 >
-                  {link.label}
-                  <Icon name="FaChevronRight" className="size-[1.125rem] transition-transform duration-300 group-hover:translate-x-[0.25rem] xl:size-[1.375rem]" />
+                  <span className="whitespace-nowrap">{link.label}</span>
+                  <Icon name="FaChevronRight" className="size-[1.125rem] shrink-0 transition-transform duration-300 group-hover:translate-x-[0.25rem] xl:size-[1.375rem]" />
                 </Link>
               </li>
             );

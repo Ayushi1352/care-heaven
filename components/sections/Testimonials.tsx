@@ -50,7 +50,7 @@ export const Testimonials = ({ data: testimonials, ui, className = "" }: { data?
           {testimonials.label}
           <span className="h-px w-[3rem] bg-[var(--color-primary)] xl:w-[4rem]" />
         </p>
-        <h2 className="mt-[0.625rem] font-heading font-bold text-[2.03125rem] leading-[1.15] text-[var(--color-tertiary-dark)] sm:text-[2.71875rem] xl:mt-[0.5rem] xl:text-[4.4375rem] xl:leading-[5rem]">
+        <h2 className="mt-[0.625rem] font-heading font-bold text-[1.5rem] leading-[1.2] text-[var(--color-tertiary-dark)] xs:text-[1.75rem] sm:text-[2.71875rem] xl:mt-[0.5rem] xl:text-[4.4375rem] xl:leading-[5rem]">
           {testimonials.title} <span className="text-[var(--color-primary)]">{testimonials.titleHighlight}</span>
         </h2>
         <p className="mt-[0.375rem] font-dm text-[1rem] text-[var(--color-text-subtitle)] xl:mt-[0.125rem] xl:text-[1.5625rem]">{testimonials.subtitle}</p>

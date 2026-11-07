@@ -34,8 +34,8 @@ export const BlogSection = ({ data: blog, ui }: { data?: BlogsData; ui?: GlobalU
                 <Icon name="FaRegCalendarAlt" className="size-[0.9375rem] text-[var(--color-primary)] xl:size-[1.0625rem]" />
                 <time dateTime={post.date}>{formatDate(post.date, ui?.months)}</time>
               </p>
-              <h3 className="mt-[0.875rem] font-heading font-bold text-[1.53125rem] leading-[1.22] text-[var(--color-tertiary-dark)] xl:mt-[1rem] xl:max-w-[20.625rem] xl:text-[2.09375rem] xl:leading-[2.5rem]">
-                <Link href={blog.detailPageUrl} className="transition-colors hover:text-[var(--color-primary)]">
+              <h3 className="mt-[0.875rem] font-heading font-bold text-[1.25rem] leading-[1.25] text-[var(--color-tertiary-dark)] xs:text-[1.375rem] sm:text-[1.53125rem] xl:mt-[1rem] xl:max-w-[20.625rem] xl:text-[2.09375rem] xl:leading-[2.5rem]">
+                <Link href={blog.detailPageUrl} className="line-clamp-2 transition-colors hover:text-[var(--color-primary)]">
                   {post.title}
                 </Link>
               </h3>
