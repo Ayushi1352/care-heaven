@@ -11,7 +11,8 @@ interface PaginatedProps {
   rows: number;
   /** Columns of the grid on desktop, used until the real grid has been measured. */
   columns: number;
-  /** Grid classes for the list. */
+  /** Grid classes
+    for the list. */
   className: string;
   /** "boxed": square page buttons (Our Teams). "round": plain numbers, round active page (Our Causes). */
   variant?: "boxed" | "round";
