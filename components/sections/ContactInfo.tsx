@@ -1,35 +1,35 @@
 import { Icon } from "@/components/ui/Icon";
 import { BrushStroke, SoftLeaves } from "@/components/ui/Decor";
-import { contactField, contactHref } from "@/components/ui/helpers";
+import { contactField, contactHref } from "@/components/ui/text";
 import type { CompanyData, ContactData } from "@/types/templates.types";
 
 // Desktop positions of the three cards (design pixels): two stacked on the left, one between them on the right.
-const placement = ["xl:top-[9.6875rem] xl:left-[53.875rem] xl:h-[15.3125rem]", "xl:top-[20rem] xl:left-[78.3125rem] xl:h-[13.125rem]", "xl:top-[30.4375rem] xl:left-[53.875rem] xl:h-[13rem]"];
+const placement = ["xl:top-155 xl:left-862 xl:h-245", "xl:top-320 xl:left-1253 xl:h-210", "xl:top-487 xl:left-862 xl:h-208"];
 
 export const ContactInfo = ({ data: contact, company }: { data?: ContactData; company?: CompanyData }) => {
   if (!contact || !company) return null;
 
   return (
-    <section className="relative xl:h-[43.4375rem]">
-      <BrushStroke className="pointer-events-none absolute -top-[3.5rem] -right-[1.25rem] w-[10rem] text-[var(--color-contact-decor)] xl:top-0 xl:right-0 xl:w-[16.625rem]" />
-      <SoftLeaves className="pointer-events-none absolute top-[42%] -left-[1.875rem] hidden w-[9.375rem] rotate-[60deg] text-[var(--color-contact-decor-alt)] md:block xl:top-[39.0625rem] xl:-left-[2.5rem] xl:w-[15.625rem]" />
+    <section className="relative xl:h-695">
+      <BrushStroke className="pointer-events-none absolute -top-56 -right-20 w-160 text-[var(--color-contact-decor)] xl:top-0 xl:right-0 xl:w-266" />
+      <SoftLeaves className="pointer-events-none absolute top-[42%] -left-30 hidden w-150 rotate-[60deg] text-[var(--color-contact-decor-alt)] md:block xl:top-625 xl:-left-40 xl:w-250" />
 
-      <div data-reveal="left" className="relative xl:absolute xl:top-[14.875rem] xl:left-[7.3125rem] xl:w-[40rem]">
-        <p className="flex items-center gap-[0.875rem] font-alt text-[0.875rem] font-medium tracking-[0.08em] text-[var(--color-primary)] uppercase xl:text-[1.34375rem]">
-          <span className="h-[0.125rem] w-[2.75rem] bg-[var(--color-primary)] xl:w-[3.875rem]" />
+      <div data-reveal="left" className="relative xl:absolute xl:top-238 xl:left-117 xl:w-640">
+        <p className="flex items-center gap-14 font-alt text-[0.875rem] font-medium tracking-[0.08em] text-primary uppercase xl:text-[1.34375rem]">
+          <span className="h-2 w-44 bg-primary xl:w-62" />
           {contact.label}
         </p>
-        <h2 className="mt-[0.625rem] font-heading font-bold text-[1.5rem] leading-[1.2] text-[var(--color-tertiary)] xs:text-[1.75rem] sm:text-[2.84375rem] xl:mt-[0.875rem] xl:text-[4.5625rem] xl:leading-[5rem]">
+        <h2 className="mt-10 font-heading font-bold text-[1.5rem] leading-[1.2] text-tertiary xs:text-[1.75rem] sm:text-[2.84375rem] xl:mt-14 xl:text-[4.5625rem] xl:leading-80">
           {contact.title}
           <br />
-          <span className="text-[var(--color-primary)]">{contact.titleHighlight}</span>
+          <span className="text-primary">{contact.titleHighlight}</span>
         </h2>
-        <p className="mt-[0.875rem] max-w-[38.75rem] font-alt text-[1rem] leading-[1.6875rem] text-[var(--color-text-dark)] xl:mt-[1.25rem] xl:text-[1.5rem] xl:leading-[2.34375rem]">{contact.description}</p>
+        <p className="mt-14 max-w-620 font-alt text-[1rem] leading-27 text-[var(--color-text-dark)] xl:mt-20 xl:text-[1.5rem] xl:leading-[2.34375rem]">{contact.description}</p>
       </div>
 
-      <ul data-reveal-stagger className="relative mt-[5rem] grid gap-x-[1.5rem] gap-y-[5rem] sm:grid-cols-2 xl:static xl:mt-0 xl:block">
+      <ul data-reveal-stagger className="relative mt-80 grid gap-x-24 gap-y-80 sm:grid-cols-2 xl:static xl:mt-0 xl:block">
         {contact.cards.map((card, i) => {
-          const { lines, type } = contactField(company, card.field);
+          const { lines, type } = contactField(company, card.source);
           const href = contactHref(type, lines[0]);
           const body = lines.map((line) => (
             <span key={line} className="block">
@@ -37,17 +37,17 @@ export const ContactInfo = ({ data: contact, company }: { data?: ContactData; co
             </span>
           ));
           return (
-            <li key={card.id} className={`group relative flex flex-col items-center rounded-[0.25rem] bg-[var(--color-bg-contact)] px-[1.25rem] pt-[4.75rem] pb-[1.75rem] text-center shadow-[0_10px_30px_var(--color-shadow-contact-card)] xl:absolute xl:w-[21.875rem] xl:px-[1.25rem] xl:pt-[5.5rem] xl:pb-0 ${placement[i] ?? ""}`}>
-              <span className="absolute -top-[3.5rem] left-1/2 flex size-[7rem] -translate-x-1/2 items-center justify-center rounded-full bg-[var(--color-contact-icon-bg)] text-[var(--color-white)] shadow-[0_12px_28px_var(--color-shadow-contact-icon)] transition-transform duration-500 group-hover:-translate-y-[0.375rem] xl:-top-[3.4375rem] xl:size-[7.5rem]">
-                <Icon name={card.icon} className="size-[2.75rem] xl:size-[3rem]" />
+            <li key={card.id} className={`group relative flex flex-col items-center rounded-[0.25rem] bg-[var(--color-bg-contact)] px-20 pt-76 pb-28 text-center shadow-[0_10px_30px_var(--color-shadow-contact-card)] xl:absolute xl:w-350 xl:px-20 xl:pt-88 xl:pb-0 ${placement[i] ?? ""}`}>
+              <span className="absolute -top-56 left-1/2 flex size-112 -translate-x-1/2 items-center justify-center rounded-full bg-[var(--color-contact-icon-bg)] text-[var(--color-white)] shadow-[0_12px_28px_var(--color-shadow-contact-icon)] transition-transform duration-500 group-hover:-translate-y-6 xl:-top-55 xl:size-120">
+                <Icon name={card.icon} className="size-44 xl:size-48" />
               </span>
-              <h3 className="font-heading font-bold text-[1.3125rem] text-[var(--color-accent-dark)] xl:text-[1.6875rem] xl:leading-[2.125rem]">{card.title}</h3>
+              <h3 className="font-heading font-bold text-[1.3125rem] text-accent-dark xl:text-[1.6875rem] xl:leading-34">{card.title}</h3>
               {href ? (
-                <a href={href} className="mt-[0.5rem] block font-form text-[1rem] leading-[1.6875rem] break-words text-[var(--color-contact-text)] transition-colors hover:text-[var(--color-tertiary)] xl:mt-[0.625rem] xl:text-[1.3125rem] xl:leading-[2.1875rem]">
+                <a href={href} className="mt-8 block font-form text-[1rem] leading-27 break-words text-[var(--color-contact-text)] transition-colors hover:text-tertiary xl:mt-10 xl:text-[1.3125rem] xl:leading-35">
                   {body}
                 </a>
               ) : (
-                <p className="mt-[0.5rem] font-form text-[1rem] leading-[1.6875rem] text-[var(--color-contact-text)] xl:mt-[0.625rem] xl:text-[1.3125rem] xl:leading-[2.1875rem]">{body}</p>
+                <p className="mt-8 font-form text-[1rem] leading-27 text-[var(--color-contact-text)] xl:mt-10 xl:text-[1.3125rem] xl:leading-35">{body}</p>
               )}
             </li>
           );

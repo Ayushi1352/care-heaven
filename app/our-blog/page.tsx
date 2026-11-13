@@ -8,7 +8,7 @@ const templateData: NGOTemplateData = rawData;
 const sectionData = templateData.categories.NGO.sections;
 const commonData = templateData.common;
 
-export const metadata: Metadata = { title: commonData.blogsBreadcrumb?.title, description: commonData.blogsBreadcrumb?.description };
+export const metadata: Metadata = { ...commonData.blogsBreadcrumb?.seo };
 
 export default function OurBlogPage() {
   return (

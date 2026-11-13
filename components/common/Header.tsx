@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Icon } from "@/components/ui/Icon";
-import { contactHref } from "@/components/ui/helpers";
+import { contactHref } from "@/components/ui/text";
 import type { CompanyData, GlobalUIData, HeaderData, LinkData } from "@/types/templates.types";
 
 function isActive(pathname: string, href: string) {
@@ -20,10 +20,10 @@ function DonateButton({ button, onClick, className = "" }: { button: LinkData; o
       onClick={onClick}
       className={`group shrink-0 items-center overflow-hidden rounded-[0.375rem] border border-[var(--color-donate-border)] bg-[linear-gradient(180deg,var(--color-donate-light)_0%,var(--color-donate)_55%,var(--color-donate-dark)_100%)] text-[var(--color-white)] shadow-[0_4px_10px_var(--color-black-28)] transition-colors duration-300 hover:border-[var(--color-donate)] hover:bg-[var(--color-white)] hover:bg-none hover:text-[var(--color-donate)] xl:rounded-[0.5rem] ${className}`}
     >
-      <span className="flex h-full w-[2.375rem] items-center justify-center border-r border-[var(--color-black-25)] shadow-[1px_0_0_var(--color-white-22)] xl:w-[4.5625rem]">
-        <Icon name="FaChevronRight" className="size-[1.125rem] xl:size-[2.375rem]" />
+      <span className="flex h-full w-38 items-center justify-center border-r border-[var(--color-black-25)] shadow-[1px_0_0_var(--color-white-22)] xl:w-73">
+        <Icon name="FaChevronRight" className="size-18 xl:size-38" />
       </span>
-      <span className="px-[0.75rem] font-alt text-[0.8125rem] leading-none font-medium whitespace-nowrap tracking-[0.01em] uppercase xl:pr-[1.375rem] xl:pl-[0.875rem] xl:text-[1.4375rem]">
+      <span className="px-12 font-alt text-[0.8125rem] leading-none font-medium whitespace-nowrap tracking-[0.01em] uppercase xl:pr-22 xl:pl-14 xl:text-[1.4375rem]">
         {button.label}
       </span>
     </Link>
@@ -61,23 +61,23 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
     // Zero-height sticky header: it floats over the hero / page banner and stays on top while scrolling.
     <header className="sticky top-0 z-50 h-0">
       <div
-        className={`flex items-center justify-between gap-[0.75rem] px-[1rem] transition-[background-color,box-shadow,padding] duration-300 sm:px-[1.5rem] xl:pr-[2.25rem] xl:pl-[2.375rem] ${
-          scrolled ? "bg-[var(--color-accent)] py-[0.5rem] shadow-[0_8px_24px_var(--color-shadow-header)] xl:py-[0.625rem]" : "py-[0.625rem] xl:py-[1.0625rem]"
+        className={`flex items-center justify-between gap-12 px-16 transition-[background-color,box-shadow,padding] duration-300 sm:px-24 xl:pr-36 xl:pl-38 ${
+          scrolled ? "bg-accent py-8 shadow-[0_8px_24px_var(--color-shadow-header)] xl:py-10" : "py-10 xl:py-17"
         }`}
       >
         <Link
-          href={header.logoUrl}
-          aria-label={header.siteName}
+          href={company.logoUrl}
+          aria-label={company.name}
           onClick={() => setOpen(false)}
-          className={`flex shrink-0 items-center justify-center rounded-[0.375rem] bg-[var(--color-white)] px-[0.625rem] transition-[height,width] duration-300 xl:rounded-[0.625rem] xl:px-[1.25rem] ${
-            scrolled ? "h-[3rem] w-[8.5rem] xl:h-[5.625rem] xl:w-[15.875rem]" : "h-[3.375rem] w-[9.5rem] sm:h-[3.875rem] sm:w-[10.9375rem] xl:h-[6.8125rem] xl:w-[19.1875rem]"
+          className={`flex shrink-0 items-center justify-center rounded-[0.375rem] bg-[var(--color-white)] px-10 transition-[height,width] duration-300 xl:rounded-[0.625rem] xl:px-20 ${
+            scrolled ? "h-48 w-136 xl:h-90 xl:w-254" : "h-54 w-152 sm:h-62 sm:w-175 xl:h-109 xl:w-307"
           }`}
         >
           <Image
-            src={header.logo}
-            alt={header.logoAlt}
-            width={header.logoSize.width}
-            height={header.logoSize.height}
+            src={company.logo}
+            alt={company.logoAlt}
+            width={company.logoWidth}
+            height={company.logoHeight}
             preload
             quality={90}
             sizes="(min-width: 1024px) 18vw, 180px"
@@ -85,20 +85,20 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
           />
         </Link>
 
-        <div className="flex items-center gap-[0.875rem] xl:gap-[2.6875rem]">
-          <DonateButton button={header.button} className="hidden h-[2.625rem] sm:inline-flex xl:h-[4.25rem] xl:min-w-[16.3125rem]" />
+        <div className="flex items-center gap-14 xl:gap-43">
+          <DonateButton button={header.button} className="hidden h-42 sm:inline-flex xl:h-68 xl:min-w-261" />
           <button
             type="button"
             aria-label={open ? ui?.closeMenu : ui?.openMenu}
             aria-expanded={open}
             aria-controls="site-menu"
             onClick={() => setOpen(true)}
-            className="group flex w-[2.5rem] flex-col gap-[0.3125rem] xl:w-[4.5rem] xl:gap-[0.5625rem]"
+            className="group flex w-40 flex-col gap-5 xl:w-72 xl:gap-9"
           >
             {[0, 1, 2].map((bar) => (
               <span
                 key={bar}
-                className="block h-[0.5625rem] rounded-full border-2 border-[var(--color-white)] transition-[transform] duration-300 group-hover:translate-x-[0.1875rem] xl:h-[0.875rem] xl:border-[length:0.1625rem] [&:nth-child(2)]:group-hover:-translate-x-[0.1875rem]"
+                className="block h-9 rounded-full border-2 border-[var(--color-white)] transition-[transform] duration-300 group-hover:translate-x-3 xl:h-14 xl:border-[length:0.1625rem] [&:nth-child(2)]:group-hover:-translate-x-3"
               />
             ))}
           </button>
@@ -115,25 +115,25 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
         id="site-menu"
         aria-label={ui?.mainNav}
         inert={!open}
-        className={`fixed inset-y-0 right-0 z-50 flex w-[min(86vw,360px)] flex-col overflow-y-auto overscroll-contain bg-[var(--color-accent)] text-[var(--color-white)] transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] xl:w-[30rem] ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-[min(86vw,360px)] flex-col overflow-y-auto overscroll-contain bg-accent text-[var(--color-white)] transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] xl:w-480 ${
           open ? "translate-x-0 shadow-[-12px_0_40px_var(--color-black-30)]" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between border-b border-[var(--color-white-12)] px-[1.5rem] py-[1.125rem] xl:px-[2.5rem] xl:py-[1.75rem]">
-          <Link href={header.logoUrl} aria-label={header.siteName} onClick={() => setOpen(false)} className="block w-[9.375rem] xl:w-[14.375rem]">
-            <Image src={header.logoWhite} alt={header.logoAlt} width={header.logoSize.width} height={header.logoSize.height} quality={90} sizes="230px" className="h-auto w-full" />
+        <div className="flex items-center justify-between border-b border-[var(--color-white-12)] px-24 py-18 xl:px-40 xl:py-28">
+          <Link href={company.logoUrl} aria-label={company.name} onClick={() => setOpen(false)} className="block w-150 xl:w-230">
+            <Image src={company.logoWhite} alt={company.logoAlt} width={company.logoWidth} height={company.logoHeight} quality={90} sizes="230px" className="h-auto w-full" />
           </Link>
           <button
             type="button"
             aria-label={ui?.closeMenu}
             onClick={() => setOpen(false)}
-            className="flex size-[2.5rem] items-center justify-center rounded-full border border-[var(--color-white-30)] transition-colors hover:border-[var(--color-primary)] hover:bg-[var(--color-primary)] xl:size-[3.375rem]"
+            className="flex size-40 items-center justify-center rounded-full border border-[var(--color-white-30)] transition-colors hover:border-primary hover:bg-primary xl:size-54"
           >
-            <Icon name="FaTimes" className="size-[1.25rem] xl:size-[1.625rem]" />
+            <Icon name="FaTimes" className="size-20 xl:size-26" />
           </button>
         </div>
 
-        <ul className="flex flex-col px-[1.5rem] py-[0.75rem] xl:px-[2.5rem] xl:py-[1.25rem]">
+        <ul className="flex flex-col px-24 py-12 xl:px-40 xl:py-20">
           {header.nav.map((link) => {
             const active = isActive(pathname, link.href);
             return (
@@ -142,33 +142,33 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
                   href={link.href}
                   onClick={() => setOpen(false)}
                   aria-current={active ? "page" : undefined}
-                  className={`group flex items-center justify-between py-[0.8125rem] font-alt text-[1rem] font-medium whitespace-nowrap transition-colors xl:py-[1.125rem] xl:text-[1.375rem] ${
-                    active ? "text-[var(--color-primary)]" : "text-[var(--color-white)] hover:text-[var(--color-primary)]"
+                  className={`group flex items-center justify-between py-13 font-alt text-[1rem] font-medium whitespace-nowrap transition-colors xl:py-18 xl:text-[1.375rem] ${
+                    active ? "text-primary" : "text-[var(--color-white)] hover:text-primary"
                   }`}
                 >
                   <span className="whitespace-nowrap">{link.label}</span>
-                  <Icon name="FaChevronRight" className="size-[1.125rem] shrink-0 transition-transform duration-300 group-hover:translate-x-[0.25rem] xl:size-[1.375rem]" />
+                  <Icon name="FaChevronRight" className="size-18 shrink-0 transition-transform duration-300 group-hover:translate-x-4 xl:size-22" />
                 </Link>
               </li>
             );
           })}
         </ul>
 
-        <div className="mt-auto flex flex-col gap-[0.875rem] border-t border-[var(--color-white-12)] px-[1.5rem] py-[1.375rem] font-sans text-[0.875rem] text-[var(--color-white-85)] xl:gap-[1.125rem] xl:px-[2.5rem] xl:py-[2rem] xl:text-[length:max(1.125rem,var(--text-min))]">
-          <DonateButton button={header.button} onClick={() => setOpen(false)} className="inline-flex h-[2.75rem] self-start sm:hidden" />
-          <a href={contactHref("tel", company.phone)} className="flex items-center gap-[0.75rem] transition-colors hover:text-[var(--color-primary)]">
-            <Icon name="FaPhoneAlt" className="size-[1.125rem] shrink-0 text-[var(--color-primary)] xl:size-[1.375rem]" />
+        <div className="mt-auto flex flex-col gap-14 border-t border-[var(--color-white-12)] px-24 py-22 font-main text-[0.875rem] text-[var(--color-white-85)] xl:gap-18 xl:px-40 xl:py-32 xl:text-[length:max(1.125rem,var(--text-min))]">
+          <DonateButton button={header.button} onClick={() => setOpen(false)} className="inline-flex h-44 self-start sm:hidden" />
+          <a href={contactHref("tel", company.phone)} className="flex items-center gap-12 transition-colors hover:text-primary">
+            <Icon name="FaPhoneAlt" className="size-18 shrink-0 text-primary xl:size-22" />
             {company.phone}
           </a>
-          <a href={contactHref("mailto", company.email)} className="flex items-center gap-[0.75rem] break-all transition-colors hover:text-[var(--color-primary)]">
-            <Icon name="FaEnvelope" className="size-[1.125rem] shrink-0 text-[var(--color-primary)] xl:size-[1.375rem]" />
+          <a href={contactHref("mailto", company.email)} className="flex items-center gap-12 break-all transition-colors hover:text-primary">
+            <Icon name="FaEnvelope" className="size-18 shrink-0 text-primary xl:size-22" />
             {company.email}
           </a>
-          <p className="flex items-start gap-[0.75rem]">
-            <Icon name="FaMapMarkerAlt" className="mt-[0.0625rem] size-[1.125rem] shrink-0 text-[var(--color-primary)] xl:size-[1.375rem]" />
-            <span className="whitespace-pre-line">{company.address}</span>
+          <p className="flex items-start gap-12">
+            <Icon name="FaMapMarkerAlt" className="mt-1 size-18 shrink-0 text-primary xl:size-22" />
+            <span className="whitespace-pre-line">{company.address.join("\n")}</span>
           </p>
-          <ul className="flex gap-[0.625rem] pt-[0.25rem]">
+          <ul className="flex gap-10 pt-4">
             {company.socialLinks.map((social) => (
               <li key={social.id}>
                 <a
@@ -176,9 +176,9 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="flex size-[2.375rem] items-center justify-center rounded-full bg-[var(--color-white-10)] transition-colors hover:bg-[var(--color-primary)] xl:size-[3rem]"
+                  className="flex size-38 items-center justify-center rounded-full bg-[var(--color-white-10)] transition-colors hover:bg-primary xl:size-48"
                 >
-                  <Icon name={social.icon} className="size-[1.0625rem] xl:size-[1.375rem]" />
+                  <Icon name={social.icon} className="size-17 xl:size-22" />
                 </a>
               </li>
             ))}

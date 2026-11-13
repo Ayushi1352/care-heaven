@@ -2,30 +2,33 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { Sparks } from "@/components/ui/Decor";
-import { contactField, contactHref } from "@/components/ui/helpers";
+import { contactField, contactHref } from "@/components/ui/text";
 import type { CompanyData, FooterData, NavLink } from "@/types/templates.types";
+
+// Tailwind only sees complete class names, so the row count of the two-column menu (half the links, rounded up) is picked from this list.
+const menuRows = ["", "grid-rows-[repeat(1,auto)]", "grid-rows-[repeat(2,auto)]", "grid-rows-[repeat(3,auto)]", "grid-rows-[repeat(4,auto)]", "grid-rows-[repeat(5,auto)]", "grid-rows-[repeat(6,auto)]"];
 
 export const Footer = ({ data: footer, company, links }: { data?: FooterData; company?: CompanyData; links?: NavLink[] }) => {
   if (!footer || !company) return null;
   const nav = links ?? [];
-  const half = Math.ceil(nav.length / 2);
+  const rows = menuRows[Math.min(Math.ceil(nav.length / 2), menuRows.length - 1)];
 
   return (
     <footer className="bg-[var(--color-footer-ring)] text-[var(--color-white)]">
-      <div className="px-[1.25rem] pt-[3.5rem] sm:px-[2rem] xl:px-[4.5rem] xl:pt-[4.5rem]">
-        <div className="grid grid-cols-[minmax(0,1fr)] gap-[2.75rem] md:grid-cols-2 xl:grid-cols-[39.4375rem_30.875rem_1fr] xl:gap-0">
+      <div className="px-20 pt-56 sm:px-32 xl:px-72 xl:pt-72">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-44 md:grid-cols-2 xl:grid-cols-[39.4375rem_30.875rem_1fr] xl:gap-0">
           {/* Logo + menu links */}
-          <div data-reveal="up" className="xl:pl-[3rem]">
-            <Link href={footer.logoUrl} aria-label={footer.siteName} className="block w-[16.25rem] max-w-full sm:w-[20rem] xl:w-[26.25rem]">
-              <Image src={footer.logo} alt={footer.logoAlt} width={footer.logoSize.width} height={footer.logoSize.height} quality={90} sizes="(min-width: 1024px) 25vw, 320px" className="h-auto w-full" />
+          <div data-reveal="up" className="xl:pl-48">
+            <Link href={company.logoUrl} aria-label={company.name} className="block w-260 max-w-full sm:w-320 xl:w-420">
+              <Image src={company.logoWhite} alt={company.logoAlt} width={company.logoWidth} height={company.logoHeight} quality={90} sizes="(min-width: 1024px) 25vw, 320px" className="h-auto w-full" />
             </Link>
-            <p className="mt-[2rem] font-sans text-[1.125rem] leading-none font-semibold tracking-[0.01em] uppercase xl:mt-[2.1875rem] xl:ml-[1.1875rem] xl:text-[1.375rem]">{footer.menuTitle}</p>
-            <span className="mt-[0.75rem] block h-[0.1875rem] w-[3.25rem] bg-[var(--color-primary)] xl:ml-[1.1875rem] xl:w-[3.875rem]" />
-            <ul className="mt-[1.375rem] grid max-w-[26.25rem] grid-flow-col grid-cols-2 gap-x-[1.25rem] gap-y-[0.75rem] font-sans text-[1rem] sm:gap-x-[2rem] xl:mt-[1.625rem] xl:ml-[1.4375rem] xl:max-w-none xl:grid-flow-col xl:grid-cols-[16.375rem_1fr] xl:gap-y-0" style={{ gridTemplateRows: `repeat(${half}, auto)` }}>
+            <p className="mt-32 font-main text-[1.125rem] leading-none font-semibold tracking-[0.01em] uppercase xl:mt-35 xl:ml-19 xl:text-[1.375rem]">{footer.menuTitle}</p>
+            <span className="mt-12 block h-3 w-52 bg-primary xl:ml-19 xl:w-62" />
+            <ul className={`mt-22 grid max-w-420 grid-flow-col grid-cols-2 gap-x-20 gap-y-12 font-main text-[1rem] sm:gap-x-32 xl:mt-26 xl:ml-23 xl:max-w-none xl:grid-flow-col xl:grid-cols-[16.375rem_1fr] xl:gap-y-0 ${rows}`}>
               {nav.map((link) => (
-                <li key={link.id} className="xl:h-[2.375rem]">
-                  <Link href={link.href} className="group inline-flex items-center gap-[0.75rem] whitespace-nowrap text-[var(--color-white-90)] transition-colors hover:text-[var(--color-primary)] xl:gap-[1.25rem] xl:text-[1.25rem] xl:leading-[1.625rem]">
-                    <Icon name="FaChevronRight" className="size-[0.875rem] shrink-0 text-[var(--color-primary)] transition-transform duration-300 group-hover:translate-x-[0.1875rem] xl:size-[1rem]" />
+                <li key={link.id} className="xl:h-38">
+                  <Link href={link.href} className="group inline-flex items-center gap-12 whitespace-nowrap text-[var(--color-white-90)] transition-colors hover:text-primary xl:gap-20 xl:text-[1.25rem] xl:leading-26">
+                    <Icon name="FaChevronRight" className="size-14 shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-3 xl:size-16" />
                     <span className="whitespace-nowrap">{link.label}</span>
                   </Link>
                 </li>
@@ -34,9 +37,9 @@ export const Footer = ({ data: footer, company, links }: { data?: FooterData; co
           </div>
 
           {/* Contact cards */}
-          <ul data-reveal="up" className="flex flex-col gap-[1rem] xl:mt-[2.5rem] xl:gap-[1.5rem]">
+          <ul data-reveal="up" className="flex flex-col gap-16 xl:mt-40 xl:gap-24">
             {footer.contactCards.map((card) => {
-              const { lines, type } = contactField(company, card.field);
+              const { lines, type } = contactField(company, card.source);
               const href = contactHref(type, lines[0]);
               const body = lines.map((line) => (
                 <span key={line} className="block">
@@ -44,19 +47,19 @@ export const Footer = ({ data: footer, company, links }: { data?: FooterData; co
                 </span>
               ));
               return (
-                <li key={card.id} className="group flex min-h-[6.5rem] items-center gap-[1rem] rounded-[0.5rem] bg-[var(--color-white)] px-[1rem] py-[1.125rem] text-[var(--color-accent-dark)] transition-transform duration-300 hover:-translate-y-[0.1875rem] xl:min-h-[8.125rem] xl:gap-0 xl:px-[1.25rem] xl:py-[1.25rem]">
-                  <span className="flex size-[4rem] shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-subtle)] text-[var(--color-primary)] transition-colors duration-300 group-hover:bg-[var(--color-primary)] group-hover:text-[var(--color-white)] xl:size-[5.25rem]">
-                    <Icon name={card.icon} className="size-[1.625rem] xl:size-[2.125rem]" />
+                <li key={card.id} className="group flex min-h-104 items-center gap-16 rounded-[0.5rem] bg-[var(--color-white)] px-16 py-18 text-accent-dark transition-transform duration-300 hover:-translate-y-3 xl:min-h-130 xl:gap-0 xl:px-20 xl:py-20">
+                  <span className="flex size-64 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-subtle)] text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-[var(--color-white)] xl:size-84">
+                    <Icon name={card.icon} className="size-26 xl:size-34" />
                   </span>
-                  <span className="hidden h-[4.375rem] w-[0.125rem] shrink-0 bg-[var(--color-footer-divider)] xl:mx-[1.5rem] xl:block" />
-                  <span className="min-w-0 border-l border-[var(--color-footer-divider)] pl-[1rem] xl:border-l-0 xl:pl-0">
-                    <span className="block font-sans text-[1.0625rem] font-semibold xl:text-[1.375rem] xl:leading-[1.875rem]">{card.title}</span>
+                  <span className="hidden h-70 w-2 shrink-0 bg-[var(--color-footer-divider)] xl:mx-24 xl:block" />
+                  <span className="min-w-0 border-l border-[var(--color-footer-divider)] pl-16 xl:border-l-0 xl:pl-0">
+                    <span className="block font-main text-[1.0625rem] font-semibold xl:text-[1.375rem] xl:leading-30">{card.title}</span>
                     {href ? (
-                      <a href={href} className="mt-[0.125rem] block font-sans text-[0.9375rem] break-words text-[var(--color-footer-text)] transition-colors hover:text-[var(--color-primary)] xl:mt-[0.25rem] xl:text-[1.1875rem] xl:leading-[1.8125rem]">
+                      <a href={href} className="mt-2 block font-main text-[0.9375rem] break-words text-[var(--color-footer-text)] transition-colors hover:text-primary xl:mt-4 xl:text-[1.1875rem] xl:leading-29">
                         {body}
                       </a>
                     ) : (
-                      <span className="mt-[0.125rem] block font-sans text-[0.9375rem] text-[var(--color-footer-text)] xl:mt-[0.25rem] xl:text-[length:max(1.125rem,var(--text-min))] xl:leading-[1.8125rem]">{body}</span>
+                      <span className="mt-2 block font-main text-[0.9375rem] text-[var(--color-footer-text)] xl:mt-4 xl:text-[length:max(1.125rem,var(--text-min))] xl:leading-29">{body}</span>
                     )}
                   </span>
                 </li>
@@ -65,24 +68,24 @@ export const Footer = ({ data: footer, company, links }: { data?: FooterData; co
           </ul>
 
           {/* Contact circle + socials */}
-          <div data-reveal="up" className="flex flex-col items-center md:col-span-2 xl:col-span-1 xl:pt-[6.25rem] xl:pl-[2.25rem]">
-            <div className="relative px-[0.5rem] min-[340px]:px-[2.5rem] xl:px-[2.875rem]">
-              <Sparks className="absolute top-[0.75rem] left-0 w-[2.75rem] rotate-[-8deg] text-[var(--color-primary)] xl:top-[0.875rem] xl:left-0 xl:w-[3.125rem]" />
-              <Sparks className="absolute right-[0.125rem] bottom-[2.375rem] w-[2.75rem] rotate-[150deg] text-[var(--color-primary)] xl:right-0 xl:bottom-[2.75rem] xl:w-[3rem]" />
+          <div data-reveal="up" className="flex flex-col items-center md:col-span-2 xl:col-span-1 xl:pt-100 xl:pl-36">
+            <div className="relative px-8 min-[340px]:px-40 xl:px-46">
+              <Sparks className="absolute top-12 left-0 w-44 rotate-[-8deg] text-primary xl:top-14 xl:left-0 xl:w-50" />
+              <Sparks className="absolute right-2 bottom-38 w-44 rotate-[150deg] text-primary xl:right-0 xl:bottom-44 xl:w-48" />
               <Link
                 href={footer.contactCircle.href}
-                className="group relative flex size-[13.75rem] flex-col items-center justify-center rounded-full border-[3px] border-[var(--color-primary)] bg-[var(--color-white)] p-[0.375rem] text-center shadow-[inset_0_0_0_5px_var(--color-footer-ring)] transition-[border-color,box-shadow] duration-300 hover:border-[var(--color-accent-dark)] hover:shadow-[inset_0_0_0_5px_var(--color-primary)] xl:size-[18.5rem] xl:border-4 xl:shadow-[inset_0_0_0_0.375rem_var(--color-footer-ring)] xl:hover:shadow-[inset_0_0_0_0.375rem_var(--color-primary)]"
+                className="group relative flex size-220 flex-col items-center justify-center rounded-full border-[3px] border-primary bg-[var(--color-white)] p-6 text-center shadow-[inset_0_0_0_5px_var(--color-footer-ring)] transition-[border-color,box-shadow] duration-300 hover:border-accent-dark hover:shadow-[inset_0_0_0_5px_var(--color-primary)] xl:size-296 xl:border-4 xl:shadow-[inset_0_0_0_0.375rem_var(--color-footer-ring)] xl:hover:shadow-[inset_0_0_0_0.375rem_var(--color-primary)]"
               >
-                <span className="absolute inset-[0.5rem] rounded-full bg-[var(--color-white)]" />
+                <span className="absolute inset-8 rounded-full bg-[var(--color-white)]" />
                 <span className="relative flex flex-col items-center">
-                  <HeartDoodle className="w-[3.5rem] text-[var(--color-primary)] xl:w-[4.75rem]" />
-                  <span className="mt-[0.375rem] font-display text-[1.875rem] leading-[1.05] text-[var(--color-accent-dark)] xl:mt-[0.625rem] xl:text-[2.5rem]">{footer.contactCircle.top}</span>
-                  <span className="font-display text-[1.875rem] leading-[1.15] text-[var(--color-primary)] xl:text-[2.5rem]">{footer.contactCircle.bottom}</span>
-                  <Icon name="FaArrowRight" className="mt-[0.25rem] size-[1.375rem] text-[var(--color-primary)] xl:mt-[0.5rem] xl:size-[1.875rem]" />
+                  <HeartDoodle className="w-56 text-primary xl:w-76" />
+                  <span className="mt-6 font-display text-[1.875rem] leading-[1.05] text-accent-dark xl:mt-10 xl:text-[2.5rem]">{footer.contactCircle.top}</span>
+                  <span className="font-display text-[1.875rem] leading-[1.15] text-primary xl:text-[2.5rem]">{footer.contactCircle.bottom}</span>
+                  <Icon name="FaArrowRight" className="mt-4 size-22 text-primary xl:mt-8 xl:size-30" />
                 </span>
               </Link>
             </div>
-            <ul className="mt-[1.75rem] flex flex-wrap justify-center gap-[0.875rem] xl:mt-[1.875rem] xl:gap-[1rem]">
+            <ul className="mt-28 flex flex-wrap justify-center gap-14 xl:mt-30 xl:gap-16">
               {company.socialLinks.map((social) => (
                 <li key={social.id}>
                   <a
@@ -90,9 +93,9 @@ export const Footer = ({ data: footer, company, links }: { data?: FooterData; co
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="flex size-[2.75rem] items-center justify-center rounded-full bg-[var(--color-white-14)] transition-colors duration-300 hover:bg-[var(--color-primary)] xl:size-[3.25rem]"
+                    className="flex size-44 items-center justify-center rounded-full bg-[var(--color-white-14)] transition-colors duration-300 hover:bg-primary xl:size-52"
                   >
-                    <Icon name={social.icon} className="size-[1.1875rem] xl:size-[1.5rem]" />
+                    <Icon name={social.icon} className="size-19 xl:size-24" />
                   </a>
                 </li>
               ))}
@@ -100,8 +103,8 @@ export const Footer = ({ data: footer, company, links }: { data?: FooterData; co
           </div>
         </div>
 
-        <div className="mt-[3rem] border-t border-[var(--color-white-25)] py-[1.5rem] xl:mt-[5.4375rem] xl:pt-[1.875rem] xl:pb-[2.875rem]">
-          <p className="font-sans text-[0.875rem] text-[var(--color-white-90)] xl:pl-[1.25rem] xl:text-[length:max(1.125rem,var(--text-min))]">
+        <div className="mt-48 border-t border-[var(--color-white-25)] py-24 xl:mt-87 xl:pt-30 xl:pb-46">
+          <p className="font-main text-[0.875rem] text-[var(--color-white-90)] xl:pl-20 xl:text-[length:max(1.125rem,var(--text-min))]">
             {footer.copyright}
           </p>
         </div>

@@ -2,7 +2,7 @@
 
 import { Children, useEffect, useRef, useState, type ReactNode } from "react";
 import { Icon } from "@/components/ui/Icon";
-import { fillLabel } from "@/components/ui/helpers";
+import { fill } from "@/components/ui/text";
 import type { GlobalUIData } from "@/types/templates.types";
 
 interface PaginatedProps {
@@ -29,7 +29,7 @@ function pageList(current: number, count: number): (number | "gap")[] {
 }
 
 // Shows `rows` rows of its children at a time, on every screen size, with numbered page buttons below (the row shows even with one page, as in the design).
-export const Paginated = ({ children, rows, columns, className, variant = "boxed", navClassName = "mt-[3rem] xl:mt-[5.3125rem]", ui }: PaginatedProps) => {
+export const Paginated = ({ children, rows, columns, className, variant = "boxed", navClassName = "mt-48 xl:mt-85", ui }: PaginatedProps) => {
   const items = Children.toArray(children);
   const [gridColumns, setGridColumns] = useState(columns);
   const perPage = rows * gridColumns;
@@ -59,42 +59,42 @@ export const Paginated = ({ children, rows, columns, className, variant = "boxed
 
   const boxed = variant === "boxed";
   const arrow = boxed
-    ? "size-[2.375rem] shrink-0 rounded-[0.375rem] bg-[var(--color-pagination-boxed-bg)] text-[var(--color-accent-dark)] sm:size-[2.875rem] xl:h-[4.125rem] xl:w-[4.25rem]"
-    : "size-[2.375rem] shrink-0 rounded-[0.375rem] bg-[var(--color-pagination-bg)] text-[var(--color-pagination-text)] sm:size-[2.75rem] xl:h-[3rem] xl:w-[3.125rem]";
+    ? "size-38 shrink-0 rounded-[0.375rem] bg-[var(--color-pagination-boxed-bg)] text-accent-dark sm:size-46 xl:h-66 xl:w-68"
+    : "size-38 shrink-0 rounded-[0.375rem] bg-[var(--color-pagination-bg)] text-[var(--color-pagination-text)] sm:size-44 xl:h-48 xl:w-50";
 
   return (
-    <div ref={top} className="scroll-mt-[7.5rem]">
+    <div ref={top} className="scroll-mt-120">
       <ul key={current} data-reveal-stagger className={className}>
         {items.slice(current * perPage, current * perPage + perPage)}
       </ul>
-      <nav aria-label={ui?.pagination} className={`flex items-center justify-center ${boxed ? "gap-[0.375rem] sm:gap-[0.5rem] xl:gap-[0.75rem]" : "gap-[0.375rem] sm:gap-[0.625rem] xl:gap-[1.25rem]"} ${navClassName}`}>
-        <button type="button" aria-label={ui?.previousPage} disabled={current === 0} onClick={() => go(current - 1)} className={`flex items-center justify-center transition-colors enabled:hover:bg-[var(--color-primary)] enabled:hover:text-[var(--color-white)] disabled:opacity-60 ${arrow}`}>
-          <Icon name="FaChevronLeft" className="size-[1rem] sm:size-[1.25rem] xl:size-[1.625rem]" />
+      <nav aria-label={ui?.pagination} className={`flex items-center justify-center ${boxed ? "gap-6 sm:gap-8 xl:gap-12" : "gap-6 sm:gap-10 xl:gap-20"} ${navClassName}`}>
+        <button type="button" aria-label={ui?.previousPage} disabled={current === 0} onClick={() => go(current - 1)} className={`flex items-center justify-center transition-colors enabled:hover:bg-primary enabled:hover:text-[var(--color-white)] disabled:opacity-60 ${arrow}`}>
+          <Icon name="FaChevronLeft" className="size-16 sm:size-20 xl:size-26" />
         </button>
         {pageList(current, pageCount).map((p, i) =>
           p === "gap" ? (
-            <span key={`gap-${i}`} className="px-[0.125rem] font-dm text-[1rem] font-bold text-[var(--color-accent-dark)] xl:text-[1.25rem]">
+            <span key={`gap-${i}`} className="px-2 font-dm text-[1rem] font-bold text-accent-dark xl:text-[1.25rem]">
               …
             </span>
           ) : (
             <button
               key={p}
               type="button"
-              aria-label={fillLabel(ui?.page, { n: p + 1 })}
+              aria-label={fill(ui?.goToPage, { n: p + 1 })}
               aria-current={p === current ? "page" : undefined}
               onClick={() => go(p)}
               className={
                 boxed
-                  ? `flex size-[2.375rem] shrink-0 items-center justify-center rounded-[0.375rem] font-dm text-[0.9375rem] font-semibold transition-colors sm:size-[2.875rem] sm:text-[1.125rem] xl:h-[4.125rem] xl:w-[4.25rem] xl:text-[1.625rem] ${p === current ? "bg-[var(--color-primary)] text-[var(--color-white)]" : "bg-[var(--color-pagination-boxed-bg)] text-[var(--color-accent-dark)] hover:bg-[var(--color-primary)] hover:text-[var(--color-white)]"}`
-                  : `flex size-[2.375rem] shrink-0 items-center justify-center rounded-full font-alt text-[0.9375rem] font-medium transition-colors sm:size-[3rem] sm:text-[1.0625rem] xl:size-[4.125rem] xl:text-[1.3125rem] ${p === current ? "bg-[var(--color-primary)] text-[var(--color-white)]" : "text-[var(--color-pagination-text)] hover:bg-[var(--color-pagination-bg)]"}`
+                  ? `flex size-38 shrink-0 items-center justify-center rounded-[0.375rem] font-dm text-[0.9375rem] font-semibold transition-colors sm:size-46 sm:text-[1.125rem] xl:h-66 xl:w-68 xl:text-[1.625rem] ${p === current ? "bg-primary text-[var(--color-white)]" : "bg-[var(--color-pagination-boxed-bg)] text-accent-dark hover:bg-primary hover:text-[var(--color-white)]"}`
+                  : `flex size-38 shrink-0 items-center justify-center rounded-full font-alt text-[0.9375rem] font-medium transition-colors sm:size-48 sm:text-[1.0625rem] xl:size-66 xl:text-[1.3125rem] ${p === current ? "bg-primary text-[var(--color-white)]" : "text-[var(--color-pagination-text)] hover:bg-[var(--color-pagination-bg)]"}`
               }
             >
               {String(p + 1).padStart(2, "0")}
             </button>
           ),
         )}
-        <button type="button" aria-label={ui?.nextPage} disabled={current === pageCount - 1} onClick={() => go(current + 1)} className={`flex items-center justify-center transition-colors enabled:hover:bg-[var(--color-primary)] enabled:hover:text-[var(--color-white)] disabled:opacity-60 ${arrow}`}>
-          <Icon name="FaChevronRight" className="size-[1rem] sm:size-[1.25rem] xl:size-[1.625rem]" />
+        <button type="button" aria-label={ui?.nextPage} disabled={current === pageCount - 1} onClick={() => go(current + 1)} className={`flex items-center justify-center transition-colors enabled:hover:bg-primary enabled:hover:text-[var(--color-white)] disabled:opacity-60 ${arrow}`}>
+          <Icon name="FaChevronRight" className="size-16 sm:size-20 xl:size-26" />
         </button>
       </nav>
     </div>

@@ -9,13 +9,13 @@ const sectionData = templateData.categories.NGO.sections;
 const commonData = templateData.common;
 
 // One common detail page for every post: all blog links point here.
-export const metadata: Metadata = { title: commonData.blogDetailBreadcrumb?.title, description: commonData.blogDetailBreadcrumb?.description };
+export const metadata: Metadata = { ...commonData.blogDetailBreadcrumb?.seo };
 
 export default function BlogDetailPage() {
   return (
     <main className="flex-1">
       <Breadcrumb data={commonData.blogDetailBreadcrumb} ui={commonData.globalUI} />
-      <BlogArticle data={sectionData.Blogs?.variants?.NGOBlogs1?.detail} ui={commonData.globalUI} />
+      <BlogArticle data={sectionData.BlogDetail?.variants?.NGOBlogDetail1} ui={commonData.globalUI} />
     </main>
   );
 }

@@ -23,20 +23,20 @@ export const FaqList = ({ data: faq }: { data?: FaqData }) => {
   if (!faq) return null;
 
   return (
-    <section className="relative overflow-hidden bg-[var(--color-white)] px-[1.25rem] pt-[4rem] pb-[4rem] sm:px-[2rem] md:pt-[5rem] md:pb-[5rem] xl:pt-[6.25rem] xl:pr-[5.875rem] xl:pb-[6.25rem] xl:pl-[6.0625rem]">
-      <OliveBranch className="pointer-events-none absolute top-[3.75rem] left-0 w-[6.875rem] xl:top-[4.6875rem] xl:-left-[1.25rem] xl:w-[13.4375rem]" />
-      <OliveBranch className="pointer-events-none absolute top-[3.75rem] right-0 hidden w-[7.5rem] -scale-x-100 rotate-[-30deg] sm:block xl:top-[4.375rem] xl:-right-[1.875rem] xl:w-[10rem]" />
+    <section className="relative overflow-hidden bg-[var(--color-white)] px-20 pt-64 pb-64 sm:px-32 md:pt-80 md:pb-80 xl:pt-100 xl:pr-94 xl:pb-100 xl:pl-97">
+      <OliveBranch className="pointer-events-none absolute top-60 left-0 w-110 xl:top-75 xl:-left-20 xl:w-215" />
+      <OliveBranch className="pointer-events-none absolute top-60 right-0 hidden w-120 -scale-x-100 rotate-[-30deg] sm:block xl:top-70 xl:-right-30 xl:w-160" />
 
       <div data-reveal="up" className="relative text-center">
-        <span className="mx-auto block h-[0.1875rem] w-[3.25rem] bg-[var(--color-primary)] xl:w-[4.25rem]" />
-        <p className="mt-[1rem] font-alt text-[1.125rem] font-semibold text-[var(--color-primary)] xl:mt-[1.875rem] xl:text-[1.5625rem]">{faq.label}</p>
-        <h2 className="mt-[0.375rem] font-heading font-bold text-[1.5rem] leading-[1.2] text-[var(--color-heading)] xs:text-[1.75rem] sm:text-[2.71875rem] xl:mt-[0.375rem] xl:text-[4.0625rem] xl:leading-[4.875rem]">
-          {faq.title} <span className="text-[var(--color-secondary-dark)]">{faq.titleHighlight}</span>
+        <span className="mx-auto block h-3 w-52 bg-primary xl:w-68" />
+        <p className="mt-16 font-alt text-[1.125rem] font-semibold text-primary xl:mt-30 xl:text-[1.5625rem]">{faq.label}</p>
+        <h2 className="mt-6 font-heading font-bold text-[1.5rem] leading-[1.2] text-[var(--color-heading)] xs:text-[1.75rem] sm:text-[2.71875rem] xl:mt-6 xl:text-[4.0625rem] xl:leading-78">
+          {faq.title} <span className="text-secondary-dark">{faq.titleHighlight}</span>
         </h2>
-        <p className="mx-auto mt-[0.625rem] max-w-[42.5rem] font-alt text-[0.9375rem] leading-[1.625rem] text-[var(--color-text)] xl:mt-[1.25rem] xl:max-w-[68.4375rem] xl:text-[1.46875rem] xl:leading-[2.3125rem]">{faq.description}</p>
+        <p className="mx-auto mt-10 max-w-680 font-alt text-[0.9375rem] leading-26 text-[var(--color-text)] xl:mt-20 xl:max-w-1095 xl:text-[1.46875rem] xl:leading-37">{faq.description}</p>
       </div>
 
-      <ul data-reveal-stagger className="relative mt-[2.25rem] flex flex-col gap-[0.875rem] xl:mt-[3.5rem] xl:gap-[1.625rem]">
+      <ul data-reveal-stagger className="relative mt-36 flex flex-col gap-14 xl:mt-56 xl:gap-26">
         {faq.items.map((item, i) => {
           const isOpen = open === i;
           const panelId = `faq-panel-${i}`;
@@ -53,24 +53,24 @@ export const FaqList = ({ data: faq }: { data?: FaqData }) => {
                   aria-expanded={isOpen}
                   aria-controls={panelId}
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className={`flex w-full items-center gap-[0.875rem] px-[0.875rem] py-[0.75rem] text-left xl:min-h-[7.375rem] xl:gap-0 xl:px-[2.1875rem] xl:py-[0.875rem] ${isOpen ? "border-b border-[var(--color-faq-divider)]" : ""}`}
+                  className={`flex w-full items-center gap-14 px-14 py-12 text-left xl:min-h-118 xl:gap-0 xl:px-35 xl:py-14 ${isOpen ? "border-b border-[var(--color-faq-divider)]" : ""}`}
                 >
-                  <span className={`flex size-[3.25rem] shrink-0 items-center justify-center rounded-full xl:size-[6.0625rem] ${tones[item.tone] ?? tones.orange}`}>
-                    <Icon name={item.icon} className="size-[1.5rem] xl:size-[2.75rem]" />
+                  <span className={`flex size-52 shrink-0 items-center justify-center rounded-full xl:size-97 ${tones[item.tone] ?? tones.orange}`}>
+                    <Icon name={item.icon} className="size-24 xl:size-44" />
                   </span>
-                  <span className="min-w-0 flex-1 font-heading font-bold text-[1.0625rem] leading-[1.3] text-[var(--color-faq-question)] xl:pl-[2.625rem] xl:text-[2.125rem] xl:leading-[2.625rem]">{item.question}</span>
+                  <span className="min-w-0 flex-1 font-heading font-bold text-[1.0625rem] leading-[1.3] text-[var(--color-faq-question)] xl:pl-42 xl:text-[2.125rem] xl:leading-42">{item.question}</span>
                   <span
-                    className={`flex size-[2.25rem] shrink-0 items-center justify-center rounded-full transition-[background-color,color,transform] duration-300 xl:size-[4.1875rem] ${
-                      isOpen ? "rotate-180 bg-[var(--color-primary)] text-[var(--color-white)]" : "bg-[var(--color-faq-toggle-bg)] text-[var(--color-accent-dark)]"
+                    className={`flex size-36 shrink-0 items-center justify-center rounded-full transition-[background-color,color,transform] duration-300 xl:size-67 ${
+                      isOpen ? "rotate-180 bg-primary text-[var(--color-white)]" : "bg-[var(--color-faq-toggle-bg)] text-accent-dark"
                     }`}
                   >
-                    <Icon name="FaChevronDown" className="size-[1.125rem] xl:size-[1.875rem]" />
+                    <Icon name="FaChevronDown" className="size-18 xl:size-30" />
                   </span>
                 </button>
               </h3>
               <div id={panelId} role="region" className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                 <div className="overflow-hidden">
-                  <p className="px-[1rem] pt-[0.875rem] pb-[1.25rem] font-alt text-[0.9375rem] leading-[1.625rem] text-[var(--color-text)] sm:pl-[5rem] xl:pt-[1.6875rem] xl:pr-[5.625rem] xl:pb-[2.375rem] xl:pl-[10.875rem] xl:text-[1.5rem] xl:leading-[2.25rem]">{item.answer}</p>
+                  <p className="px-16 pt-14 pb-20 font-alt text-[0.9375rem] leading-26 text-[var(--color-text)] sm:pl-80 xl:pt-27 xl:pr-90 xl:pb-38 xl:pl-174 xl:text-[1.5rem] xl:leading-36">{item.answer}</p>
                 </div>
               </div>
             </li>

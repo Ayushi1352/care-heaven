@@ -25,14 +25,15 @@ export interface GlobalUIData {
   mainNav: string;
   openMenu: string;
   closeMenu: string;
-  breadcrumb: string;
-  previous: string;
-  next: string;
+  breadcrumbLabel: string;
+  breadcrumbImage: string;
+  previousSlide: string;
+  nextSlide: string;
   goToSlide: string;
   pagination: string;
   previousPage: string;
   nextPage: string;
-  page: string;
+  goToPage: string;
   openImage: string;
   close: string;
   previousImage: string;
@@ -51,9 +52,19 @@ export interface SocialLink {
 }
 
 export interface CompanyData {
-  address: string;
-  email: string;
+  name: string;
+  logo: string;
+  logoWhite: string;
+  logoAlt: string;
+  logoUrl: string;
+  logoWidth: number;
+  logoHeight: number;
   phone: string;
+  email: string;
+  address: string[];
+  /** "{query}" is filled with the address */
+  mapEmbedUrl: string;
+  mapOpenUrl: string;
   socialLinks: SocialLink[];
 }
 
@@ -63,11 +74,14 @@ export interface BreadcrumbPath {
   url: string;
 }
 
-export interface BreadcrumbData {
+export interface SeoData {
   title: string;
   description: string;
-  bgImage: string;
-  bgImageAlt: string;
+}
+
+export interface BreadcrumbData {
+  title: string;
+  seo?: SeoData;
   paths: BreadcrumbPath[];
 }
 
@@ -83,11 +97,6 @@ export interface LinkData {
   href: string;
 }
 
-export interface LogoSize {
-  width: number;
-  height: number;
-}
-
 export interface NavLink extends LinkData {
   id: string;
 }
@@ -96,7 +105,8 @@ export interface ContactCard {
   id: string;
   icon: string;
   title: string;
-  field: string;
+  /** the company field shown on the card: "phone", "email" or "address" */
+  source: string;
 }
 
 export interface ContactCircle {
@@ -106,11 +116,6 @@ export interface ContactCircle {
 }
 
 export interface FooterData {
-  logo: string;
-  logoAlt: string;
-  logoUrl: string;
-  logoSize: LogoSize;
-  siteName: string;
   menuTitle: string;
   contactCards: ContactCard[];
   contactCircle: ContactCircle;
@@ -136,12 +141,6 @@ export interface CommonData {
 }
 
 export interface HeaderData {
-  logo: string;
-  logoWhite: string;
-  logoAlt: string;
-  logoUrl: string;
-  logoSize: LogoSize;
-  siteName: string;
   nav: NavLink[];
   button: LinkData;
 }
@@ -278,7 +277,6 @@ export interface BlogsData {
   homeCount: number;
   rowsPerPage: number;
   posts: BlogPost[];
-  detail: BlogDetailData;
   detailPageUrl: string;
 }
 
@@ -321,7 +319,6 @@ export interface CausesData {
   readMore: string;
   rowsPerPage: number;
   items: CauseItem[];
-  detail: CauseDetailData;
   detailPageUrl: string;
 }
 
@@ -422,7 +419,9 @@ export interface NGOSections {
   WhyChooseUs?: Section<"NGOWhyChooseUs1", WhyChooseUsData>;
   Testimonials?: Section<"NGOTestimonials1", TestimonialsData>;
   Blogs?: Section<"NGOBlogs1", BlogsData>;
+  BlogDetail?: Section<"NGOBlogDetail1", BlogDetailData>;
   Causes?: Section<"NGOCauses1", CausesData>;
+  CauseDetail?: Section<"NGOCauseDetail1", CauseDetailData>;
   Team?: Section<"NGOTeam1", TeamData>;
   Gallery?: Section<"NGOGallery1", GalleryData>;
   Faq?: Section<"NGOFaq1", FaqData>;

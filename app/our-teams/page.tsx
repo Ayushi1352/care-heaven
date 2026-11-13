@@ -8,7 +8,7 @@ const templateData: NGOTemplateData = rawData;
 const sectionData = templateData.categories.NGO.sections;
 const commonData = templateData.common;
 
-export const metadata: Metadata = { title: commonData.teamsBreadcrumb?.title, description: commonData.teamsBreadcrumb?.description };
+export const metadata: Metadata = { ...commonData.teamsBreadcrumb?.seo };
 
 export default function OurTeamsPage() {
   return (

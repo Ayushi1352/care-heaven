@@ -8,7 +8,7 @@ const templateData: NGOTemplateData = rawData;
 const sectionData = templateData.categories.NGO.sections;
 const commonData = templateData.common;
 
-export const metadata: Metadata = { title: commonData.contactBreadcrumb?.title, description: commonData.contactBreadcrumb?.description };
+export const metadata: Metadata = { ...commonData.contactBreadcrumb?.seo };
 
 export default function ContactUsPage() {
   return (

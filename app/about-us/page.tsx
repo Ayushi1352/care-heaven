@@ -11,16 +11,16 @@ const templateData: NGOTemplateData = rawData;
 const sectionData = templateData.categories.NGO.sections;
 const commonData = templateData.common;
 
-export const metadata: Metadata = { title: commonData.aboutBreadcrumb?.title, description: commonData.aboutBreadcrumb?.description };
+export const metadata: Metadata = { ...commonData.aboutBreadcrumb?.seo };
 
 export default function AboutUsPage() {
   return (
     <main className="flex-1">
       <Breadcrumb data={commonData.aboutBreadcrumb} ui={commonData.globalUI} />
-      <AboutNgo data={sectionData.AboutUs?.variants?.NGOAboutUs1} className="pt-[4rem] pb-[4rem] md:pt-[5rem] md:pb-[5rem] xl:pt-[6.25rem] xl:pb-[6.25rem]" />
+      <AboutNgo data={sectionData.AboutUs?.variants?.NGOAboutUs1} detailed />
       <Stats data={sectionData.Stats?.variants?.NGOStats1} />
       <WhyChooseUs data={sectionData.WhyChooseUs?.variants?.NGOWhyChooseUs1} company={commonData.company} />
-      <Testimonials data={sectionData.Testimonials?.variants?.NGOTestimonials1} ui={commonData.globalUI} className="pt-[4rem] pb-[4rem] md:pt-[5rem] md:pb-[5rem] xl:pt-[6.25rem] xl:pb-[6.25rem]" />
+      <Testimonials data={sectionData.Testimonials?.variants?.NGOTestimonials1} ui={commonData.globalUI} detailed />
     </main>
   );
 }

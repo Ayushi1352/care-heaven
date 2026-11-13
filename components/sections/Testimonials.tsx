@@ -4,25 +4,26 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
 import { SoftLeaves } from "@/components/ui/Decor";
-import { fillLabel } from "@/components/ui/helpers";
+import { fill } from "@/components/ui/text";
 import type { GlobalUIData, TestimonialsData } from "@/types/templates.types";
 
 const AUTOPLAY_MS = 6000;
 
 function Stars({ rating, label, className = "" }: { rating: number; label?: string; className?: string }) {
   return (
-    <span role="img" aria-label={label} className={`flex gap-[0.1875rem] text-[var(--color-star)] xl:gap-[0.25rem] ${className}`}>
+    <span role="img" aria-label={label} className={`flex gap-3 text-star xl:gap-4 ${className}`}>
       {Array.from({ length: 5 }, (_, i) => (
-        <Icon key={i} name="FaStar" className={`size-[1rem] xl:size-[1.375rem] ${i < rating ? "" : "opacity-25"}`} />
+        <Icon key={i} name="FaStar" className={`size-16 xl:size-22 ${i < rating ? "" : "opacity-25"}`} />
       ))}
     </span>
   );
 }
 
 /** "Review from Our Supporters" slider — home page and About Us page. */
-export const Testimonials = ({ data: testimonials, ui, className = "" }: { data?: TestimonialsData; ui?: GlobalUIData; className?: string }) => {
+export const Testimonials = ({ data: testimonials, ui, detailed = false }: { data?: TestimonialsData; ui?: GlobalUIData; detailed?: boolean }) => {
   const items = testimonials?.items ?? [];
-  const spacing = className || "pt-[2rem] pb-[2rem] md:pt-[2.5rem] md:pb-[2.5rem] xl:pt-[3.125rem] xl:pb-[3.125rem]";
+  // The About Us page shows this section with more room around it than the home page.
+  const spacing = detailed ? "pt-64 pb-64 md:pt-80 md:pb-80 xl:pt-100 xl:pb-100" : "pt-32 pb-32 md:pt-40 md:pb-40 xl:pt-50 xl:pb-50";
   // Starts on the middle slide, as in the design (second dot active).
   const [index, setIndex] = useState(items.length > 1 ? 1 : 0);
   const [paused, setPaused] = useState(false);
@@ -38,26 +39,26 @@ export const Testimonials = ({ data: testimonials, ui, className = "" }: { data?
 
   if (!testimonials) return null;
 
-  const arrow = "absolute top-[32%] z-10 flex size-[3rem] -translate-y-1/2 items-center justify-center rounded-full bg-[var(--color-white)] text-[var(--color-tertiary-dark)] shadow-[0_8px_24px_var(--color-shadow-testimonial-arrow)] transition-colors hover:bg-[var(--color-primary)] hover:text-[var(--color-white)] max-sm:top-auto max-sm:-bottom-[3.6875rem] max-sm:size-[2.5rem] max-sm:translate-y-0 xl:size-[4.375rem]";
+  const arrow = "absolute top-[32%] z-10 flex size-48 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--color-white)] text-tertiary-dark shadow-[0_8px_24px_var(--color-shadow-testimonial-arrow)] transition-colors hover:bg-primary hover:text-[var(--color-white)] max-sm:top-auto max-sm:-bottom-59 max-sm:size-40 max-sm:translate-y-0 xl:size-70";
 
   return (
-    <section className={`relative overflow-hidden bg-[var(--color-white)] px-[1.25rem] sm:px-[2rem] xl:px-0 ${spacing}`}>
-      <SoftLeaves className="pointer-events-none absolute bottom-[1.25rem] -left-[2.5rem] w-[16.25rem] text-[var(--color-testimonial-decor)] xl:bottom-[1.875rem] xl:-left-[1.5rem] xl:w-[18.75rem]" />
+    <section className={`relative overflow-hidden bg-[var(--color-white)] px-20 sm:px-32 xl:px-0 ${spacing}`}>
+      <SoftLeaves className="pointer-events-none absolute bottom-20 -left-40 w-260 text-[var(--color-testimonial-decor)] xl:bottom-30 xl:-left-24 xl:w-300" />
 
       <div data-reveal="up" className="relative text-center">
-        <p className="flex items-center justify-center gap-[0.875rem] font-sans text-[0.875rem] font-medium tracking-[0.1em] text-[var(--color-primary)] uppercase xl:gap-[1.0625rem] xl:text-[1.3125rem]">
-          <span className="h-px w-[3rem] bg-[var(--color-primary)] xl:w-[4rem]" />
+        <p className="flex items-center justify-center gap-14 font-main text-[0.875rem] font-medium tracking-[0.1em] text-primary uppercase xl:gap-17 xl:text-[1.3125rem]">
+          <span className="h-px w-48 bg-primary xl:w-64" />
           {testimonials.label}
-          <span className="h-px w-[3rem] bg-[var(--color-primary)] xl:w-[4rem]" />
+          <span className="h-px w-48 bg-primary xl:w-64" />
         </p>
-        <h2 className="mt-[0.625rem] font-heading font-bold text-[1.5rem] leading-[1.2] text-[var(--color-tertiary-dark)] xs:text-[1.75rem] sm:text-[2.71875rem] xl:mt-[0.5rem] xl:text-[4.4375rem] xl:leading-[5rem]">
-          {testimonials.title} <span className="text-[var(--color-primary)]">{testimonials.titleHighlight}</span>
+        <h2 className="mt-10 font-heading font-bold text-[1.5rem] leading-[1.2] text-tertiary-dark xs:text-[1.75rem] sm:text-[2.71875rem] xl:mt-8 xl:text-[4.4375rem] xl:leading-80">
+          {testimonials.title} <span className="text-primary">{testimonials.titleHighlight}</span>
         </h2>
-        <p className="mt-[0.375rem] font-dm text-[1rem] text-[var(--color-text-subtitle)] xl:mt-[0.125rem] xl:text-[1.5625rem]">{testimonials.subtitle}</p>
+        <p className="mt-6 font-dm text-[1rem] text-[var(--color-text-subtitle)] xl:mt-2 xl:text-[1.5625rem]">{testimonials.subtitle}</p>
       </div>
 
       <div
-        className="relative mx-auto mt-[1.75rem] max-w-[86.125rem] xl:mt-[1.375rem]"
+        className="relative mx-auto mt-28 max-w-1378 xl:mt-22"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
         onTouchStart={(e) => {
@@ -72,58 +73,58 @@ export const Testimonials = ({ data: testimonials, ui, className = "" }: { data?
           touchX.current = null;
         }}
       >
-        <div className="flex items-center justify-center gap-[1rem] xl:gap-[1.375rem]">
-          <span className="h-px w-[4.375rem] bg-[var(--color-testimonial-divider)] xl:w-[6.9375rem]" />
-          <span className="flex size-[3.25rem] items-center justify-center rounded-full bg-[var(--color-bg-subtle)] text-[var(--color-tertiary-dark)] xl:size-[4rem]">
-            <Icon name="FaQuoteLeft" className="size-[1.25rem] xl:size-[1.5rem]" />
+        <div className="flex items-center justify-center gap-16 xl:gap-22">
+          <span className="h-px w-70 bg-[var(--color-testimonial-divider)] xl:w-111" />
+          <span className="flex size-52 items-center justify-center rounded-full bg-[var(--color-bg-subtle)] text-tertiary-dark xl:size-64">
+            <Icon name="FaQuoteLeft" className="size-20 xl:size-24" />
           </span>
-          <span className="h-px w-[4.375rem] bg-[var(--color-testimonial-divider)] xl:w-[6.9375rem]" />
+          <span className="h-px w-70 bg-[var(--color-testimonial-divider)] xl:w-111" />
         </div>
 
         {/* All slides share one grid cell, so the box is as tall as the longest quote and never jumps. */}
-        <div className="relative grid sm:px-[4rem] xl:px-0">
-          <button type="button" aria-label={ui?.previous} onClick={() => go(index - 1)} className={`${arrow} left-0`}>
-            <Icon name="FaArrowLeft" className="size-[1.25rem] xl:size-[1.5rem]" />
+        <div className="relative grid sm:px-64 xl:px-0">
+          <button type="button" aria-label={ui?.previousSlide} onClick={() => go(index - 1)} className={`${arrow} left-0`}>
+            <Icon name="FaArrowLeft" className="size-20 xl:size-24" />
           </button>
-          <button type="button" aria-label={ui?.next} onClick={() => go(index + 1)} className={`${arrow} right-0`}>
-            <Icon name="FaArrowRight" className="size-[1.25rem] xl:size-[1.5rem]" />
+          <button type="button" aria-label={ui?.nextSlide} onClick={() => go(index + 1)} className={`${arrow} right-0`}>
+            <Icon name="FaArrowRight" className="size-20 xl:size-24" />
           </button>
 
           {items.map((item, i) => (
             <figure
               key={item.id}
               aria-hidden={i !== index}
-              className={`col-start-1 row-start-1 mx-auto flex w-full max-w-[56.25rem] flex-col items-center text-center transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                i === index ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-[0.75rem] opacity-0"
+              className={`col-start-1 row-start-1 mx-auto flex w-full max-w-900 flex-col items-center text-center transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                i === index ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-12 opacity-0"
               }`}
             >
-              <blockquote className="mt-[1.375rem] font-quote text-[1.3125rem] leading-[1.4] text-[var(--color-tertiary-dark)] sm:text-[1.625rem] xl:mt-[1.125rem] xl:text-[2.3125rem] xl:leading-[2.875rem]">
-                <span className="relative -top-[0.2em] mr-[0.25rem] font-heading font-bold text-[1.05em] text-[var(--color-tertiary-dark)]">&ldquo;</span>
+              <blockquote className="mt-22 font-quote text-[1.3125rem] leading-[1.4] text-tertiary-dark sm:text-[1.625rem] xl:mt-18 xl:text-[2.3125rem] xl:leading-46">
+                <span className="relative -top-[0.2em] mr-4 font-heading font-bold text-[1.05em] text-tertiary-dark">&ldquo;</span>
                 {item.quote}&rdquo;
               </blockquote>
-              <figcaption className="mt-[1.5rem] flex items-center gap-[1rem] text-left xl:mt-[1.9375rem] xl:gap-[1.375rem]">
-                <span className="relative size-[5rem] shrink-0 overflow-hidden rounded-full xl:size-[6.1875rem]">
-                  <Image src={item.avatar} alt={item.name} fill quality={90} sizes="100px" className="object-cover" style={{ objectPosition: item.avatarPosition }} />
+              <figcaption className="mt-24 flex items-center gap-16 text-left xl:mt-31 xl:gap-22">
+                <span className="relative size-80 shrink-0 overflow-hidden rounded-full xl:size-99">
+                  <Image src={item.avatar} alt={item.name} fill quality={90} sizes="100px" className={`object-cover ${item.avatarPosition}`} />
                 </span>
                 <span>
-                  <span className="block font-dm text-[1.0625rem] font-bold text-[var(--color-tertiary-dark)] xl:text-[1.34375rem]">{item.name}</span>
-                  <span className="mt-[0.125rem] block font-dm text-[0.875rem] text-[var(--color-testimonial-role)] xl:text-[length:max(1.0625rem,var(--text-min))]">{item.role}</span>
-                  <Stars rating={item.rating} label={fillLabel(ui?.rating, { n: item.rating })} className="mt-[0.5rem] xl:mt-[0.625rem]" />
+                  <span className="block font-dm text-[1.0625rem] font-bold text-tertiary-dark xl:text-[1.34375rem]">{item.name}</span>
+                  <span className="mt-2 block font-dm text-[0.875rem] text-[var(--color-testimonial-role)] xl:text-[length:max(1.0625rem,var(--text-min))]">{item.role}</span>
+                  <Stars rating={item.rating} label={fill(ui?.rating, { n: item.rating })} className="mt-8 xl:mt-10" />
                 </span>
               </figcaption>
             </figure>
           ))}
         </div>
 
-        <div className="mt-[1.1875rem] flex h-[2.5rem] items-center justify-center gap-[0.875rem] sm:mt-[2rem] sm:h-auto xl:mt-[3.5rem] xl:gap-[0.9375rem]">
+        <div className="mt-19 flex h-40 items-center justify-center gap-14 sm:mt-32 sm:h-auto xl:mt-56 xl:gap-15">
           {items.map((item, i) => (
             <button
               key={item.id}
               type="button"
-              aria-label={fillLabel(ui?.goToSlide, { n: i + 1 })}
+              aria-label={fill(ui?.goToSlide, { n: i + 1 })}
               aria-current={i === index}
               onClick={() => go(i)}
-              className={`size-[0.875rem] rounded-full transition-colors xl:size-[1.09375rem] ${i === index ? "bg-[var(--color-primary)]" : "bg-[var(--color-testimonial-dot)] hover:bg-[var(--color-testimonial-dot-hover)]"}`}
+              className={`size-14 rounded-full transition-colors xl:size-[1.09375rem] ${i === index ? "bg-primary" : "bg-[var(--color-testimonial-dot)] hover:bg-[var(--color-testimonial-dot-hover)]"}`}
             />
           ))}
         </div>
