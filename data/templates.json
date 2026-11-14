@@ -38,8 +38,7 @@
         },
         {
           "id": "about-us",
-          "label": "About Us",
-          "url": ""
+          "label": "About Us"
         }
       ]
     },
@@ -58,8 +57,7 @@
         },
         {
           "id": "our-causes",
-          "label": "Our Causes",
-          "url": ""
+          "label": "Our Causes"
         }
       ]
     },
@@ -83,8 +81,7 @@
         },
         {
           "id": "causes-details",
-          "label": "Causes Details",
-          "url": ""
+          "label": "Causes Details"
         }
       ]
     },
@@ -103,8 +100,7 @@
         },
         {
           "id": "our-teams",
-          "label": "Our Teams",
-          "url": ""
+          "label": "Our Teams"
         }
       ]
     },
@@ -123,8 +119,7 @@
         },
         {
           "id": "our-gallery",
-          "label": "Our Gallery",
-          "url": ""
+          "label": "Our Gallery"
         }
       ]
     },
@@ -143,8 +138,7 @@
         },
         {
           "id": "our-blog",
-          "label": "Our Blog",
-          "url": ""
+          "label": "Our Blog"
         }
       ]
     },
@@ -168,8 +162,7 @@
         },
         {
           "id": "blog-detail",
-          "label": "Blog Detail",
-          "url": ""
+          "label": "Blog Detail"
         }
       ]
     },
@@ -188,8 +181,7 @@
         },
         {
           "id": "faqs",
-          "label": "Faqs",
-          "url": ""
+          "label": "Faqs"
         }
       ]
     },
@@ -208,18 +200,15 @@
         },
         {
           "id": "contact-us",
-          "label": "Contact Us",
-          "url": ""
+          "label": "Contact Us"
         }
       ]
     },
     "Footer": {
-      "logo": {
-        "src": "/images/logo-white.webp",
-        "alt": "CareHaven Foundation - A Better World For Everyone",
-        "width": 960,
-        "height": 329
-      },
+      "logo": "/images/logo-white.webp",
+      "logoAlt": "CareHaven Foundation - A Better World For Everyone",
+      "logoWidth": 960,
+      "logoHeight": 329,
       "logoUrl": "/",
       "logoLabel": "CareHaven Foundation",
       "menuTitle": "Menu Links",
@@ -227,42 +216,42 @@
         {
           "id": "home",
           "label": "Home",
-          "href": "/"
+          "url": "/"
         },
         {
           "id": "about-us",
           "label": "About Us",
-          "href": "/about-us"
+          "url": "/about-us"
         },
         {
           "id": "our-causes",
           "label": "Our Causes",
-          "href": "/our-causes"
+          "url": "/our-causes"
         },
         {
           "id": "our-teams",
           "label": "Our Teams",
-          "href": "/our-teams"
+          "url": "/our-teams"
         },
         {
           "id": "our-gallery",
           "label": "Our Gallery",
-          "href": "/our-gallery"
+          "url": "/our-gallery"
         },
         {
           "id": "our-blog",
           "label": "Our Blog",
-          "href": "/our-blog"
+          "url": "/our-blog"
         },
         {
           "id": "faqs",
           "label": "Faqs",
-          "href": "/faqs"
+          "url": "/faqs"
         },
         {
           "id": "contact-us",
           "label": "Contact Us",
-          "href": "/contact-us"
+          "url": "/contact-us"
         }
       ],
       "contactCards": [
@@ -282,7 +271,7 @@
           "lines": [
             "info@xyz.com"
           ],
-          "type": "mailto"
+          "url": "mailto:info@xyz.com"
         },
         {
           "id": "call-us",
@@ -291,48 +280,43 @@
           "lines": [
             "+1 0000000000"
           ],
-          "type": "tel"
+          "url": "tel:+10000000000"
         }
       ],
       "contactCircle": {
         "top": "CONTACT",
         "bottom": "US",
-        "href": "/contact-us"
+        "url": "/contact-us"
       },
-      "copyright": "© 2026 All Rights Reserved. Powered by Lestow.",
+      "copyrightText": "© 2026 All Rights Reserved. Powered by Lestow.",
       "poweredBy": "Powered by Lestow",
       "socialLinks": [
         {
           "id": "facebook",
-          "name": "Facebook",
           "icon": "FaFacebookF",
           "url": "https://www.facebook.com/",
           "label": "CareHaven Foundation on Facebook"
         },
         {
           "id": "instagram",
-          "name": "Instagram",
           "icon": "FaInstagram",
           "url": "https://www.instagram.com/",
           "label": "CareHaven Foundation on Instagram"
         },
         {
           "id": "linkedin",
-          "name": "LinkedIn",
           "icon": "FaLinkedinIn",
           "url": "https://www.linkedin.com/",
           "label": "CareHaven Foundation on LinkedIn"
         },
         {
           "id": "youtube",
-          "name": "YouTube",
           "icon": "FaYoutube",
           "url": "https://www.youtube.com/",
           "label": "CareHaven Foundation on YouTube"
         },
         {
           "id": "x",
-          "name": "X",
           "icon": "FaXTwitter",
           "url": "https://x.com/",
           "label": "CareHaven Foundation on X"
@@ -346,68 +330,66 @@
         "Header": {
           "variants": {
             "NGOHeader1": {
-              "logo": {
-                "src": "/images/logo.webp",
-                "alt": "CareHaven Foundation - A Better World For Everyone",
-                "width": 960,
-                "height": 329
-              },
-              "logoWhite": {
-                "src": "/images/logo-white.webp",
-                "alt": "CareHaven Foundation - A Better World For Everyone",
-                "width": 960,
-                "height": 329
-              },
+              "logo": "/images/logo.webp",
+              "logoAlt": "CareHaven Foundation - A Better World For Everyone",
+              "logoWidth": 960,
+              "logoHeight": 329,
+              "logoWhite": "/images/logo-white.webp",
+              "logoWhiteAlt": "CareHaven Foundation - A Better World For Everyone",
+              "logoWhiteWidth": 960,
+              "logoWhiteHeight": 329,
               "logoUrl": "/",
               "logoLabel": "CareHaven Foundation",
-              "nav": [
+              "navLinks": [
                 {
                   "id": "home",
                   "label": "Home",
-                  "href": "/"
+                  "url": "/"
                 },
                 {
                   "id": "about-us",
                   "label": "About Us",
-                  "href": "/about-us"
+                  "url": "/about-us"
                 },
                 {
                   "id": "our-causes",
                   "label": "Our Causes",
-                  "href": "/our-causes"
+                  "url": "/our-causes"
                 },
                 {
                   "id": "our-teams",
                   "label": "Our Teams",
-                  "href": "/our-teams"
+                  "url": "/our-teams"
                 },
                 {
                   "id": "our-gallery",
                   "label": "Our Gallery",
-                  "href": "/our-gallery"
+                  "url": "/our-gallery"
                 },
                 {
                   "id": "our-blog",
                   "label": "Our Blog",
-                  "href": "/our-blog"
+                  "url": "/our-blog"
                 },
                 {
                   "id": "faqs",
                   "label": "Faqs",
-                  "href": "/faqs"
+                  "url": "/faqs"
                 },
                 {
                   "id": "contact-us",
                   "label": "Contact Us",
-                  "href": "/contact-us"
+                  "url": "/contact-us"
                 }
               ],
               "button": {
                 "label": "Donate Now",
-                "href": "/contact-us"
+                "url": "/contact-us"
               },
               "phone": "+1 0000000000",
+              "phoneUrl": "tel:+10000000000",
               "email": "info@xyz.com",
+              "emailUrl": "mailto:info@xyz.com",
               "address": [
                 "123 Main Street,",
                 "New York, NY 10001, USA"
@@ -415,35 +397,30 @@
               "socialLinks": [
                 {
                   "id": "facebook",
-                  "name": "Facebook",
                   "icon": "FaFacebookF",
                   "url": "https://www.facebook.com/",
                   "label": "CareHaven Foundation on Facebook"
                 },
                 {
                   "id": "instagram",
-                  "name": "Instagram",
                   "icon": "FaInstagram",
                   "url": "https://www.instagram.com/",
                   "label": "CareHaven Foundation on Instagram"
                 },
                 {
                   "id": "linkedin",
-                  "name": "LinkedIn",
                   "icon": "FaLinkedinIn",
                   "url": "https://www.linkedin.com/",
                   "label": "CareHaven Foundation on LinkedIn"
                 },
                 {
                   "id": "youtube",
-                  "name": "YouTube",
                   "icon": "FaYoutube",
                   "url": "https://www.youtube.com/",
                   "label": "CareHaven Foundation on YouTube"
                 },
                 {
                   "id": "x",
-                  "name": "X",
                   "icon": "FaXTwitter",
                   "url": "https://x.com/",
                   "label": "CareHaven Foundation on X"
@@ -463,12 +440,8 @@
               "titleHighlight": "LIFE SAVER",
               "titleAfter": "FOR",
               "titleBottom": "SOMEONE",
-              "image": {
-                "src": "/images/home/hero-girl-studying.webp",
-                "alt": "A girl writing in her notebook during a CareHaven learning class",
-                "width": 2114,
-                "height": 1468
-              },
+              "image": "/images/home/hero-girl-studying.webp",
+              "imageAlt": "A girl writing in her notebook during a CareHaven learning class",
               "mission": {
                 "title": "Our Mission",
                 "text": "Our mission is to rescue, protect, and care for animals in need, providing with safe.",
@@ -528,26 +501,18 @@
               "titleHighlight": "Hope",
               "titleEnd": "and Humanity",
               "description": "We believe in the power of collective compassion. Through dedicated efforts and inclusive programs, we support vulnerable communities and create opportunities for a brighter, more equitable future.",
-              "image": {
-                "src": "/images/about/kids-waving.webp",
-                "alt": "Smiling children waving at the camera",
-                "width": 1652,
-                "height": 1942
-              },
+              "image": "/images/about/kids-waving.webp",
+              "imageAlt": "Smiling children waving at the camera",
               "feature": {
                 "icon": "FaUsers",
                 "title": "Empowering Communities",
                 "text": "We work closely with community to I dentify real needs and create lasting change.",
-                "image": {
-                  "src": "/images/about/kids-reading.webp",
-                  "alt": "Children reading a book together",
-                  "width": 694,
-                  "height": 460
-                }
+                "image": "/images/about/kids-reading.webp",
+                "imageAlt": "Children reading a book together"
               },
               "button": {
                 "label": "More About Us",
-                "href": "/about-us"
+                "url": "/about-us"
               }
             }
           }
@@ -555,6 +520,7 @@
         "Stats": {
           "variants": {
             "NGOStats1": {
+              "counterDurationMs": 1800,
               "items": [
                 {
                   "id": "children-families-served",
@@ -592,22 +558,19 @@
               "titleHighlight": "TOMORROW",
               "titleAfter": "FOR",
               "titleBottom": "BRIGHTER LIVES",
-              "image": {
-                "src": "/images/about/smiling-girl.webp",
-                "alt": "A smiling girl with her friends",
-                "width": 1210,
-                "height": 736
-              },
+              "image": "/images/about/smiling-girl.webp",
+              "imageAlt": "A smiling girl with her friends",
               "call": {
                 "label": "Call Us Anytime",
-                "phone": "+1 0000000000"
+                "phone": "+1 0000000000",
+                "phoneUrl": "tel:+10000000000"
               },
               "lead": "We are a nonprofit that makes it easy and safe to give to projects anywhere in the world, while providing local organizations the tools, training, and support they need to become more effective.",
               "missionTitle": "Our Mission",
               "missionText": "We are committed to providing the highest level of care and support. Trust us to help create lasting change and a better world for future generations.",
               "button": {
                 "label": "More About Us",
-                "href": "/our-causes"
+                "url": "/our-causes"
               }
             }
           }
@@ -627,6 +590,7 @@
                   "role": "Monthly Donor",
                   "rating": 5,
                   "avatar": "/images/team/lauren-wilson.webp",
+                  "avatarAlt": "Lauren Wilson",
                   "avatarPosition": "object-[50%_22%]"
                 },
                 {
@@ -636,6 +600,7 @@
                   "role": "Verified Supporter",
                   "rating": 5,
                   "avatar": "/images/testimonials/arc-joan.webp",
+                  "avatarAlt": "Arc Joan",
                   "avatarPosition": "object-[50%_50%]"
                 },
                 {
@@ -645,9 +610,11 @@
                   "role": "Volunteer",
                   "rating": 5,
                   "avatar": "/images/team/daniel-carter.webp",
+                  "avatarAlt": "Daniel Carter",
                   "avatarPosition": "object-[50%_18%]"
                 }
               ],
+              "sliderIntervalMs": 6000,
               "ratingLabel": "{n} out of 5 stars",
               "previousLabel": "Previous",
               "nextLabel": "Next",
@@ -748,7 +715,8 @@
                 "prefix": "By",
                 "name": "Priya Sharma",
                 "role": "Education & Community Development",
-                "avatar": "/images/blog/author-priya.webp"
+                "avatar": "/images/blog/author-priya.webp",
+                "avatarAlt": "Priya Sharma"
               },
               "intro": "Education is one of the most powerful tools to break the cycle of poverty and create equal opportunities for every child. At our organization, we believe that every child, regardless of their background, deserves access to quality education, a safe learning environment, and the support they need to reach their full potential.",
               "sections": [
@@ -757,12 +725,8 @@
                   "title": "Creating Opportunities",
                   "titleHighlight": "Through Education",
                   "text": "Our education programs focus on providing school supplies, learning materials, tuition support, and mentorship to children from underprivileged communities. By removing barriers to education, we help children stay in school, gain confidence, and develop the skills they need for a brighter future.",
-                  "image": {
-                    "src": "/images/blog/detail-girl-writing.webp",
-                    "alt": "A smiling girl writing in her notebook",
-                    "width": 1466,
-                    "height": 996
-                  },
+                  "image": "/images/blog/detail-girl-writing.webp",
+                  "imageAlt": "A smiling girl writing in her notebook",
                   "titleBreak": true
                 },
                 {
@@ -770,24 +734,16 @@
                   "title": "Real Impact",
                   "titleHighlight": "in Communities",
                   "text": "Through the support of our donors, volunteers, and community partners, we have helped hundreds of children continue their education. Many of them are now excelling in their studies, pursuing higher education, and inspiring others in their communities.",
-                  "image": {
-                    "src": "/images/blog/detail-kids-group.webp",
-                    "alt": "A group of happy school children",
-                    "width": 1374,
-                    "height": 736
-                  }
+                  "image": "/images/blog/detail-kids-group.webp",
+                  "imageAlt": "A group of happy school children"
                 },
                 {
                   "id": "looking",
                   "title": "Looking",
                   "titleHighlight": "Ahead",
                   "text": "We remain committed to expanding our education initiatives to reach more children and communities. With continued support, we can create lasting change and ensure that every child has the opportunity to learn, grow, and achieve their dreams.",
-                  "image": {
-                    "src": "/images/blog/detail-boy-reading.webp",
-                    "alt": "A smiling boy reading at his desk",
-                    "width": 1420,
-                    "height": 778
-                  }
+                  "image": "/images/blog/detail-boy-reading.webp",
+                  "imageAlt": "A smiling boy reading at his desk"
                 }
               ],
               "quote": "“A child with education is a child with hope.\nWhen we educate a child, we empower a community\nand build a brighter tomorrow.”",
@@ -869,12 +825,8 @@
         "CauseDetail": {
           "variants": {
             "NGOCauseDetail1": {
-              "image": {
-                "src": "/images/causes/details-classroom.webp",
-                "alt": "Children working on an activity in their classroom",
-                "width": 2872,
-                "height": 1282
-              },
+              "image": "/images/causes/details-classroom.webp",
+              "imageAlt": "Children working on an activity in their classroom",
               "label": "Our Cause",
               "title": "Education for",
               "titleHighlight": "Children",
@@ -904,26 +856,18 @@
                   "tone": "rose"
                 }
               ],
-              "sideImage": {
-                "src": "/images/causes/details-girl.webp",
-                "alt": "A smiling schoolgirl holding her books",
-                "width": 844,
-                "height": 1284
-              },
+              "sideImage": "/images/causes/details-girl.webp",
+              "sideImageAlt": "A smiling schoolgirl holding her books",
               "gallery": [
                 {
                   "id": "details-students",
-                  "src": "/images/causes/details-students.webp",
-                  "alt": "A smiling girl in a classroom with her classmates",
-                  "width": 1328,
-                  "height": 750
+                  "image": "/images/causes/details-students.webp",
+                  "imageAlt": "A smiling girl in a classroom with her classmates"
                 },
                 {
                   "id": "details-plant",
-                  "src": "/images/causes/details-plant.webp",
-                  "alt": "Hands holding a young plant in soil",
-                  "width": 1188,
-                  "height": 750
+                  "image": "/images/causes/details-plant.webp",
+                  "imageAlt": "Hands holding a young plant in soil"
                 }
               ],
               "impactTitle": "Our Impact",
@@ -944,55 +888,64 @@
                   "id": "priya-sharma",
                   "name": "Priya Sharma",
                   "role": "Program Director",
-                  "image": "/images/team/priya-sharma.webp"
+                  "image": "/images/team/priya-sharma.webp",
+                  "imageAlt": "Priya Sharma"
                 },
                 {
                   "id": "rahul-mehta",
                   "name": "Rahul Mehta",
                   "role": "Operations Manager",
-                  "image": "/images/team/rahul-mehta.webp"
+                  "image": "/images/team/rahul-mehta.webp",
+                  "imageAlt": "Rahul Mehta"
                 },
                 {
                   "id": "neha-verma",
                   "name": "Neha Verma",
                   "role": "Community Outreach Lead",
-                  "image": "/images/team/neha-verma.webp"
+                  "image": "/images/team/neha-verma.webp",
+                  "imageAlt": "Neha Verma"
                 },
                 {
                   "id": "arjun-kapoor",
                   "name": "Arjun Kapoor",
                   "role": "Volunteer Coordinator",
-                  "image": "/images/team/arjun-kapoor.webp"
+                  "image": "/images/team/arjun-kapoor.webp",
+                  "imageAlt": "Arjun Kapoor"
                 },
                 {
                   "id": "sneha-iyer",
                   "name": "Sneha Iyer",
                   "role": "Project Manager",
-                  "image": "/images/team/sneha-iyer.webp"
+                  "image": "/images/team/sneha-iyer.webp",
+                  "imageAlt": "Sneha Iyer"
                 },
                 {
                   "id": "daniel-carter",
                   "name": "Daniel Carter",
                   "role": "Education Coordinator",
-                  "image": "/images/team/daniel-carter.webp"
+                  "image": "/images/team/daniel-carter.webp",
+                  "imageAlt": "Daniel Carter"
                 },
                 {
                   "id": "kavya-nair",
                   "name": "Kavya Nair",
                   "role": "Health & Wellness Lead",
-                  "image": "/images/team/kavya-nair.webp"
+                  "image": "/images/team/kavya-nair.webp",
+                  "imageAlt": "Kavya Nair"
                 },
                 {
                   "id": "vikram-singh",
                   "name": "Vikram Singh",
                   "role": "Fundraising Manager",
-                  "image": "/images/team/vikram-singh.webp"
+                  "image": "/images/team/vikram-singh.webp",
+                  "imageAlt": "Vikram Singh"
                 },
                 {
                   "id": "lauren-wilson",
                   "name": "Lauren Wilson",
                   "role": "Communications Lead",
-                  "image": "/images/team/lauren-wilson.webp"
+                  "image": "/images/team/lauren-wilson.webp",
+                  "imageAlt": "Lauren Wilson"
                 }
               ],
               "paginationLabel": "Pagination",
@@ -1013,63 +966,63 @@
               "images": [
                 {
                   "id": "boy-writing",
-                  "src": "/images/gallery/boy-writing.webp",
-                  "alt": "A smiling boy writing in class"
+                  "image": "/images/gallery/boy-writing.webp",
+                  "imageAlt": "A smiling boy writing in class"
                 },
                 {
                   "id": "girls-reading",
-                  "src": "/images/gallery/girls-reading.webp",
-                  "alt": "Girls reading together in a classroom"
+                  "image": "/images/gallery/girls-reading.webp",
+                  "imageAlt": "Girls reading together in a classroom"
                 },
                 {
                   "id": "girl-with-books",
-                  "src": "/images/gallery/girl-with-books.webp",
-                  "alt": "A girl resting on a stack of books"
+                  "image": "/images/gallery/girl-with-books.webp",
+                  "imageAlt": "A girl resting on a stack of books"
                 },
                 {
                   "id": "teacher-reading",
-                  "src": "/images/gallery/teacher-reading.webp",
-                  "alt": "A teacher reading a story to children"
+                  "image": "/images/gallery/teacher-reading.webp",
+                  "imageAlt": "A teacher reading a story to children"
                 },
                 {
                   "id": "boy-eating",
-                  "src": "/images/gallery/boy-eating.webp",
-                  "alt": "A boy enjoying a meal"
+                  "image": "/images/gallery/boy-eating.webp",
+                  "imageAlt": "A boy enjoying a meal"
                 },
                 {
                   "id": "kids-walking",
-                  "src": "/images/gallery/kids-walking.webp",
-                  "alt": "Children walking to school"
+                  "image": "/images/gallery/kids-walking.webp",
+                  "imageAlt": "Children walking to school"
                 },
                 {
                   "id": "girl-playing",
-                  "src": "/images/gallery/girl-playing.webp",
-                  "alt": "A girl playing outdoors with her arms open"
+                  "image": "/images/gallery/girl-playing.webp",
+                  "imageAlt": "A girl playing outdoors with her arms open"
                 },
                 {
                   "id": "boys-smiling",
-                  "src": "/images/gallery/boys-smiling.webp",
-                  "alt": "A group of boys smiling together"
+                  "image": "/images/gallery/boys-smiling.webp",
+                  "imageAlt": "A group of boys smiling together"
                 },
                 {
                   "id": "relief-aid",
-                  "src": "/images/gallery/relief-aid.webp",
-                  "alt": "Volunteers handing relief supplies"
+                  "image": "/images/gallery/relief-aid.webp",
+                  "imageAlt": "Volunteers handing relief supplies"
                 },
                 {
                   "id": "doctor-checkup",
-                  "src": "/images/gallery/doctor-checkup.webp",
-                  "alt": "A doctor checking a young girl"
+                  "image": "/images/gallery/doctor-checkup.webp",
+                  "imageAlt": "A doctor checking a young girl"
                 },
                 {
                   "id": "plant-in-hands",
-                  "src": "/images/gallery/plant-in-hands.webp",
-                  "alt": "Hands holding a young plant"
+                  "image": "/images/gallery/plant-in-hands.webp",
+                  "imageAlt": "Hands holding a young plant"
                 },
                 {
                   "id": "boy-with-book",
-                  "src": "/images/gallery/boy-with-book.webp",
-                  "alt": "A smiling boy holding a book"
+                  "image": "/images/gallery/boy-with-book.webp",
+                  "imageAlt": "A smiling boy holding a book"
                 }
               ],
               "openImageLabel": "Open image: {name}",
@@ -1175,7 +1128,7 @@
                   "lines": [
                     "+1 0000000000"
                   ],
-                  "type": "tel"
+                  "url": "tel:+10000000000"
                 },
                 {
                   "id": "email-address",
@@ -1184,7 +1137,7 @@
                   "lines": [
                     "info@xyz.com"
                   ],
-                  "type": "mailto"
+                  "url": "mailto:info@xyz.com"
                 }
               ],
               "map": {
@@ -1264,24 +1217,24 @@
                 "component": "NGOHeader1"
               },
               {
-                "key": "Hero",
+                "key": "HeroSection",
                 "component": "NGOHero1"
               },
               {
                 "key": "HowWeHelp",
-                "component": "NGOHowWeHelp1"
+                "component": "HowWeHelp"
               },
               {
                 "key": "AboutUs",
-                "component": "NGOAboutUs1"
+                "component": "AboutUs"
               },
               {
                 "key": "Testimonials",
-                "component": "NGOTestimonials1"
+                "component": "Testimonials"
               },
               {
-                "key": "Blogs",
-                "component": "NGOBlogs1"
+                "key": "BlogSection",
+                "component": "BlogSection"
               },
               {
                 "key": "Footer",
@@ -1297,23 +1250,23 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.aboutBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "AboutUs",
-                "component": "NGOAboutUs1"
+                "component": "AboutUs"
               },
               {
                 "key": "Stats",
-                "component": "NGOStats1"
+                "component": "Stats"
               },
               {
                 "key": "WhyChooseUs",
-                "component": "NGOWhyChooseUs1"
+                "component": "WhyChooseUs"
               },
               {
                 "key": "Testimonials",
-                "component": "NGOTestimonials1"
+                "component": "Testimonials"
               },
               {
                 "key": "Footer",
@@ -1329,11 +1282,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.causesBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "Causes",
-                "component": "NGOCauses1"
+                "component": "Causes"
               },
               {
                 "key": "Footer",
@@ -1349,11 +1302,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.causeDetailBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "CauseDetail",
-                "component": "NGOCauseDetail1"
+                "component": "CauseDetail"
               },
               {
                 "key": "Footer",
@@ -1369,11 +1322,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.teamsBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "Team",
-                "component": "NGOTeam1"
+                "component": "Team"
               },
               {
                 "key": "Footer",
@@ -1389,11 +1342,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.galleryBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "Gallery",
-                "component": "NGOGallery1"
+                "component": "Gallery"
               },
               {
                 "key": "Footer",
@@ -1409,11 +1362,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.blogsBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "Blogs",
-                "component": "NGOBlogs1"
+                "component": "Blogs"
               },
               {
                 "key": "Footer",
@@ -1429,11 +1382,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.blogDetailBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "BlogDetail",
-                "component": "NGOBlogDetail1"
+                "component": "BlogDetail"
               },
               {
                 "key": "Footer",
@@ -1449,11 +1402,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.faqsBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "Faq",
-                "component": "NGOFaq1"
+                "component": "Faq"
               },
               {
                 "key": "Footer",
@@ -1469,11 +1422,11 @@
               },
               {
                 "key": "Breadcrumb",
-                "component": "common.contactBreadcrumb"
+                "component": "Breadcrumb"
               },
               {
                 "key": "Contact",
-                "component": "NGOContact1"
+                "component": "Contact"
               },
               {
                 "key": "Footer",

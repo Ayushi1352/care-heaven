@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import rawData from "@/data/templates.json";
-import type { NGOTemplateData } from "@/types/templates.types";
-import { Breadcrumb } from "@/components/common/Breadcrumb";
-import { CauseDetail } from "@/components/sections/CauseDetail";
+import type { Metadata } from 'next';
+import rawData from '@/data/templates.json';
+import type { NGOTemplateData } from '@/types/templates.types';
+import { Breadcrumb } from '@/components/common/Breadcrumb';
+import { CauseDetail } from '@/components/sections/CauseDetail';
 
 // One common detail page for every cause: all cause links point here.
 export const metadata: Metadata = { ...(rawData as NGOTemplateData).common.causeDetailBreadcrumb?.seo };

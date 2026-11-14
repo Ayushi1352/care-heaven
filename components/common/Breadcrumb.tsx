@@ -1,10 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
-import { introHidden, kenburnsStart } from "@/components/ui/motion";
-import type { BreadcrumbProps } from "@/types/templates.types";
+import Image from 'next/image';
+import Link from 'next/link';
+import { introHidden, kenburnsStart } from '@/components/ui/motion';
+import type { BreadcrumbProps } from '@/types/templates.types';
 
 export const Breadcrumb = ({ data, ui }: BreadcrumbProps) => {
-  if (!data) return null;
+  if (!data || !ui) return null;
   return (
     <section className="relative flex h-300 items-center justify-center overflow-hidden bg-accent px-16 pt-70 sm:h-340 md:h-380 xl:h-478 xl:pt-152">
       {/* The photo is a clean greyscale picture; the blue tint is this overlay, not part of the image. */}
@@ -25,32 +25,30 @@ export const Breadcrumb = ({ data, ui }: BreadcrumbProps) => {
         <h1 data-intro="up" className={`font-heading font-bold text-[2rem] leading-[1.15] text-[var(--color-white)] xs:text-[2.375rem] sm:text-[3.8125rem] md:text-[4.5rem] xl:text-[7.5rem] xl:leading-none ${introHidden}`}>
           {data.title}
         </h1>
-        <nav aria-label={ui?.breadcrumbLabel} data-intro="up" data-intro-delay="200" className={`mt-10 sm:mt-14 md:mt-18 xl:mt-24 ${introHidden}`}>
+        <nav aria-label={ui.breadcrumbLabel} data-intro="up" data-intro-delay="200" className={`mt-10 sm:mt-14 md:mt-18 xl:mt-24 ${introHidden}`}>
           <ol className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 font-alt text-[0.9375rem] font-medium sm:gap-x-14 sm:text-[1.125rem] xl:gap-x-20 xl:text-[1.5rem]">
-            {data.paths.map((item, index) =>
-              index === 0 ? (
-                <li key={item.id}>
-                  <Link href={item.url} className="whitespace-nowrap text-[var(--color-white-90)] transition-colors duration-200 hover:text-primary">
-                    {item.label}
-                  </Link>
-                </li>
+            {data.paths.map((item, index) => {
+              // Every step but the last links back; the last one (no url) is the current page.
+              const step = item.url ? (
+                <Link href={item.url} className="whitespace-nowrap text-[var(--color-white-90)] transition-colors duration-200 hover:text-primary">
+                  {item.label}
+                </Link>
+              ) : (
+                <span aria-current="page" className="whitespace-nowrap font-semibold text-primary">
+                  {item.label}
+                </span>
+              );
+              return index === 0 ? (
+                <li key={item.id}>{step}</li>
               ) : (
                 <li key={item.id} className="flex items-center gap-x-10 sm:gap-x-14 xl:gap-x-20">
                   <span aria-hidden="true" className="text-[var(--color-white-70)] select-none">
-                    {ui?.breadcrumbSeparator}
+                    {ui.breadcrumbSeparator}
                   </span>
-                  {item.url ? (
-                    <Link href={item.url} className="whitespace-nowrap text-[var(--color-white-90)] transition-colors duration-200 hover:text-primary">
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <span aria-current="page" className="whitespace-nowrap font-semibold text-primary">
-                      {item.label}
-                    </span>
-                  )}
+                  {step}
                 </li>
-              ),
-            )}
+              );
+            })}
           </ol>
         </nav>
       </div>

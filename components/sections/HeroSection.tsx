@@ -1,7 +1,7 @@
-import Image from "next/image";
-import { Icon } from "@/components/ui/Icon";
-import { introHidden } from "@/components/ui/motion";
-import type { HeroSectionProps } from "@/types/templates.types";
+import Image from 'next/image';
+import { Icon } from '@/components/ui/Icon';
+import { introHidden } from '@/components/ui/motion';
+import type { HeroSectionProps } from '@/types/templates.types';
 
 export const HeroSection = ({ data: hero }: HeroSectionProps) => {
   if (!hero) return null;
@@ -19,7 +19,7 @@ export const HeroSection = ({ data: hero }: HeroSectionProps) => {
               {hero.titleTop}
             </span>
             <span data-intro="up" data-intro-delay="240" className={`block ${introHidden}`}>
-              <span className="-ml-6 inline-block rounded-[0.5rem] bg-[var(--color-white)] px-8 leading-[1.08] text-primary xl:-ml-13 xl:rounded-[0.625rem] xl:px-13 xl:leading-109">{hero.titleHighlight}</span>{" "}
+              <span className="-ml-6 inline-block rounded-[0.5rem] bg-[var(--color-white)] px-8 leading-[1.08] text-primary xl:-ml-13 xl:rounded-[0.625rem] xl:px-13 xl:leading-109">{hero.titleHighlight}</span>{' '}
               <span className="xl:ml-8">{hero.titleAfter}</span>
             </span>
             <span data-intro="up" data-intro-delay="360" className={`block ${introHidden}`}>
@@ -36,7 +36,7 @@ export const HeroSection = ({ data: hero }: HeroSectionProps) => {
           data-intro-delay="300"
           className={`relative aspect-[933/649] overflow-hidden rounded-[0.625rem] shadow-[0_8px_24px_var(--color-shadow-hero-image)] xl:absolute xl:top-572 xl:left-722 xl:w-933 xl:rounded-[0.5625rem] ${introHidden}`}
         >
-          <Image src={hero.image.src} alt={hero.image.alt} fill preload quality={90} sizes="(min-width: 1024px) 56vw, 100vw" className="object-cover" />
+          <Image src={hero.image} alt={hero.imageAlt} fill preload quality={90} sizes="(min-width: 1024px) 56vw, 100vw" className="object-cover" />
         </div>
 
         {/* Mission */}

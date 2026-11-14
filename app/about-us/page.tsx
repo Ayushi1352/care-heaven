@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
-import rawData from "@/data/templates.json";
-import type { NGOTemplateData } from "@/types/templates.types";
-import { Breadcrumb } from "@/components/common/Breadcrumb";
-import { AboutUs } from "@/components/sections/AboutUs";
-import { Stats } from "@/components/sections/Stats";
-import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
-import { Testimonials } from "@/components/sections/Testimonials";
+import type { Metadata } from 'next';
+import rawData from '@/data/templates.json';
+import type { NGOTemplateData } from '@/types/templates.types';
+import { Breadcrumb } from '@/components/common/Breadcrumb';
+import { AboutUs } from '@/components/sections/AboutUs';
+import { Stats } from '@/components/sections/Stats';
+import { WhyChooseUs } from '@/components/sections/WhyChooseUs';
+import { Testimonials } from '@/components/sections/Testimonials';
 
 export const metadata: Metadata = { ...(rawData as NGOTemplateData).common.aboutBreadcrumb?.seo };
 

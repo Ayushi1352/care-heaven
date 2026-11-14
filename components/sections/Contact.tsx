@@ -1,14 +1,13 @@
-"use client";
+'use client';
 
-import { Icon } from "@/components/ui/Icon";
-import { Field } from "@/components/ui/Field";
-import { BrushStroke, SoftLeaves } from "@/components/ui/Decor";
-import { useFormSubmit } from "@/components/ui/useFormSubmit";
-import { contactHref } from "@/components/ui/text";
-import type { ContactData, ContactProps } from "@/types/templates.types";
+import { Icon } from '@/components/ui/Icon';
+import { Field } from '@/components/ui/Field';
+import { BrushStroke, SoftLeaves } from '@/components/ui/Decor';
+import { useFormSubmit } from '@/components/ui/useFormSubmit';
+import type { ContactData, ContactProps } from '@/types/templates.types';
 
 // Desktop positions of the three cards (design pixels): two stacked on the left, one between them on the right.
-const placement = ["xl:top-155 xl:left-862 xl:h-245", "xl:top-320 xl:left-1253 xl:h-210", "xl:top-487 xl:left-862 xl:h-208"];
+const placement = ['xl:top-155 xl:left-862 xl:h-245', 'xl:top-320 xl:left-1253 xl:h-210', 'xl:top-487 xl:left-862 xl:h-208'];
 
 function ContactInfo({ contact }: { contact: ContactData }) {
   return (
@@ -31,20 +30,19 @@ function ContactInfo({ contact }: { contact: ContactData }) {
 
       <ul data-reveal-stagger className="relative mt-80 grid gap-x-24 gap-y-80 sm:grid-cols-2 xl:static xl:mt-0 xl:block">
         {contact.cards.map((card, i) => {
-          const href = contactHref(card.type, card.lines[0]);
           const body = card.lines.map((line) => (
             <span key={line} className="block">
               {line}
             </span>
           ));
           return (
-            <li key={card.id} className={`group relative flex flex-col items-center rounded-[0.25rem] bg-[var(--color-bg-contact)] px-20 pt-76 pb-28 text-center shadow-[0_10px_30px_var(--color-shadow-contact-card)] xl:absolute xl:w-350 xl:px-20 xl:pt-88 xl:pb-0 ${placement[i] ?? ""}`}>
+            <li key={card.id} className={`group relative flex flex-col items-center rounded-[0.25rem] bg-[var(--color-bg-contact)] px-20 pt-76 pb-28 text-center shadow-[0_10px_30px_var(--color-shadow-contact-card)] xl:absolute xl:w-350 xl:px-20 xl:pt-88 xl:pb-0 ${placement[i] ?? ''}`}>
               <span className="absolute -top-56 left-1/2 flex size-112 -translate-x-1/2 items-center justify-center rounded-full bg-[var(--color-contact-icon-bg)] text-[var(--color-white)] shadow-[0_12px_28px_var(--color-shadow-contact-icon)] transition-transform duration-500 group-hover:-translate-y-6 xl:-top-55 xl:size-120">
                 <Icon name={card.icon} className="size-44 xl:size-48" />
               </span>
               <h3 className="font-heading font-bold text-[1.3125rem] text-accent-dark xl:text-[1.6875rem] xl:leading-34">{card.title}</h3>
-              {href ? (
-                <a href={href} className="mt-8 block font-form text-[1rem] leading-27 break-words text-[var(--color-contact-text)] transition-colors hover:text-tertiary xl:mt-10 xl:text-[1.3125rem] xl:leading-35">
+              {card.url ? (
+                <a href={card.url} className="mt-8 block font-form text-[1rem] leading-27 break-words text-[var(--color-contact-text)] transition-colors hover:text-tertiary xl:mt-10 xl:text-[1.3125rem] xl:leading-35">
                   {body}
                 </a>
               ) : (

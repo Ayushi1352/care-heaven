@@ -1,14 +1,14 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Icon } from "@/components/ui/Icon";
-import type { AboutUsProps } from "@/types/templates.types";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Icon } from '@/components/ui/Icon';
+import type { AboutUsProps } from '@/types/templates.types';
 
 /** "Movement Built Hope and Humanity" — used on the home page and the About Us page. */
 export const AboutUs = ({ data: about, detailed = false }: AboutUsProps) => {
   if (!about) return null;
 
   // The About Us page shows this section with more room around it than the home page.
-  const spacing = detailed ? "pt-64 pb-64 md:pt-80 md:pb-80 xl:pt-100 xl:pb-100" : "pt-32 pb-32 md:pt-40 md:pb-40 xl:pt-50 xl:pb-50";
+  const spacing = detailed ? 'pt-64 pb-64 md:pt-80 md:pb-80 xl:pt-100 xl:pb-100' : 'pt-32 pb-32 md:pt-40 md:pb-40 xl:pt-50 xl:pb-50';
   return (
     <section className={`relative bg-[var(--color-white)] px-20 sm:px-32 xl:px-0 ${spacing}`}>
       {/* Soft blush band behind the top part of the section */}
@@ -16,7 +16,7 @@ export const AboutUs = ({ data: about, detailed = false }: AboutUsProps) => {
 
       <div className="relative flex flex-col gap-44 lg:flex-row lg:items-start xl:gap-0">
         <div data-reveal="left" className="relative mx-auto aspect-[731/858] w-full max-w-560 overflow-hidden rounded-[0.75rem] lg:mx-0 lg:w-[45%] lg:max-w-none xl:ml-81 xl:w-731 xl:shrink-0 xl:rounded-[0.6875rem]">
-          <Image src={about.image.src} alt={about.image.alt} fill quality={90} sizes="(min-width: 1024px) 44vw, 100vw" className="object-cover transition-transform duration-[1.5s] hover:scale-105" />
+          <Image src={about.image} alt={about.imageAlt} fill quality={90} sizes="(min-width: 1024px) 44vw, 100vw" className="object-cover transition-transform duration-[1.5s] hover:scale-105" />
         </div>
 
         <div data-reveal="right" className="min-w-0 flex-1 xl:ml-53 xl:w-768 xl:flex-none">
@@ -44,12 +44,12 @@ export const AboutUs = ({ data: about, detailed = false }: AboutUsProps) => {
               </p>
             </div>
             <div className="relative aspect-[311/206] overflow-hidden rounded-[0.875rem] sm:w-[46%] xl:w-311 xl:shrink-0 xl:rounded-[1rem]">
-              <Image src={about.feature.image.src} alt={about.feature.image.alt} fill quality={90} sizes="(min-width: 1024px) 19vw, (min-width: 640px) 45vw, 100vw" className="object-cover" />
+              <Image src={about.feature.image} alt={about.feature.imageAlt} fill quality={90} sizes="(min-width: 1024px) 19vw, (min-width: 640px) 45vw, 100vw" className="object-cover" />
             </div>
           </div>
 
           <Link
-            href={about.button.href}
+            href={about.button.url}
             className="group mt-30 inline-flex h-52 items-center gap-14 rounded-full border border-highlight bg-highlight px-30 font-main text-[1.0625rem] font-semibold text-tertiary-dark transition-colors duration-300 hover:border-tertiary-dark hover:bg-[var(--color-white)] xl:h-58 xl:w-279 xl:justify-center xl:gap-22 xl:px-0 xl:text-[1.25rem]"
           >
             {about.button.label}

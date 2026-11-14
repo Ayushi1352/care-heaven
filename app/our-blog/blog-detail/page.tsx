@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import rawData from "@/data/templates.json";
-import type { NGOTemplateData } from "@/types/templates.types";
-import { Breadcrumb } from "@/components/common/Breadcrumb";
-import { BlogDetail } from "@/components/sections/BlogDetail";
+import type { Metadata } from 'next';
+import rawData from '@/data/templates.json';
+import type { NGOTemplateData } from '@/types/templates.types';
+import { Breadcrumb } from '@/components/common/Breadcrumb';
+import { BlogDetail } from '@/components/sections/BlogDetail';
 
 // One common detail page for every post: all blog links point here.
 export const metadata: Metadata = { ...(rawData as NGOTemplateData).common.blogDetailBreadcrumb?.seo };

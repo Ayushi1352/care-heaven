@@ -1,31 +1,31 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-const REVEAL = "[data-reveal], [data-reveal-stagger] > *";
-const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
+const REVEAL = '[data-reveal], [data-reveal-stagger] > *';
+const EASE = 'cubic-bezier(0.22, 1, 0.36, 1)';
 const STAGGER_MS = 100;
 const MAX_STAGGER_STEPS = 7;
 
 /** Starting point of each scroll animation. */
 const FROM: Record<string, Keyframe> = {
-  up: { opacity: 0, transform: "translateY(3rem)" },
-  left: { opacity: 0, transform: "translateX(-4rem)" },
-  right: { opacity: 0, transform: "translateX(4rem)" },
-  zoom: { opacity: 0, transform: "scale(0.88)" },
+  up: { opacity: 0, transform: 'translateY(3rem)' },
+  left: { opacity: 0, transform: 'translateX(-4rem)' },
+  right: { opacity: 0, transform: 'translateX(4rem)' },
+  zoom: { opacity: 0, transform: 'scale(0.88)' },
   fade: { opacity: 0 },
 };
 
 /** Starting point and length of each page-load animation (hero and page banner). */
 const INTRO: Record<string, { from: Keyframe; duration: number }> = {
-  up: { from: { opacity: 0, transform: "translateY(2.5rem)" }, duration: 900 },
-  kenburns: { from: { transform: "scale(1.12)" }, duration: 2400 },
+  up: { from: { opacity: 0, transform: 'translateY(2.5rem)' }, duration: 900 },
+  kenburns: { from: { transform: 'scale(1.12)' }, duration: 2400 },
 };
 
 // Streamed <Suspense> content lands in the DOM before React hydrates it, and
 // changing it then makes hydration report a mismatch. So an element is only
 // touched once React has attached its fiber to it (hydrated).
-const isHydrated = (element: Element) => Object.keys(element).some((key) => key.startsWith("__reactFiber$"));
+const isHydrated = (element: Element) => Object.keys(element).some((key) => key.startsWith('__reactFiber$'));
 
 /**
  * Plays the animations of the whole site.
@@ -44,16 +44,16 @@ const isHydrated = (element: Element) => Object.keys(element).some((key) => key.
  */
 export const ScrollReveal = () => {
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const seen = new WeakSet<Element>();
 
     const reveal = (el: HTMLElement) => {
-      const group = el.parentElement?.hasAttribute("data-reveal-stagger") && !el.hasAttribute("data-reveal");
+      const group = el.parentElement?.hasAttribute('data-reveal-stagger') && !el.hasAttribute('data-reveal');
       const step = group ? Math.min([...el.parentElement!.children].indexOf(el), MAX_STAGGER_STEPS) : 0;
       const delay = step * STAGGER_MS + Number(el.dataset.revealDelay ?? 0);
-      el.style.opacity = "";
-      el.animate([FROM[el.dataset.reveal ?? ""] ?? FROM.up, {}], { duration: 900, easing: EASE, delay, fill: "backwards" });
+      el.style.opacity = '';
+      el.animate([FROM[el.dataset.reveal ?? ''] ?? FROM.up, {}], { duration: 900, easing: EASE, delay, fill: 'backwards' });
     };
 
     const io = new IntersectionObserver(
@@ -63,11 +63,11 @@ export const ScrollReveal = () => {
           const passed = entry.boundingClientRect.bottom < 0;
           if (!entry.isIntersecting && !passed) continue;
           io.unobserve(entry.target);
-          if (passed) (entry.target as HTMLElement).style.opacity = "";
+          if (passed) (entry.target as HTMLElement).style.opacity = '';
           else reveal(entry.target as HTMLElement);
         }
       },
-      { rootMargin: "0px 0px -8% 0px" },
+      { rootMargin: '0px 0px -8% 0px' },
     );
 
     // On the first scan the page is already painted, so whatever is on screen
@@ -78,20 +78,20 @@ export const ScrollReveal = () => {
     let frame = 0;
     const scan = () => {
       let pending = false;
-      document.querySelectorAll<HTMLElement>("[data-intro]").forEach((el) => {
+      document.querySelectorAll<HTMLElement>('[data-intro]').forEach((el) => {
         if (seen.has(el)) return;
         if (!isHydrated(el)) return void (pending = true);
         seen.add(el);
-        const { from, duration } = INTRO[el.dataset.intro ?? ""] ?? INTRO.up;
-        el.setAttribute("data-played", "");
-        el.animate([from, {}], { duration, easing: EASE, delay: Number(el.dataset.introDelay ?? 0), fill: "backwards" });
+        const { from, duration } = INTRO[el.dataset.intro ?? ''] ?? INTRO.up;
+        el.setAttribute('data-played', '');
+        el.animate([from, {}], { duration, easing: EASE, delay: Number(el.dataset.introDelay ?? 0), fill: 'backwards' });
       });
       document.querySelectorAll<HTMLElement>(REVEAL).forEach((el) => {
         if (seen.has(el)) return;
         if (!isHydrated(el)) return void (pending = true);
         seen.add(el);
         if (firstScan && el.getBoundingClientRect().top < window.innerHeight) return;
-        el.style.opacity = "0";
+        el.style.opacity = '0';
         io.observe(el);
       });
       firstScan = false;

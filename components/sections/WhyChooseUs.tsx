@@ -1,8 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Icon } from "@/components/ui/Icon";
-import { contactHref } from "@/components/ui/text";
-import type { WhyChooseUsProps } from "@/types/templates.types";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Icon } from '@/components/ui/Icon';
+import type { WhyChooseUsProps } from '@/types/templates.types';
 
 export const WhyChooseUs = ({ data: whyChoose }: WhyChooseUsProps) => {
   if (!whyChoose) return null;
@@ -33,9 +32,9 @@ export const WhyChooseUs = ({ data: whyChoose }: WhyChooseUsProps) => {
       <div className="mt-32 flex flex-col gap-40 lg:flex-row lg:items-start xl:mt-24 xl:gap-125">
         <div data-reveal="left" className="w-full max-w-610 lg:w-[40%] xl:w-610 xl:shrink-0">
           <div className="relative aspect-[610/372] overflow-hidden">
-            <Image src={whyChoose.image.src} alt={whyChoose.image.alt} fill quality={90} sizes="(min-width: 1024px) 37vw, 100vw" className="object-cover transition-transform duration-[1.2s] hover:scale-105" />
+            <Image src={whyChoose.image} alt={whyChoose.imageAlt} fill quality={90} sizes="(min-width: 1024px) 37vw, 100vw" className="object-cover transition-transform duration-[1.2s] hover:scale-105" />
           </div>
-          <a href={contactHref("tel", whyChoose.call.phone)} className="group flex items-center gap-18 bg-highlight-dark px-20 py-22 text-accent-dark xl:h-146 xl:gap-26 xl:px-31 xl:py-0">
+          <a href={whyChoose.call.phoneUrl} className="group flex items-center gap-18 bg-highlight-dark px-20 py-22 text-accent-dark xl:h-146 xl:gap-26 xl:px-31 xl:py-0">
             <span className="flex size-60 shrink-0 items-center justify-center rounded-full border-[1.5px] border-accent-dark transition-[background-color,color] duration-300 group-hover:bg-accent-dark group-hover:text-highlight-dark xl:size-82">
               <Icon name="FaPhoneAlt" className="size-24 xl:size-32" />
             </span>
@@ -52,7 +51,7 @@ export const WhyChooseUs = ({ data: whyChoose }: WhyChooseUsProps) => {
           <h3 className="mt-14 font-heading text-[1.625rem] font-semibold xl:mt-16 xl:text-[2.5625rem] xl:leading-46">{whyChoose.missionTitle}</h3>
           <p className="mt-10 max-w-540 font-alt text-[0.9375rem] leading-26 text-[var(--color-white-95)] xl:mt-6 xl:max-w-524 xl:text-[1.296875rem] xl:leading-30">{whyChoose.missionText}</p>
           <Link
-            href={whyChoose.button.href}
+            href={whyChoose.button.url}
             className="group mt-26 inline-flex h-50 items-center gap-12 rounded-[0.25rem] border border-primary bg-primary px-24 font-alt text-[0.9375rem] font-semibold uppercase transition-colors duration-300 hover:bg-[var(--color-white)] hover:text-primary xl:mt-19 xl:rounded-[0.625rem] xl:h-58 xl:w-276 xl:justify-center xl:gap-14 xl:px-0 xl:text-[1.21875rem]"
           >
             {whyChoose.button.label}

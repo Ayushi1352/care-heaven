@@ -1,14 +1,14 @@
-import Image from "next/image";
-import { Icon } from "@/components/ui/Icon";
-import { formatDate } from "@/components/ui/text";
-import type { BlogDetailProps, BlogDetailSection } from "@/types/templates.types";
+import Image from 'next/image';
+import { Icon } from '@/components/ui/Icon';
+import { formatDate } from '@/components/ui/text';
+import type { BlogDetailProps, BlogDetailSection } from '@/types/templates.types';
 
 // Rule and text sizes differ a little per section in the design, so each section passes its own desktop classes.
 function SectionText({
   section,
-  className = "",
-  ruleClassName = "xl:mt-22 xl:w-78",
-  textClassName = "xl:mt-34 xl:text-[1.6875rem] xl:leading-[2.65625rem]",
+  className = '',
+  ruleClassName = 'xl:mt-22 xl:w-78',
+  textClassName = 'xl:mt-34 xl:text-[1.6875rem] xl:leading-[2.65625rem]',
 }: {
   section: BlogDetailSection;
   className?: string;
@@ -26,10 +26,10 @@ function SectionText({
   );
 }
 
-function SectionImage({ section, className = "" }: { section: BlogDetailSection; className?: string }) {
+function SectionImage({ section, className = '' }: { section: BlogDetailSection; className?: string }) {
   return (
     <div data-reveal="zoom" className={`relative overflow-hidden rounded-[0.625rem] shadow-[0_10px_30px_var(--color-black-8)] ${className}`}>
-      <Image src={section.image.src} alt={section.image.alt} fill quality={90} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover transition-transform duration-[1.2s] hover:scale-105" />
+      <Image src={section.image} alt={section.imageAlt} fill quality={90} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover transition-transform duration-[1.2s] hover:scale-105" />
     </div>
   );
 }
@@ -50,7 +50,7 @@ export const BlogDetail = ({ data: detail }: BlogDetailProps) => {
         </h1>
         <div className="mt-16 flex items-center gap-14 text-left xl:mt-20 xl:gap-25">
           <span className="relative size-64 shrink-0 overflow-hidden rounded-full xl:size-93">
-            <Image src={detail.author.avatar} alt={detail.author.name} fill quality={90} sizes="96px" className="object-cover" />
+            <Image src={detail.author.avatar} alt={detail.author.avatarAlt} fill quality={90} sizes="96px" className="object-cover" />
           </span>
           <span>
             <span className="block font-dm text-[1rem] text-[var(--color-blog-detail-text)] xl:text-[1.5rem]">

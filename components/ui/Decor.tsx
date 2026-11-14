@@ -3,7 +3,7 @@
 type DecorProps = { className?: string };
 
 /** Three short orange strokes radiating from a point (around the footer circle and team grid). */
-export function Sparks({ className = "" }: DecorProps) {
+export function Sparks({ className = '' }: DecorProps) {
   return (
     <svg viewBox="0 0 50 50" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" aria-hidden="true" className={className}>
       <path d="M8 4l2 16M30 10l-9 13M44 30l-17 2" />
@@ -12,7 +12,7 @@ export function Sparks({ className = "" }: DecorProps) {
 }
 
 /** Soft leaf spray in the top-left corner of the team section (one grey, two peach leaves). */
-export function LeafSpray({ className = "" }: DecorProps) {
+export function LeafSpray({ className = '' }: DecorProps) {
   return (
     <svg viewBox="0 0 240 390" fill="none" aria-hidden="true" className={className}>
       <path d="M8 330C-6 230 28 120 126 46c18 98-22 210-118 284Z" fill="var(--color-border)" />
@@ -26,7 +26,7 @@ export function LeafSpray({ className = "" }: DecorProps) {
 }
 
 /** Thin peach heart drawn as one looping line (top-right of the team section). */
-export function HeartLine({ className = "" }: DecorProps) {
+export function HeartLine({ className = '' }: DecorProps) {
   return (
     <svg viewBox="0 0 330 290" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" aria-hidden="true" className={className}>
       <path d="M4 284c70-10 132-44 178-96 34-38 48-86 30-120-14-26-46-26-62-4-10 14-14 30-24 28-12-2-14-26-36-34-26-10-50 10-42 42 12 46 70 82 112 116 34 28 78 48 120 52 18 2 34 0 48-4" />
@@ -35,7 +35,7 @@ export function HeartLine({ className = "" }: DecorProps) {
 }
 
 /** Light green olive branch (FAQ section corners). */
-export function OliveBranch({ className = "" }: DecorProps) {
+export function OliveBranch({ className = '' }: DecorProps) {
   return (
     <svg viewBox="0 0 200 230" fill="none" aria-hidden="true" className={className}>
       <path d="M6 222C46 170 92 108 172 20" stroke="var(--color-decor-stem)" strokeWidth="4" strokeLinecap="round" />
@@ -55,7 +55,7 @@ export function OliveBranch({ className = "" }: DecorProps) {
 }
 
 /** Peach leaves (contact page corners, testimonial background). */
-export function SoftLeaves({ className = "" }: DecorProps) {
+export function SoftLeaves({ className = '' }: DecorProps) {
   return (
     <svg viewBox="0 0 220 200" fill="none" aria-hidden="true" className={className}>
       <g fill="currentColor">
@@ -70,7 +70,7 @@ export function SoftLeaves({ className = "" }: DecorProps) {
 }
 
 /** Dry-brush stroke texture (contact page top-right corner). */
-export function BrushStroke({ className = "" }: DecorProps) {
+export function BrushStroke({ className = '' }: DecorProps) {
   return (
     <svg viewBox="0 0 260 200" fill="none" stroke="currentColor" strokeLinecap="round" aria-hidden="true" className={className}>
       <path d="M40 190C90 130 160 70 250 6" strokeWidth="16" opacity=".55" />
@@ -83,7 +83,7 @@ export function BrushStroke({ className = "" }: DecorProps) {
 }
 
 /** A single veined leaf (bottom-right of the cause title card). */
-export function LeafSprig({ className = "" }: DecorProps) {
+export function LeafSprig({ className = '' }: DecorProps) {
   return (
     <svg viewBox="0 0 80 110" fill="currentColor" aria-hidden="true" className={className}>
       <path d="M40 108C30 80 34 40 52 4c14 34 10 74-12 104Z" />

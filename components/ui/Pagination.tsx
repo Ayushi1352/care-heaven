@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { Children, useEffect, useRef, useState, type ReactNode } from "react";
-import { Icon } from "@/components/ui/Icon";
-import { fill } from "@/components/ui/text";
-import type { PaginationLabels } from "@/types/templates.types";
+import { Children, useEffect, useRef, useState, type ReactNode } from 'react';
+import { Icon } from '@/components/ui/Icon';
+import { fill } from '@/components/ui/text';
+import type { PaginationLabels } from '@/types/templates.types';
 
 interface PaginatedProps {
   children: ReactNode;
@@ -15,7 +15,7 @@ interface PaginatedProps {
     for the list. */
   className: string;
   /** "boxed": square page buttons (Our Teams). "round": plain numbers, round active page (Our Causes). */
-  variant?: "boxed" | "round";
+  variant?: 'boxed' | 'round';
   /** Classes for the pagination row (spacing above it). */
   navClassName?: string;
   /** Screen-reader labels, from the data of the section that shows the list. */
@@ -23,15 +23,15 @@ interface PaginatedProps {
 }
 
 // Page numbers to show: all of them when there are few, else 1 2 3 … last (around the current page).
-function pageList(current: number, count: number): (number | "gap")[] {
+function pageList(current: number, count: number): (number | 'gap')[] {
   if (count <= 5) return Array.from({ length: count }, (_, i) => i);
   const pages = new Set([0, 1, 2, current - 1, current, current + 1, count - 1].filter((p) => p >= 0 && p < count));
   const sorted = [...pages].sort((a, b) => a - b);
-  return sorted.flatMap((p, i) => (i > 0 && p - sorted[i - 1] > 1 ? ["gap" as const, p] : [p]));
+  return sorted.flatMap((p, i) => (i > 0 && p - sorted[i - 1] > 1 ? ['gap' as const, p] : [p]));
 }
 
 // Shows `rows` rows of its children at a time, on every screen size, with numbered page buttons below (the row shows even with one page, as in the design).
-export const Paginated = ({ children, rows, columns, className, variant = "boxed", navClassName = "mt-48 xl:mt-85", labels }: PaginatedProps) => {
+export const Paginated = ({ children, rows, columns, className, variant = 'boxed', navClassName = 'mt-48 xl:mt-85', labels }: PaginatedProps) => {
   const items = Children.toArray(children);
   const [gridColumns, setGridColumns] = useState(columns);
   const perPage = rows * gridColumns;
@@ -45,8 +45,8 @@ export const Paginated = ({ children, rows, columns, className, variant = "boxed
     const wrapper = top.current;
     if (!wrapper) return;
     const observer = new ResizeObserver(() => {
-      const grid = wrapper.querySelector("ul");
-      if (grid) setGridColumns(getComputedStyle(grid).gridTemplateColumns.split(" ").length);
+      const grid = wrapper.querySelector('ul');
+      if (grid) setGridColumns(getComputedStyle(grid).gridTemplateColumns.split(' ').length);
     });
     observer.observe(wrapper);
     return () => observer.disconnect();
@@ -56,25 +56,25 @@ export const Paginated = ({ children, rows, columns, className, variant = "boxed
     if (next < 0 || next >= pageCount || next === current) return;
     setPage(next);
     const el = top.current;
-    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 120, behavior: "smooth" });
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
   };
 
-  const boxed = variant === "boxed";
+  const boxed = variant === 'boxed';
   const arrow = boxed
-    ? "size-38 shrink-0 rounded-[0.375rem] bg-[var(--color-pagination-boxed-bg)] text-accent-dark sm:size-46 xl:h-66 xl:w-68"
-    : "size-38 shrink-0 rounded-[0.375rem] bg-[var(--color-pagination-bg)] text-[var(--color-pagination-text)] sm:size-44 xl:h-48 xl:w-50";
+    ? 'size-38 shrink-0 rounded-[0.375rem] bg-[var(--color-pagination-boxed-bg)] text-accent-dark sm:size-46 xl:h-66 xl:w-68'
+    : 'size-38 shrink-0 rounded-[0.375rem] bg-[var(--color-pagination-bg)] text-[var(--color-pagination-text)] sm:size-44 xl:h-48 xl:w-50';
 
   return (
     <div ref={top} className="scroll-mt-120">
       <ul key={current} data-reveal-stagger className={className}>
         {items.slice(current * perPage, current * perPage + perPage)}
       </ul>
-      <nav aria-label={labels?.paginationLabel} className={`flex items-center justify-center ${boxed ? "gap-6 sm:gap-8 xl:gap-12" : "gap-6 sm:gap-10 xl:gap-20"} ${navClassName}`}>
+      <nav aria-label={labels?.paginationLabel} className={`flex items-center justify-center ${boxed ? 'gap-6 sm:gap-8 xl:gap-12' : 'gap-6 sm:gap-10 xl:gap-20'} ${navClassName}`}>
         <button type="button" aria-label={labels?.previousPageLabel} disabled={current === 0} onClick={() => go(current - 1)} className={`flex items-center justify-center transition-colors enabled:hover:bg-primary enabled:hover:text-[var(--color-white)] disabled:opacity-60 ${arrow}`}>
           <Icon name="FaChevronLeft" className="size-16 sm:size-20 xl:size-26" />
         </button>
         {pageList(current, pageCount).map((p, i) =>
-          p === "gap" ? (
+          p === 'gap' ? (
             <span key={`gap-${i}`} className="px-2 font-dm text-[1rem] font-bold text-accent-dark xl:text-[1.25rem]">
               …
             </span>
@@ -83,15 +83,15 @@ export const Paginated = ({ children, rows, columns, className, variant = "boxed
               key={p}
               type="button"
               aria-label={fill(labels?.pageLabel, { n: p + 1 })}
-              aria-current={p === current ? "page" : undefined}
+              aria-current={p === current ? 'page' : undefined}
               onClick={() => go(p)}
               className={
                 boxed
-                  ? `flex size-38 shrink-0 items-center justify-center rounded-[0.375rem] font-dm text-[0.9375rem] font-semibold transition-colors sm:size-46 sm:text-[1.125rem] xl:h-66 xl:w-68 xl:text-[1.625rem] ${p === current ? "bg-primary text-[var(--color-white)]" : "bg-[var(--color-pagination-boxed-bg)] text-accent-dark hover:bg-primary hover:text-[var(--color-white)]"}`
-                  : `flex size-38 shrink-0 items-center justify-center rounded-full font-alt text-[0.9375rem] font-medium transition-colors sm:size-48 sm:text-[1.0625rem] xl:size-66 xl:text-[1.3125rem] ${p === current ? "bg-primary text-[var(--color-white)]" : "text-[var(--color-pagination-text)] hover:bg-[var(--color-pagination-bg)]"}`
+                  ? `flex size-38 shrink-0 items-center justify-center rounded-[0.375rem] font-dm text-[0.9375rem] font-semibold transition-colors sm:size-46 sm:text-[1.125rem] xl:h-66 xl:w-68 xl:text-[1.625rem] ${p === current ? 'bg-primary text-[var(--color-white)]' : 'bg-[var(--color-pagination-boxed-bg)] text-accent-dark hover:bg-primary hover:text-[var(--color-white)]'}`
+                  : `flex size-38 shrink-0 items-center justify-center rounded-full font-alt text-[0.9375rem] font-medium transition-colors sm:size-48 sm:text-[1.0625rem] xl:size-66 xl:text-[1.3125rem] ${p === current ? 'bg-primary text-[var(--color-white)]' : 'text-[var(--color-pagination-text)] hover:bg-[var(--color-pagination-bg)]'}`
               }
             >
-              {String(p + 1).padStart(2, "0")}
+              {String(p + 1).padStart(2, '0')}
             </button>
           ),
         )}

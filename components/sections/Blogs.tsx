@@ -1,9 +1,9 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Icon } from "@/components/ui/Icon";
-import { Paginated } from "@/components/ui/Pagination";
-import { fill, formatDate } from "@/components/ui/text";
-import type { BlogsProps } from "@/types/templates.types";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Icon } from '@/components/ui/Icon';
+import { Paginated } from '@/components/ui/Pagination';
+import { fill, formatDate } from '@/components/ui/text';
+import type { BlogsProps } from '@/types/templates.types';
 
 export const Blogs = ({ data: blog }: BlogsProps) => {
   if (!blog) return null;

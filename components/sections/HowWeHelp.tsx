@@ -1,10 +1,10 @@
-import { Icon } from "@/components/ui/Icon";
-import type { HowWeHelpProps } from "@/types/templates.types";
+import { Icon } from '@/components/ui/Icon';
+import type { HowWeHelpProps } from '@/types/templates.types';
 
 const tones: Record<string, { bg: string; icon: string }> = {
-  navy: { bg: "bg-[var(--color-help-navy)]", icon: "text-[var(--color-help-navy)]" },
-  orange: { bg: "bg-[var(--color-help-orange)]", icon: "text-[var(--color-help-orange)]" },
-  green: { bg: "bg-[var(--color-help-green)]", icon: "text-[var(--color-help-green)]" },
+  navy: { bg: 'bg-[var(--color-help-navy)]', icon: 'text-[var(--color-help-navy)]' },
+  orange: { bg: 'bg-[var(--color-help-orange)]', icon: 'text-[var(--color-help-orange)]' },
+  green: { bg: 'bg-[var(--color-help-green)]', icon: 'text-[var(--color-help-green)]' },
 };
 
 export const HowWeHelp = ({ data: help }: HowWeHelpProps) => {

@@ -1,10 +1,10 @@
-import rawData from "@/data/templates.json";
-import type { NGOTemplateData } from "@/types/templates.types";
-import { HeroSection } from "@/components/sections/HeroSection";
-import { HowWeHelp } from "@/components/sections/HowWeHelp";
-import { AboutUs } from "@/components/sections/AboutUs";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { BlogSection } from "@/components/sections/BlogSection";
+import rawData from '@/data/templates.json';
+import type { NGOTemplateData } from '@/types/templates.types';
+import { HeroSection } from '@/components/sections/HeroSection';
+import { HowWeHelp } from '@/components/sections/HowWeHelp';
+import { AboutUs } from '@/components/sections/AboutUs';
+import { Testimonials } from '@/components/sections/Testimonials';
+import { BlogSection } from '@/components/sections/BlogSection';
 
 export default function Home() {
   const templateData: NGOTemplateData = rawData;

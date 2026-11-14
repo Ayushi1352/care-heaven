@@ -1,4 +1,4 @@
-import type { IconType } from "react-icons";
+import type { IconType } from 'react-icons';
 import {
   FaAmbulance,
   FaArrowLeft,
@@ -33,8 +33,8 @@ import {
   FaTimes,
   FaUsers,
   FaYoutube,
-} from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+} from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 // Every icon the site can use, by the name templates.json stores. A new icon is added here once.
 const icons: Record<string, IconType> = {
@@ -81,8 +81,8 @@ type Props = {
 export const Icon = ({ name, className }: Props) => {
   const Glyph = icons[name];
   if (!Glyph) {
-    if (process.env.NODE_ENV !== "production") console.warn(`Icon "${name}" is not in components/ui/Icon.tsx`);
+    if (process.env.NODE_ENV !== 'production') console.warn(`Icon "${name}" is not in components/ui/Icon.tsx`);
     return <FaRegCircle aria-hidden="true" className={className} />;
   }
-  return <Glyph aria-hidden="true" className={className} />;
+  return <Glyph aria-hidden="true" focusable="false" className={className} />;
 };

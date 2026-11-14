@@ -1,39 +1,39 @@
-import type { CSSProperties } from "react";
-import type { Metadata } from "next";
-import { DM_Sans, Gilda_Display, Montserrat, Newsreader, Nunito, Poppins, Roboto, Source_Serif_4 } from "next/font/google";
-import rawData from "@/data/templates.json";
-import type { NGOTemplateData } from "@/types/templates.types";
-import { Header } from "@/components/common/Header";
-import { Footer } from "@/components/common/Footer";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { ScrollToTop } from "@/components/ui/ScrollToTop";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { DM_Sans, Gilda_Display, Montserrat, Newsreader, Nunito, Poppins, Roboto, Source_Serif_4 } from 'next/font/google';
+import rawData from '@/data/templates.json';
+import type { NGOTemplateData, ThemeFontVariables } from '@/types/templates.types';
+import { Header } from '@/components/common/Header';
+import { Footer } from '@/components/common/Footer';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { ScrollToTop } from '@/components/ui/ScrollToTop';
+import './globals.css';
 
-const newsreader = Newsreader({ subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap", fallback: ["Georgia", "serif"], variable: "--font-newsreader" });
-const gildaDisplay = Gilda_Display({ subsets: ["latin"], weight: ["400"], display: "swap", fallback: ["Georgia", "serif"], variable: "--font-gilda-display" });
-const sourceSerif = Source_Serif_4({ subsets: ["latin"], weight: ["400", "600"], style: ["normal", "italic"], display: "swap", fallback: ["Georgia", "serif"], variable: "--font-source-serif" });
-const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600"], display: "swap", fallback: ["Arial", "sans-serif"], variable: "--font-poppins" });
-const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap", fallback: ["Arial", "sans-serif"], variable: "--font-montserrat" });
-const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap", fallback: ["Arial", "sans-serif"], variable: "--font-dm-sans" });
-const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"], display: "swap", fallback: ["Arial", "sans-serif"], variable: "--font-roboto" });
-const nunito = Nunito({ subsets: ["latin"], weight: ["400", "600", "700"], display: "swap", fallback: ["Arial", "sans-serif"], variable: "--font-nunito" });
-const fontClasses = [newsreader, gildaDisplay, sourceSerif, poppins, montserrat, dmSans, roboto, nunito].map((font) => font.variable).join(" ");
+const newsreader = Newsreader({ subsets: ['latin'], weight: ['400', '500', '600', '700'], display: 'swap', fallback: ['Georgia', 'serif'], variable: '--font-newsreader' });
+const gildaDisplay = Gilda_Display({ subsets: ['latin'], weight: ['400'], display: 'swap', fallback: ['Georgia', 'serif'], variable: '--font-gilda-display' });
+const sourceSerif = Source_Serif_4({ subsets: ['latin'], weight: ['400', '600'], style: ['normal', 'italic'], display: 'swap', fallback: ['Georgia', 'serif'], variable: '--font-source-serif' });
+const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '600'], display: 'swap', fallback: ['Arial', 'sans-serif'], variable: '--font-poppins' });
+const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '600', '700'], display: 'swap', fallback: ['Arial', 'sans-serif'], variable: '--font-montserrat' });
+const dmSans = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '600', '700'], display: 'swap', fallback: ['Arial', 'sans-serif'], variable: '--font-dm-sans' });
+const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'], display: 'swap', fallback: ['Arial', 'sans-serif'], variable: '--font-roboto' });
+const nunito = Nunito({ subsets: ['latin'], weight: ['400', '600', '700'], display: 'swap', fallback: ['Arial', 'sans-serif'], variable: '--font-nunito' });
+const fontClasses = [newsreader, gildaDisplay, sourceSerif, poppins, montserrat, dmSans, roboto, nunito].map((font) => font.variable).join(' ');
 
 const templateData: NGOTemplateData = rawData;
 const sectionData = templateData.categories.NGO.sections;
 const commonData = templateData.common;
 
+// Which font each part of the site uses comes from templates.json (common.theme.fonts).
 const { fonts } = commonData.theme;
-const fontVariables = {
-  "--font-primary": fonts.primary,
-  "--font-heading": fonts.heading,
-  "--font-display": fonts.display,
-  "--font-quote": fonts.quote,
-  "--font-alt": fonts.alt,
-  "--font-dm": fonts.dm,
-  "--font-form": fonts.form,
-  "--font-nunito-face": fonts.nunito,
-} as CSSProperties;
+const fontVariables: ThemeFontVariables = {
+  '--font-primary': fonts.primary,
+  '--font-heading': fonts.heading,
+  '--font-display': fonts.display,
+  '--font-quote': fonts.quote,
+  '--font-alt': fonts.alt,
+  '--font-dm': fonts.dm,
+  '--font-form': fonts.form,
+  '--font-nunito-face': fonts.nunito,
+};
 
 export const metadata: Metadata = {
   title: {
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang={commonData.metadata.lang}

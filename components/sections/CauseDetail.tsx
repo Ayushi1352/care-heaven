@@ -1,18 +1,18 @@
-import Image from "next/image";
-import { Icon } from "@/components/ui/Icon";
-import { BrushStroke, LeafSprig } from "@/components/ui/Decor";
-import type { CauseDetailData, CauseDetailProps } from "@/types/templates.types";
+import Image from 'next/image';
+import { Icon } from '@/components/ui/Icon';
+import { BrushStroke, LeafSprig } from '@/components/ui/Decor';
+import type { CauseDetailData, CauseDetailProps } from '@/types/templates.types';
 
 const tones: Record<string, string> = {
-  rose: "bg-[var(--color-step-rose-bg)] text-[var(--color-step-rose-icon)]",
-  green: "bg-[var(--color-step-green-bg)] text-[var(--color-step-green-icon)]",
+  rose: 'bg-[var(--color-step-rose-bg)] text-[var(--color-step-rose-icon)]',
+  green: 'bg-[var(--color-step-green-bg)] text-[var(--color-step-green-icon)]',
 };
 
 function CauseIntro({ detail }: { detail: CauseDetailData }) {
   return (
     <section className="relative xl:mr-114 xl:ml-133 xl:h-764">
       <div data-reveal="fade" className="relative aspect-[1439/643] overflow-hidden rounded-[0.375rem] xl:rounded-none">
-        <Image src={detail.image.src} alt={detail.image.alt} fill preload quality={90} sizes="(min-width: 1024px) 86vw, 100vw" className="object-cover" />
+        <Image src={detail.image} alt={detail.imageAlt} fill preload quality={90} sizes="(min-width: 1024px) 86vw, 100vw" className="object-cover" />
       </div>
       <div
         data-reveal="up"
@@ -54,7 +54,7 @@ function ProgramSteps({ detail }: { detail: CauseDetailData }) {
       <div data-reveal="right" className="relative mx-auto w-full max-w-430 pt-28 pr-28 lg:mx-0 lg:w-[34%] xl:mt-30 xl:ml-50 xl:w-466 xl:max-w-none xl:pt-40 xl:pr-38">
         <span className="absolute top-0 right-0 bottom-50 left-[27%] bg-[var(--color-step-panel-bg)] xl:left-116" />
         <div className="relative aspect-[428/647] overflow-hidden">
-          <Image src={detail.sideImage.src} alt={detail.sideImage.alt} fill quality={90} sizes="(min-width: 1024px) 26vw, 430px" className="object-cover transition-transform duration-[1.5s] hover:scale-105" />
+          <Image src={detail.sideImage} alt={detail.sideImageAlt} fill quality={90} sizes="(min-width: 1024px) 26vw, 430px" className="object-cover transition-transform duration-[1.5s] hover:scale-105" />
         </div>
       </div>
     </section>
@@ -65,9 +65,9 @@ function CauseImpact({ detail }: { detail: CauseDetailData }) {
   return (
     <section className="relative mt-64 md:mt-80 xl:mt-100">
       <ul data-reveal-stagger className="grid gap-16 sm:grid-cols-[670fr_600fr] xl:mr-184 xl:ml-207 xl:gap-25">
-        {detail.gallery.map((image) => (
-          <li key={image.id} className="relative aspect-[670/382] overflow-hidden sm:aspect-auto sm:h-260 md:h-300 xl:h-382">
-            <Image src={image.src} alt={image.alt} fill quality={90} sizes="(min-width: 1024px) 40vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-[1.2s] hover:scale-[1.06]" />
+        {detail.gallery.map((item) => (
+          <li key={item.id} className="relative aspect-[670/382] overflow-hidden sm:aspect-auto sm:h-260 md:h-300 xl:h-382">
+            <Image src={item.image} alt={item.imageAlt} fill quality={90} sizes="(min-width: 1024px) 40vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-[1.2s] hover:scale-[1.06]" />
           </li>
         ))}
       </ul>

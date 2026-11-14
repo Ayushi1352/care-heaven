@@ -1,8 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Icon } from "@/components/ui/Icon";
-import { fill, formatDate } from "@/components/ui/text";
-import type { BlogSectionProps } from "@/types/templates.types";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Icon } from '@/components/ui/Icon';
+import { fill, formatDate } from '@/components/ui/text';
+import type { BlogSectionProps } from '@/types/templates.types';
 
 /** "Stories of Change" — the first cards of the blog page, on the home page. */
 export const BlogSection = ({ data: blog }: BlogSectionProps) => {

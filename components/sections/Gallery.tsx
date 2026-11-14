@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useCallback, useEffect, useState } from "react";
-import Image from "next/image";
-import { Icon } from "@/components/ui/Icon";
-import { Paginated } from "@/components/ui/Pagination";
-import { fill } from "@/components/ui/text";
-import type { GalleryProps } from "@/types/templates.types";
+import { useCallback, useEffect, useState } from 'react';
+import Image from 'next/image';
+import { Icon } from '@/components/ui/Icon';
+import { Paginated } from '@/components/ui/Pagination';
+import { fill } from '@/components/ui/text';
+import type { GalleryProps } from '@/types/templates.types';
 
 export const Gallery = ({ data: gallery }: GalleryProps) => {
   const images = gallery?.images ?? [];
@@ -15,16 +15,16 @@ export const Gallery = ({ data: gallery }: GalleryProps) => {
   useEffect(() => {
     if (open === null) return;
     const { overflow } = document.documentElement.style;
-    document.documentElement.style.overflow = "hidden";
+    document.documentElement.style.overflow = 'hidden';
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(null);
-      if (e.key === "ArrowRight") step(1);
-      if (e.key === "ArrowLeft") step(-1);
+      if (e.key === 'Escape') setOpen(null);
+      if (e.key === 'ArrowRight') step(1);
+      if (e.key === 'ArrowLeft') step(-1);
     };
-    window.addEventListener("keydown", onKey);
+    window.addEventListener('keydown', onKey);
     return () => {
       document.documentElement.style.overflow = overflow;
-      window.removeEventListener("keydown", onKey);
+      window.removeEventListener('keydown', onKey);
     };
   }, [open, step]);
 
@@ -44,10 +44,10 @@ export const Gallery = ({ data: gallery }: GalleryProps) => {
 
       <div className="mt-32 xl:mt-30">
         <Paginated labels={gallery} rows={gallery.rowsPerPage} columns={3} variant="round" navClassName="mt-40 xl:mt-47" className="grid gap-16 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-24 xl:gap-y-22">
-        {images.map((image, i) => (
-          <li key={image.id} className={`relative h-220 overflow-hidden rounded-[0.375rem] sm:h-240 ${i < 3 ? "xl:h-280" : "xl:h-260"}`}>
-            <button type="button" aria-label={fill(gallery.openImageLabel, { name: image.alt })} onClick={() => setOpen(i)} className="group block size-full">
-              <Image src={image.src} alt={image.alt} fill quality={90} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.08]" />
+        {images.map((item, i) => (
+          <li key={item.id} className={`relative h-220 overflow-hidden rounded-[0.375rem] sm:h-240 ${i < 3 ? 'xl:h-280' : 'xl:h-260'}`}>
+            <button type="button" aria-label={fill(gallery.openImageLabel, { name: item.imageAlt })} onClick={() => setOpen(i)} className="group block size-full">
+              <Image src={item.image} alt={item.imageAlt} fill quality={90} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.08]" />
               <span className="absolute inset-0 flex items-center justify-center bg-transparent transition-colors duration-500 group-hover:bg-[var(--color-accent-45)]">
                 <span className="flex size-52 scale-50 items-center justify-center rounded-full bg-[var(--color-white)] text-primary opacity-0 transition-[opacity,transform] duration-500 group-hover:scale-100 group-hover:opacity-100 xl:size-64">
                   <Icon name="FaPlus" className="size-22 xl:size-26" />
@@ -60,7 +60,7 @@ export const Gallery = ({ data: gallery }: GalleryProps) => {
       </div>
 
       {open !== null && (
-        <div role="dialog" aria-modal="true" aria-label={images[open].alt} className="fixed inset-0 z-[60] flex items-center justify-center bg-[var(--color-lightbox-overlay)] p-16" onClick={() => setOpen(null)}>
+        <div role="dialog" aria-modal="true" aria-label={images[open].imageAlt} className="fixed inset-0 z-[60] flex items-center justify-center bg-[var(--color-lightbox-overlay)] p-16" onClick={() => setOpen(null)}>
           <button type="button" aria-label={gallery.closeLabel} onClick={() => setOpen(null)} className="absolute top-16 right-16 flex size-44 items-center justify-center rounded-full bg-[var(--color-white-10)] text-[var(--color-white)] transition-colors hover:bg-primary">
             <Icon name="FaTimes" className="size-22" />
           </button>
@@ -68,7 +68,7 @@ export const Gallery = ({ data: gallery }: GalleryProps) => {
             <Icon name="FaChevronLeft" className="size-22" />
           </button>
           <div className="relative h-[70vh] w-full max-w-1100" onClick={(e) => e.stopPropagation()}>
-            <Image src={images[open].src} alt={images[open].alt} fill quality={90} sizes="90vw" className="object-contain" />
+            <Image src={images[open].image} alt={images[open].imageAlt} fill quality={90} sizes="90vw" className="object-contain" />
           </div>
           <button type="button" aria-label={gallery.nextLabel} onClick={(e) => (e.stopPropagation(), step(1))} className="absolute right-12 z-10 flex size-44 items-center justify-center rounded-full bg-[var(--color-white-10)] text-[var(--color-white)] transition-colors hover:bg-primary sm:right-24">
             <Icon name="FaChevronRight" className="size-22" />

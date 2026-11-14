@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import rawData from "@/data/templates.json";
-import type { NGOTemplateData } from "@/types/templates.types";
-import { Breadcrumb } from "@/components/common/Breadcrumb";
-import { Gallery } from "@/components/sections/Gallery";
+import type { Metadata } from 'next';
+import rawData from '@/data/templates.json';
+import type { NGOTemplateData } from '@/types/templates.types';
+import { Breadcrumb } from '@/components/common/Breadcrumb';
+import { Gallery } from '@/components/sections/Gallery';
 
 export const metadata: Metadata = { ...(rawData as NGOTemplateData).common.galleryBreadcrumb?.seo };
 

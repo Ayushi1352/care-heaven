@@ -1,12 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Icon } from "@/components/ui/Icon";
-import { Sparks } from "@/components/ui/Decor";
-import { contactHref } from "@/components/ui/text";
-import type { FooterProps } from "@/types/templates.types";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Icon } from '@/components/ui/Icon';
+import { Sparks } from '@/components/ui/Decor';
+import type { FooterProps } from '@/types/templates.types';
 
 // Tailwind only sees complete class names, so the row count of the two-column menu (half the links, rounded up) is picked from this list.
-const menuRows = ["", "grid-rows-[repeat(1,auto)]", "grid-rows-[repeat(2,auto)]", "grid-rows-[repeat(3,auto)]", "grid-rows-[repeat(4,auto)]", "grid-rows-[repeat(5,auto)]", "grid-rows-[repeat(6,auto)]"];
+const menuRows = ['', 'grid-rows-[repeat(1,auto)]', 'grid-rows-[repeat(2,auto)]', 'grid-rows-[repeat(3,auto)]', 'grid-rows-[repeat(4,auto)]', 'grid-rows-[repeat(5,auto)]', 'grid-rows-[repeat(6,auto)]'];
 
 export const Footer = ({ data: footer }: FooterProps) => {
   if (!footer) return null;
@@ -20,14 +19,14 @@ export const Footer = ({ data: footer }: FooterProps) => {
           {/* Logo + menu links */}
           <div data-reveal="up" className="xl:pl-48">
             <Link href={footer.logoUrl} aria-label={footer.logoLabel} className="block w-260 max-w-full sm:w-320 xl:w-420">
-              <Image src={footer.logo.src} alt={footer.logo.alt} width={footer.logo.width} height={footer.logo.height} quality={90} sizes="(min-width: 1024px) 25vw, 320px" className="h-auto w-full" />
+              <Image src={footer.logo} alt={footer.logoAlt} width={footer.logoWidth} height={footer.logoHeight} quality={90} sizes="(min-width: 1024px) 25vw, 320px" className="h-auto w-full" />
             </Link>
             <p className="mt-32 font-main text-[1.125rem] leading-none font-semibold tracking-[0.01em] uppercase xl:mt-35 xl:ml-19 xl:text-[1.375rem]">{footer.menuTitle}</p>
             <span className="mt-12 block h-3 w-52 bg-primary xl:ml-19 xl:w-62" />
             <ul className={`mt-22 grid max-w-420 grid-flow-col grid-cols-2 gap-x-20 gap-y-12 font-main text-[1rem] sm:gap-x-32 xl:mt-26 xl:ml-23 xl:max-w-none xl:grid-flow-col xl:grid-cols-[16.375rem_1fr] xl:gap-y-0 ${rows}`}>
               {nav.map((link) => (
                 <li key={link.id} className="xl:h-38">
-                  <Link href={link.href} className="group inline-flex items-center gap-12 whitespace-nowrap text-[var(--color-white-90)] transition-colors hover:text-primary xl:gap-20 xl:text-[1.25rem] xl:leading-26">
+                  <Link href={link.url} className="group inline-flex items-center gap-12 whitespace-nowrap text-[var(--color-white-90)] transition-colors hover:text-primary xl:gap-20 xl:text-[1.25rem] xl:leading-26">
                     <Icon name="FaChevronRight" className="size-14 shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-3 xl:size-16" />
                     <span className="whitespace-nowrap">{link.label}</span>
                   </Link>
@@ -39,7 +38,6 @@ export const Footer = ({ data: footer }: FooterProps) => {
           {/* Contact cards */}
           <ul data-reveal="up" className="flex flex-col gap-16 xl:mt-40 xl:gap-24">
             {footer.contactCards.map((card) => {
-              const href = contactHref(card.type, card.lines[0]);
               const body = card.lines.map((line) => (
                 <span key={line} className="block">
                   {line}
@@ -53,8 +51,8 @@ export const Footer = ({ data: footer }: FooterProps) => {
                   <span className="hidden h-70 w-2 shrink-0 bg-[var(--color-footer-divider)] xl:mx-24 xl:block" />
                   <span className="min-w-0 border-l border-[var(--color-footer-divider)] pl-16 xl:border-l-0 xl:pl-0">
                     <span className="block font-main text-[1.0625rem] font-semibold xl:text-[1.375rem] xl:leading-30">{card.title}</span>
-                    {href ? (
-                      <a href={href} className="mt-2 block font-main text-[0.9375rem] break-words text-[var(--color-footer-text)] transition-colors hover:text-primary xl:mt-4 xl:text-[1.1875rem] xl:leading-29">
+                    {card.url ? (
+                      <a href={card.url} className="mt-2 block font-main text-[0.9375rem] break-words text-[var(--color-footer-text)] transition-colors hover:text-primary xl:mt-4 xl:text-[1.1875rem] xl:leading-29">
                         {body}
                       </a>
                     ) : (
@@ -72,7 +70,7 @@ export const Footer = ({ data: footer }: FooterProps) => {
               <Sparks className="absolute top-12 left-0 w-44 rotate-[-8deg] text-primary xl:top-14 xl:left-0 xl:w-50" />
               <Sparks className="absolute right-2 bottom-38 w-44 rotate-[150deg] text-primary xl:right-0 xl:bottom-44 xl:w-48" />
               <Link
-                href={footer.contactCircle.href}
+                href={footer.contactCircle.url}
                 className="group relative flex size-220 flex-col items-center justify-center rounded-full border-[3px] border-primary bg-[var(--color-white)] p-6 text-center shadow-[inset_0_0_0_5px_var(--color-footer-ring)] transition-[border-color,box-shadow] duration-300 hover:border-accent-dark hover:shadow-[inset_0_0_0_5px_var(--color-primary)] xl:size-296 xl:border-4 xl:shadow-[inset_0_0_0_0.375rem_var(--color-footer-ring)] xl:hover:shadow-[inset_0_0_0_0.375rem_var(--color-primary)]"
               >
                 <span className="absolute inset-8 rounded-full bg-[var(--color-white)]" />
@@ -104,7 +102,7 @@ export const Footer = ({ data: footer }: FooterProps) => {
 
         <div className="mt-48 border-t border-[var(--color-white-25)] py-24 xl:mt-87 xl:pt-30 xl:pb-46">
           <p className="font-main text-[0.875rem] text-[var(--color-white-90)] xl:pl-20 xl:text-[length:max(1.125rem,var(--text-min))]">
-            {footer.copyright}
+            {footer.copyrightText}
           </p>
         </div>
       </div>
@@ -113,7 +111,7 @@ export const Footer = ({ data: footer }: FooterProps) => {
 };
 
 /** Hand-drawn heart with two little dashes, above "CONTACT US". */
-function HeartDoodle({ className = "" }: { className?: string }) {
+function HeartDoodle({ className = '' }: { className?: string }) {
   return (
     <svg viewBox="0 0 76 52" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={className}>
       <path d="M30 48C19 37 8 27 9.5 15.5 11 6 22 3.5 28 12.5c2.5-9.5 15-11 17.5-1.5C48 21 39 33 30 48Z" />

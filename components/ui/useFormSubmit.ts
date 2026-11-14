@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
-import type { FormMessages } from "@/types/templates.types";
+import { useEffect, useRef, useState, type FormEvent } from 'react';
+import type { FormMessages } from '@/types/templates.types';
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE = /^[+\d][\d\s()-]{6,}$/;
@@ -30,10 +30,10 @@ export function useFormSubmit(fields: { name: string; type: string }[], messages
     const data = new FormData(form);
     const next: Record<string, string> = {};
     for (const field of fields) {
-      const value = String(data.get(field.name) ?? "").trim();
-      if (!value) next[field.name] = messages?.requiredError ?? "";
-      else if (field.type === "email" && !EMAIL.test(value)) next[field.name] = messages?.emailError ?? "";
-      else if (field.type === "tel" && !PHONE.test(value)) next[field.name] = messages?.phoneError ?? "";
+      const value = String(data.get(field.name) ?? '').trim();
+      if (!value) next[field.name] = messages?.requiredError ?? '';
+      else if (field.type === 'email' && !EMAIL.test(value)) next[field.name] = messages?.emailError ?? '';
+      else if (field.type === 'tel' && !PHONE.test(value)) next[field.name] = messages?.phoneError ?? '';
     }
     setErrors(next);
     if (Object.keys(next).length) {
