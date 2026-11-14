@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Icon } from "@/components/ui/Icon";
 import { contactHref } from "@/components/ui/text";
-import type { CompanyData, GlobalUIData, HeaderData, LinkData } from "@/types/templates.types";
+import type { HeaderProps, LinkData } from "@/types/templates.types";
 
 function isActive(pathname: string, href: string) {
   return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
@@ -30,7 +30,7 @@ function DonateButton({ button, onClick, className = "" }: { button: LinkData; o
   );
 }
 
-export const Header = ({ data: header, company, ui }: { data?: HeaderData; company?: CompanyData; ui?: GlobalUIData }) => {
+export const Header = ({ data: header }: HeaderProps) => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -55,7 +55,7 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
     };
   }, [open]);
 
-  if (!header || !company) return null;
+  if (!header) return null;
 
   return (
     // Zero-height sticky header: it floats over the hero / page banner and stays on top while scrolling.
@@ -66,18 +66,18 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
         }`}
       >
         <Link
-          href={company.logoUrl}
-          aria-label={company.name}
+          href={header.logoUrl}
+          aria-label={header.logoLabel}
           onClick={() => setOpen(false)}
           className={`flex shrink-0 items-center justify-center rounded-[0.375rem] bg-[var(--color-white)] px-10 transition-[height,width] duration-300 xl:rounded-[0.625rem] xl:px-20 ${
             scrolled ? "h-48 w-136 xl:h-90 xl:w-254" : "h-54 w-152 sm:h-62 sm:w-175 xl:h-109 xl:w-307"
           }`}
         >
           <Image
-            src={company.logo}
-            alt={company.logoAlt}
-            width={company.logoWidth}
-            height={company.logoHeight}
+            src={header.logo.src}
+            alt={header.logo.alt}
+            width={header.logo.width}
+            height={header.logo.height}
             preload
             quality={90}
             sizes="(min-width: 1024px) 18vw, 180px"
@@ -89,7 +89,7 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
           <DonateButton button={header.button} className="hidden h-42 sm:inline-flex xl:h-68 xl:min-w-261" />
           <button
             type="button"
-            aria-label={open ? ui?.closeMenu : ui?.openMenu}
+            aria-label={open ? header.closeMenuLabel : header.openMenuLabel}
             aria-expanded={open}
             aria-controls="site-menu"
             onClick={() => setOpen(true)}
@@ -113,19 +113,19 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
       />
       <nav
         id="site-menu"
-        aria-label={ui?.mainNav}
+        aria-label={header.menuLabel}
         inert={!open}
         className={`fixed inset-y-0 right-0 z-50 flex w-[min(86vw,360px)] flex-col overflow-y-auto overscroll-contain bg-accent text-[var(--color-white)] transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] xl:w-480 ${
           open ? "translate-x-0 shadow-[-12px_0_40px_var(--color-black-30)]" : "translate-x-full"
         }`}
       >
         <div className="flex items-center justify-between border-b border-[var(--color-white-12)] px-24 py-18 xl:px-40 xl:py-28">
-          <Link href={company.logoUrl} aria-label={company.name} onClick={() => setOpen(false)} className="block w-150 xl:w-230">
-            <Image src={company.logoWhite} alt={company.logoAlt} width={company.logoWidth} height={company.logoHeight} quality={90} sizes="230px" className="h-auto w-full" />
+          <Link href={header.logoUrl} aria-label={header.logoLabel} onClick={() => setOpen(false)} className="block w-150 xl:w-230">
+            <Image src={header.logoWhite.src} alt={header.logoWhite.alt} width={header.logoWhite.width} height={header.logoWhite.height} quality={90} sizes="230px" className="h-auto w-full" />
           </Link>
           <button
             type="button"
-            aria-label={ui?.closeMenu}
+            aria-label={header.closeMenuLabel}
             onClick={() => setOpen(false)}
             className="flex size-40 items-center justify-center rounded-full border border-[var(--color-white-30)] transition-colors hover:border-primary hover:bg-primary xl:size-54"
           >
@@ -156,20 +156,20 @@ export const Header = ({ data: header, company, ui }: { data?: HeaderData; compa
 
         <div className="mt-auto flex flex-col gap-14 border-t border-[var(--color-white-12)] px-24 py-22 font-main text-[0.875rem] text-[var(--color-white-85)] xl:gap-18 xl:px-40 xl:py-32 xl:text-[length:max(1.125rem,var(--text-min))]">
           <DonateButton button={header.button} onClick={() => setOpen(false)} className="inline-flex h-44 self-start sm:hidden" />
-          <a href={contactHref("tel", company.phone)} className="flex items-center gap-12 transition-colors hover:text-primary">
+          <a href={contactHref("tel", header.phone)} className="flex items-center gap-12 transition-colors hover:text-primary">
             <Icon name="FaPhoneAlt" className="size-18 shrink-0 text-primary xl:size-22" />
-            {company.phone}
+            {header.phone}
           </a>
-          <a href={contactHref("mailto", company.email)} className="flex items-center gap-12 break-all transition-colors hover:text-primary">
+          <a href={contactHref("mailto", header.email)} className="flex items-center gap-12 break-all transition-colors hover:text-primary">
             <Icon name="FaEnvelope" className="size-18 shrink-0 text-primary xl:size-22" />
-            {company.email}
+            {header.email}
           </a>
           <p className="flex items-start gap-12">
             <Icon name="FaMapMarkerAlt" className="mt-1 size-18 shrink-0 text-primary xl:size-22" />
-            <span className="whitespace-pre-line">{company.address.join("\n")}</span>
+            <span className="whitespace-pre-line">{header.address.join("\n")}</span>
           </p>
           <ul className="flex gap-10 pt-4">
-            {company.socialLinks.map((social) => (
+            {header.socialLinks.map((social) => (
               <li key={social.id}>
                 <a
                   href={social.url}

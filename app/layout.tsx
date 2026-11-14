@@ -22,7 +22,6 @@ const fontClasses = [newsreader, gildaDisplay, sourceSerif, poppins, montserrat,
 const templateData: NGOTemplateData = rawData;
 const sectionData = templateData.categories.NGO.sections;
 const commonData = templateData.common;
-const headerData = sectionData.Header?.variants?.NGOHeader1;
 
 const { fonts } = commonData.theme;
 const fontVariables = {
@@ -66,9 +65,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           so on wide screens or when zoomed out it stays centred instead of stretching.
         */}
         <div className="relative mx-auto flex min-h-screen w-full max-w-1686 flex-col overflow-x-clip bg-[var(--color-white)]">
-          <Header data={headerData} company={commonData.company} ui={commonData.globalUI} />
+          <Header data={sectionData.Header?.variants?.NGOHeader1} />
           <ScrollToTop>{children}</ScrollToTop>
-          <Footer data={commonData.Footer} company={commonData.company} links={headerData?.nav} />
+          <Footer data={commonData.Footer} />
         </div>
       </body>
     </html>

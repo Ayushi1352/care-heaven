@@ -2,19 +2,21 @@ import type { Metadata } from "next";
 import rawData from "@/data/templates.json";
 import type { NGOTemplateData } from "@/types/templates.types";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
-import { CauseGrid } from "@/components/sections/CauseGrid";
+import { Causes } from "@/components/sections/Causes";
 
-const templateData: NGOTemplateData = rawData;
-const sectionData = templateData.categories.NGO.sections;
-const commonData = templateData.common;
-
-export const metadata: Metadata = { ...commonData.causesBreadcrumb?.seo };
+export const metadata: Metadata = { ...(rawData as NGOTemplateData).common.causesBreadcrumb?.seo };
 
 export default function OurCausesPage() {
+  const templateData: NGOTemplateData = rawData;
+  const sectionData = templateData?.categories?.NGO?.sections;
+  const commonData = templateData?.common;
+
+  if (!sectionData || !commonData) return null;
+
   return (
     <main className="flex-1">
       <Breadcrumb data={commonData.causesBreadcrumb} ui={commonData.globalUI} />
-      <CauseGrid data={sectionData.Causes?.variants?.NGOCauses1} ui={commonData.globalUI} />
+      <Causes data={sectionData.Causes?.variants?.NGOCauses1} />
     </main>
   );
 }

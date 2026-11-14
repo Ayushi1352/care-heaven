@@ -2,10 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { contactHref } from "@/components/ui/text";
-import type { CompanyData, WhyChooseUsData } from "@/types/templates.types";
+import type { WhyChooseUsProps } from "@/types/templates.types";
 
-export const WhyChooseUs = ({ data: whyChoose, company }: { data?: WhyChooseUsData; company?: CompanyData }) => {
-  if (!whyChoose || !company) return null;
+export const WhyChooseUs = ({ data: whyChoose }: WhyChooseUsProps) => {
+  if (!whyChoose) return null;
 
   return (
     <section className="bg-[var(--color-bg-why-choose)] px-20 pt-64 pb-64 text-[var(--color-white)] sm:px-32 md:pt-80 md:pb-80 xl:pt-100 xl:pr-80 xl:pb-100 xl:pl-96">
@@ -35,13 +35,13 @@ export const WhyChooseUs = ({ data: whyChoose, company }: { data?: WhyChooseUsDa
           <div className="relative aspect-[610/372] overflow-hidden">
             <Image src={whyChoose.image.src} alt={whyChoose.image.alt} fill quality={90} sizes="(min-width: 1024px) 37vw, 100vw" className="object-cover transition-transform duration-[1.2s] hover:scale-105" />
           </div>
-          <a href={contactHref("tel", company.phone)} className="group flex items-center gap-18 bg-highlight-dark px-20 py-22 text-accent-dark xl:h-146 xl:gap-26 xl:px-31 xl:py-0">
+          <a href={contactHref("tel", whyChoose.call.phone)} className="group flex items-center gap-18 bg-highlight-dark px-20 py-22 text-accent-dark xl:h-146 xl:gap-26 xl:px-31 xl:py-0">
             <span className="flex size-60 shrink-0 items-center justify-center rounded-full border-[1.5px] border-accent-dark transition-[background-color,color] duration-300 group-hover:bg-accent-dark group-hover:text-highlight-dark xl:size-82">
               <Icon name="FaPhoneAlt" className="size-24 xl:size-32" />
             </span>
             <span>
               <span className="block font-alt text-[0.875rem] xl:text-[1.1875rem]">{whyChoose.call.label}</span>
-              <span className="mt-2 block whitespace-nowrap font-alt text-[length:min(1.375rem,5.6vw)] font-bold xl:mt-1 xl:text-[1.75rem]">{company.phone}</span>
+              <span className="mt-2 block whitespace-nowrap font-alt text-[length:min(1.375rem,5.6vw)] font-bold xl:mt-1 xl:text-[1.75rem]">{whyChoose.call.phone}</span>
             </span>
           </a>
         </div>

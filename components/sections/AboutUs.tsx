@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
-import type { AboutUsData } from "@/types/templates.types";
+import type { AboutUsProps } from "@/types/templates.types";
 
 /** "Movement Built Hope and Humanity" — used on the home page and the About Us page. */
-export const AboutNgo = ({ data: about, detailed = false }: { data?: AboutUsData; detailed?: boolean }) => {
+export const AboutUs = ({ data: about, detailed = false }: AboutUsProps) => {
   if (!about) return null;
 
   // The About Us page shows this section with more room around it than the home page.

@@ -1,5 +1,5 @@
 import { Icon } from "@/components/ui/Icon";
-import type { HowWeHelpData } from "@/types/templates.types";
+import type { HowWeHelpProps } from "@/types/templates.types";
 
 const tones: Record<string, { bg: string; icon: string }> = {
   navy: { bg: "bg-[var(--color-help-navy)]", icon: "text-[var(--color-help-navy)]" },
@@ -7,7 +7,7 @@ const tones: Record<string, { bg: string; icon: string }> = {
   green: { bg: "bg-[var(--color-help-green)]", icon: "text-[var(--color-help-green)]" },
 };
 
-export const HowWeHelp = ({ data: help }: { data?: HowWeHelpData }) => {
+export const HowWeHelp = ({ data: help }: HowWeHelpProps) => {
   if (!help) return null;
 
   return (

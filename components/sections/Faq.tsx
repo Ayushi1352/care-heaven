@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { OliveBranch } from "@/components/ui/Decor";
-import type { FaqData } from "@/types/templates.types";
+import type { FaqProps } from "@/types/templates.types";
 
 // Icon colour and circle colour of each question (named in templates.json as "tone").
 const tones: Record<string, string> = {
@@ -17,7 +17,7 @@ const tones: Record<string, string> = {
   sky: "bg-[var(--color-faq-sky-bg)] text-[var(--color-faq-sky-icon)]",
 };
 
-export const FaqList = ({ data: faq }: { data?: FaqData }) => {
+export const Faq = ({ data: faq }: FaqProps) => {
   const [open, setOpen] = useState<number | null>(0);
 
   if (!faq) return null;

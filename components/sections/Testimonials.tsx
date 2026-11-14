@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
 import { SoftLeaves } from "@/components/ui/Decor";
 import { fill } from "@/components/ui/text";
-import type { GlobalUIData, TestimonialsData } from "@/types/templates.types";
+import type { TestimonialsProps } from "@/types/templates.types";
 
 const AUTOPLAY_MS = 6000;
 
@@ -20,7 +20,7 @@ function Stars({ rating, label, className = "" }: { rating: number; label?: stri
 }
 
 /** "Review from Our Supporters" slider — home page and About Us page. */
-export const Testimonials = ({ data: testimonials, ui, detailed = false }: { data?: TestimonialsData; ui?: GlobalUIData; detailed?: boolean }) => {
+export const Testimonials = ({ data: testimonials, detailed = false }: TestimonialsProps) => {
   const items = testimonials?.items ?? [];
   // The About Us page shows this section with more room around it than the home page.
   const spacing = detailed ? "pt-64 pb-64 md:pt-80 md:pb-80 xl:pt-100 xl:pb-100" : "pt-32 pb-32 md:pt-40 md:pb-40 xl:pt-50 xl:pb-50";
@@ -83,10 +83,10 @@ export const Testimonials = ({ data: testimonials, ui, detailed = false }: { dat
 
         {/* All slides share one grid cell, so the box is as tall as the longest quote and never jumps. */}
         <div className="relative grid sm:px-64 xl:px-0">
-          <button type="button" aria-label={ui?.previousSlide} onClick={() => go(index - 1)} className={`${arrow} left-0`}>
+          <button type="button" aria-label={testimonials.previousLabel} onClick={() => go(index - 1)} className={`${arrow} left-0`}>
             <Icon name="FaArrowLeft" className="size-20 xl:size-24" />
           </button>
-          <button type="button" aria-label={ui?.nextSlide} onClick={() => go(index + 1)} className={`${arrow} right-0`}>
+          <button type="button" aria-label={testimonials.nextLabel} onClick={() => go(index + 1)} className={`${arrow} right-0`}>
             <Icon name="FaArrowRight" className="size-20 xl:size-24" />
           </button>
 
@@ -109,7 +109,7 @@ export const Testimonials = ({ data: testimonials, ui, detailed = false }: { dat
                 <span>
                   <span className="block font-dm text-[1.0625rem] font-bold text-tertiary-dark xl:text-[1.34375rem]">{item.name}</span>
                   <span className="mt-2 block font-dm text-[0.875rem] text-[var(--color-testimonial-role)] xl:text-[length:max(1.0625rem,var(--text-min))]">{item.role}</span>
-                  <Stars rating={item.rating} label={fill(ui?.rating, { n: item.rating })} className="mt-8 xl:mt-10" />
+                  <Stars rating={item.rating} label={fill(testimonials.ratingLabel, { n: item.rating })} className="mt-8 xl:mt-10" />
                 </span>
               </figcaption>
             </figure>
@@ -121,7 +121,7 @@ export const Testimonials = ({ data: testimonials, ui, detailed = false }: { dat
             <button
               key={item.id}
               type="button"
-              aria-label={fill(ui?.goToSlide, { n: i + 1 })}
+              aria-label={fill(testimonials.slideLabel, { n: i + 1 })}
               aria-current={i === index}
               onClick={() => go(i)}
               className={`size-14 rounded-full transition-colors xl:size-[1.09375rem] ${i === index ? "bg-primary" : "bg-[var(--color-testimonial-dot)] hover:bg-[var(--color-testimonial-dot-hover)]"}`}

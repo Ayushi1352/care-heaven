@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
 import { introHidden } from "@/components/ui/motion";
-import type { HeroData } from "@/types/templates.types";
+import type { HeroSectionProps } from "@/types/templates.types";
 
-export const HeroSection = ({ data: hero }: { data?: HeroData }) => {
+export const HeroSection = ({ data: hero }: HeroSectionProps) => {
   if (!hero) return null;
 
   return (

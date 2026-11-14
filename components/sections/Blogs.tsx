@@ -3,9 +3,9 @@ import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { Paginated } from "@/components/ui/Pagination";
 import { fill, formatDate } from "@/components/ui/text";
-import type { BlogsData, GlobalUIData } from "@/types/templates.types";
+import type { BlogsProps } from "@/types/templates.types";
 
-export const BlogGrid = ({ data: blog, ui }: { data?: BlogsData; ui?: GlobalUIData }) => {
+export const Blogs = ({ data: blog }: BlogsProps) => {
   if (!blog) return null;
   const { posts } = blog;
 
@@ -25,7 +25,7 @@ export const BlogGrid = ({ data: blog, ui }: { data?: BlogsData; ui?: GlobalUIDa
 
       <div className="mt-36 xl:mt-62">
         <Paginated
-          ui={ui}
+          labels={blog}
           rows={blog.rowsPerPage}
           columns={2}
           variant="round"
@@ -36,7 +36,7 @@ export const BlogGrid = ({ data: blog, ui }: { data?: BlogsData; ui?: GlobalUIDa
             <li key={post.id} className="group flex flex-col gap-22 rounded-[1rem] bg-[var(--color-white)] p-16 shadow-[0_6px_30px_var(--color-shadow-blog-card)] sm:flex-row sm:items-center xl:h-388 xl:gap-44 xl:rounded-[1.0625rem] xl:p-19">
               <Link
                 href={blog.detailPageUrl}
-                aria-label={fill(ui?.readMoreAbout, { title: post.title })}
+                aria-label={fill(blog.readMoreLabel, { title: post.title })}
                 className="relative block aspect-square shrink-0 overflow-hidden rounded-[0.75rem] sm:w-[44%] xl:w-353 xl:rounded-[0.625rem]"
               >
                 <Image src={post.image} alt={post.imageAlt} fill quality={90} sizes="(min-width: 1024px) 21vw, (min-width: 640px) 44vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.08]" />
@@ -44,7 +44,7 @@ export const BlogGrid = ({ data: blog, ui }: { data?: BlogsData; ui?: GlobalUIDa
               <div className="min-w-0 flex-1 pb-8 sm:pb-0 xl:pr-16">
                 <p className="inline-flex h-34 items-center gap-8 rounded-full bg-[var(--color-blog-tag-bg)] px-14 font-dm text-[0.875rem] font-medium text-[var(--color-blog-tag-text)] xl:h-40 xl:gap-9 xl:px-17 xl:text-[length:max(1.125rem,var(--text-min))]">
                   <Icon name="FaRegCalendarAlt" className="size-15 xl:size-18" />
-                  <time dateTime={post.date}>{formatDate(post.date, ui?.months)}</time>
+                  <time dateTime={post.date}>{formatDate(post.date, blog.months)}</time>
                 </p>
                 <h2 className="mt-14 font-heading font-bold text-[1.25rem] leading-[1.25] text-[var(--color-blog-heading)] xs:text-[1.375rem] sm:text-[1.53125rem] xl:mt-16 xl:max-w-330 xl:text-[2.09375rem] xl:leading-40">
                   <Link href={blog.detailPageUrl} className="line-clamp-2 transition-colors hover:text-secondary-dark">

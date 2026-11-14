@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
 import { formatDate } from "@/components/ui/text";
-import type { BlogDetailData, BlogDetailSection, GlobalUIData } from "@/types/templates.types";
+import type { BlogDetailProps, BlogDetailSection } from "@/types/templates.types";
 
 // Rule and text sizes differ a little per section in the design, so each section passes its own desktop classes.
 function SectionText({
@@ -34,7 +34,7 @@ function SectionImage({ section, className = "" }: { section: BlogDetailSection;
   );
 }
 
-export const BlogArticle = ({ data: detail, ui }: { data?: BlogDetailData; ui?: GlobalUIData }) => {
+export const BlogDetail = ({ data: detail }: BlogDetailProps) => {
   if (!detail) return null;
   const [first, second, third] = detail.sections;
 
@@ -43,7 +43,7 @@ export const BlogArticle = ({ data: detail, ui }: { data?: BlogDetailData; ui?: 
       <header data-reveal="up" className="flex flex-col items-center text-center">
         <p className="inline-flex h-38 items-center gap-8 rounded-full bg-[var(--color-blog-detail-tag-bg)] px-16 font-dm text-[0.9375rem] font-medium text-[var(--color-blog-tag-text)] xl:h-53 xl:gap-12 xl:px-26 xl:text-[1.40625rem]">
           <Icon name="FaRegCalendarAlt" className="size-16 xl:size-24" />
-          <time dateTime={detail.date}>{formatDate(detail.date, ui?.months)}</time>
+          <time dateTime={detail.date}>{formatDate(detail.date, detail.months)}</time>
         </p>
         <h1 className="mt-16 font-heading font-bold text-[1.5rem] leading-[1.2] text-[var(--color-blog-heading)] xs:text-[1.75rem] sm:text-[2.84375rem] xl:mt-25 xl:text-[4.75rem] xl:leading-90">
           {detail.title} <span className="text-secondary-dark">{detail.titleHighlight}</span>

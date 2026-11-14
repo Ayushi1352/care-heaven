@@ -2,15 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { Sparks } from "@/components/ui/Decor";
-import { contactField, contactHref } from "@/components/ui/text";
-import type { CompanyData, FooterData, NavLink } from "@/types/templates.types";
+import { contactHref } from "@/components/ui/text";
+import type { FooterProps } from "@/types/templates.types";
 
 // Tailwind only sees complete class names, so the row count of the two-column menu (half the links, rounded up) is picked from this list.
 const menuRows = ["", "grid-rows-[repeat(1,auto)]", "grid-rows-[repeat(2,auto)]", "grid-rows-[repeat(3,auto)]", "grid-rows-[repeat(4,auto)]", "grid-rows-[repeat(5,auto)]", "grid-rows-[repeat(6,auto)]"];
 
-export const Footer = ({ data: footer, company, links }: { data?: FooterData; company?: CompanyData; links?: NavLink[] }) => {
-  if (!footer || !company) return null;
-  const nav = links ?? [];
+export const Footer = ({ data: footer }: FooterProps) => {
+  if (!footer) return null;
+  const nav = footer.links;
   const rows = menuRows[Math.min(Math.ceil(nav.length / 2), menuRows.length - 1)];
 
   return (
@@ -19,8 +19,8 @@ export const Footer = ({ data: footer, company, links }: { data?: FooterData; co
         <div className="grid grid-cols-[minmax(0,1fr)] gap-44 md:grid-cols-2 xl:grid-cols-[39.4375rem_30.875rem_1fr] xl:gap-0">
           {/* Logo + menu links */}
           <div data-reveal="up" className="xl:pl-48">
-            <Link href={company.logoUrl} aria-label={company.name} className="block w-260 max-w-full sm:w-320 xl:w-420">
-              <Image src={company.logoWhite} alt={company.logoAlt} width={company.logoWidth} height={company.logoHeight} quality={90} sizes="(min-width: 1024px) 25vw, 320px" className="h-auto w-full" />
+            <Link href={footer.logoUrl} aria-label={footer.logoLabel} className="block w-260 max-w-full sm:w-320 xl:w-420">
+              <Image src={footer.logo.src} alt={footer.logo.alt} width={footer.logo.width} height={footer.logo.height} quality={90} sizes="(min-width: 1024px) 25vw, 320px" className="h-auto w-full" />
             </Link>
             <p className="mt-32 font-main text-[1.125rem] leading-none font-semibold tracking-[0.01em] uppercase xl:mt-35 xl:ml-19 xl:text-[1.375rem]">{footer.menuTitle}</p>
             <span className="mt-12 block h-3 w-52 bg-primary xl:ml-19 xl:w-62" />
@@ -39,9 +39,8 @@ export const Footer = ({ data: footer, company, links }: { data?: FooterData; co
           {/* Contact cards */}
           <ul data-reveal="up" className="flex flex-col gap-16 xl:mt-40 xl:gap-24">
             {footer.contactCards.map((card) => {
-              const { lines, type } = contactField(company, card.source);
-              const href = contactHref(type, lines[0]);
-              const body = lines.map((line) => (
+              const href = contactHref(card.type, card.lines[0]);
+              const body = card.lines.map((line) => (
                 <span key={line} className="block">
                   {line}
                 </span>
@@ -86,7 +85,7 @@ export const Footer = ({ data: footer, company, links }: { data?: FooterData; co
               </Link>
             </div>
             <ul className="mt-28 flex flex-wrap justify-center gap-14 xl:mt-30 xl:gap-16">
-              {company.socialLinks.map((social) => (
+              {footer.socialLinks.map((social) => (
                 <li key={social.id}>
                   <a
                     href={social.url}

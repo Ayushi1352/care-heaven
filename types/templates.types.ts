@@ -21,26 +21,18 @@ export interface SiteMetadataData {
   lang: string;
 }
 
+/** Only the breadcrumb reads these; every section keeps its own labels in its data. */
 export interface GlobalUIData {
-  mainNav: string;
-  openMenu: string;
-  closeMenu: string;
   breadcrumbLabel: string;
-  breadcrumbImage: string;
-  previousSlide: string;
-  nextSlide: string;
-  goToSlide: string;
-  pagination: string;
-  previousPage: string;
-  nextPage: string;
-  goToPage: string;
-  openImage: string;
-  close: string;
-  previousImage: string;
-  nextImage: string;
-  rating: string;
-  readMoreAbout: string;
-  months: string[];
+  breadcrumbSeparator: string;
+}
+
+/** Screen-reader labels for the page numbers under a paged list; "{n}" is the page number. */
+export interface PaginationLabels {
+  paginationLabel: string;
+  previousPageLabel: string;
+  nextPageLabel: string;
+  pageLabel: string;
 }
 
 export interface SocialLink {
@@ -51,29 +43,13 @@ export interface SocialLink {
   label: string;
 }
 
-export interface CompanyData {
-  name: string;
-  logo: string;
-  logoWhite: string;
-  logoAlt: string;
-  logoUrl: string;
-  logoWidth: number;
-  logoHeight: number;
-  phone: string;
-  email: string;
-  address: string[];
-  /** "{query}" is filled with the address */
-  mapEmbedUrl: string;
-  mapOpenUrl: string;
-  socialLinks: SocialLink[];
-}
-
 export interface BreadcrumbPath {
   id: string;
   label: string;
   url: string;
 }
 
+/** Page title and description for the browser tab and search results (spread into a page's metadata). */
 export interface SeoData {
   title: string;
   description: string;
@@ -82,6 +58,8 @@ export interface SeoData {
 export interface BreadcrumbData {
   title: string;
   seo?: SeoData;
+  /** Banner photo behind the title */
+  bgImage?: string;
   paths: BreadcrumbPath[];
 }
 
@@ -105,8 +83,9 @@ export interface ContactCard {
   id: string;
   icon: string;
   title: string;
-  /** the company field shown on the card: "phone", "email" or "address" */
-  source: string;
+  lines: string[];
+  /** "tel" or "mailto" makes the first line a phone / email link */
+  type?: string;
 }
 
 export interface ContactCircle {
@@ -116,18 +95,22 @@ export interface ContactCircle {
 }
 
 export interface FooterData {
+  logo: ImageData;
+  logoUrl: string;
+  logoLabel: string;
   menuTitle: string;
+  links: NavLink[];
   contactCards: ContactCard[];
   contactCircle: ContactCircle;
   copyright: string;
   poweredBy?: string;
+  socialLinks: SocialLink[];
 }
 
 export interface CommonData {
   theme: ThemeData;
   metadata: SiteMetadataData;
   globalUI: GlobalUIData;
-  company: CompanyData;
   aboutBreadcrumb?: BreadcrumbData;
   causesBreadcrumb?: BreadcrumbData;
   causeDetailBreadcrumb?: BreadcrumbData;
@@ -141,8 +124,20 @@ export interface CommonData {
 }
 
 export interface HeaderData {
+  logo: ImageData;
+  /** Logo in the slide-in menu */
+  logoWhite: ImageData;
+  logoUrl: string;
+  logoLabel: string;
   nav: NavLink[];
   button: LinkData;
+  phone: string;
+  email: string;
+  address: string[];
+  socialLinks: SocialLink[];
+  menuLabel: string;
+  openMenuLabel: string;
+  closeMenuLabel: string;
 }
 
 export interface HeroData {
@@ -210,6 +205,7 @@ export interface WhyChooseUsData {
   image: ImageData;
   call: {
     label: string;
+    phone: string;
   };
   lead: string;
   missionTitle: string;
@@ -233,6 +229,12 @@ export interface TestimonialsData {
   titleHighlight: string;
   subtitle: string;
   items: TestimonialItem[];
+  /** "{n}" is the star rating */
+  ratingLabel: string;
+  previousLabel: string;
+  nextLabel: string;
+  /** "{n}" is the slide number */
+  slideLabel: string;
 }
 
 export interface BlogPost {
@@ -266,9 +268,11 @@ export interface BlogDetailData {
   intro: string;
   sections: BlogDetailSection[];
   quote: string;
+  /** Month names for the post date */
+  months: string[];
 }
 
-export interface BlogsData {
+export interface BlogsData extends PaginationLabels {
   label: string;
   title: string;
   titleHighlight: string;
@@ -278,6 +282,10 @@ export interface BlogsData {
   rowsPerPage: number;
   posts: BlogPost[];
   detailPageUrl: string;
+  /** Month names for the post dates */
+  months: string[];
+  /** "{title}" is the post title */
+  readMoreLabel: string;
 }
 
 export interface CauseItem {
@@ -315,11 +323,13 @@ export interface CauseDetailData {
   impactText: string;
 }
 
-export interface CausesData {
+export interface CausesData extends PaginationLabels {
   readMore: string;
   rowsPerPage: number;
   items: CauseItem[];
   detailPageUrl: string;
+  /** "{title}" is the cause title */
+  readMoreLabel: string;
 }
 
 export interface TeamMember {
@@ -329,7 +339,7 @@ export interface TeamMember {
   image: string;
 }
 
-export interface TeamData {
+export interface TeamData extends PaginationLabels {
   label: string;
   title: string;
   titleHighlight: string;
@@ -344,13 +354,18 @@ export interface GalleryImage {
   alt: string;
 }
 
-export interface GalleryData {
+export interface GalleryData extends PaginationLabels {
   label: string;
   title: string;
   titleHighlight: string;
   description: string;
   rowsPerPage: number;
   images: GalleryImage[];
+  /** "{name}" is the image's alt text */
+  openImageLabel: string;
+  closeLabel: string;
+  previousLabel: string;
+  nextLabel: string;
 }
 
 export interface FaqItem {
@@ -402,30 +417,109 @@ export interface ContactData {
   cards: ContactCard[];
   map: {
     label: string;
+    embedUrl: string;
+    openUrl: string;
   };
   form: ContactFormData;
+  /** Closes the thank-you message */
+  closeLabel: string;
 }
 
-type Section<Variant extends string, Data> = {
-  variants?: { [Name in Variant]?: Data };
-};
+// ── Component props ──
+
+export interface HeaderProps {
+  data?: HeaderData;
+}
+
+export interface FooterProps {
+  data?: FooterData;
+}
+
+export interface BreadcrumbProps {
+  data?: BreadcrumbData;
+  ui?: GlobalUIData;
+}
+
+export interface HeroSectionProps {
+  data?: HeroData;
+}
+
+export interface HowWeHelpProps {
+  data?: HowWeHelpData;
+}
+
+export interface AboutUsProps {
+  data?: AboutUsData;
+  /** The About Us page shows the section with more room around it */
+  detailed?: boolean;
+}
+
+export interface StatsProps {
+  data?: StatsData;
+}
+
+export interface WhyChooseUsProps {
+  data?: WhyChooseUsData;
+}
+
+export interface TestimonialsProps {
+  data?: TestimonialsData;
+  /** The About Us page shows the section with more room around it */
+  detailed?: boolean;
+}
+
+export interface BlogSectionProps {
+  data?: BlogsData;
+}
+
+export interface BlogsProps {
+  data?: BlogsData;
+}
+
+export interface BlogDetailProps {
+  data?: BlogDetailData;
+}
+
+export interface CausesProps {
+  data?: CausesData;
+}
+
+export interface CauseDetailProps {
+  data?: CauseDetailData;
+}
+
+export interface TeamProps {
+  data?: TeamData;
+}
+
+export interface GalleryProps {
+  data?: GalleryData;
+}
+
+export interface FaqProps {
+  data?: FaqData;
+}
+
+export interface ContactProps {
+  data?: ContactData;
+}
 
 export interface NGOSections {
-  Header?: Section<"NGOHeader1", HeaderData>;
-  Hero?: Section<"NGOHero1", HeroData>;
-  HowWeHelp?: Section<"NGOHowWeHelp1", HowWeHelpData>;
-  AboutUs?: Section<"NGOAboutUs1", AboutUsData>;
-  Stats?: Section<"NGOStats1", StatsData>;
-  WhyChooseUs?: Section<"NGOWhyChooseUs1", WhyChooseUsData>;
-  Testimonials?: Section<"NGOTestimonials1", TestimonialsData>;
-  Blogs?: Section<"NGOBlogs1", BlogsData>;
-  BlogDetail?: Section<"NGOBlogDetail1", BlogDetailData>;
-  Causes?: Section<"NGOCauses1", CausesData>;
-  CauseDetail?: Section<"NGOCauseDetail1", CauseDetailData>;
-  Team?: Section<"NGOTeam1", TeamData>;
-  Gallery?: Section<"NGOGallery1", GalleryData>;
-  Faq?: Section<"NGOFaq1", FaqData>;
-  Contact?: Section<"NGOContact1", ContactData>;
+  Header?: { variants?: { NGOHeader1?: HeaderData } };
+  Hero?: { variants?: { NGOHero1?: HeroData } };
+  HowWeHelp?: { variants?: { NGOHowWeHelp1?: HowWeHelpData } };
+  AboutUs?: { variants?: { NGOAboutUs1?: AboutUsData } };
+  Stats?: { variants?: { NGOStats1?: StatsData } };
+  WhyChooseUs?: { variants?: { NGOWhyChooseUs1?: WhyChooseUsData } };
+  Testimonials?: { variants?: { NGOTestimonials1?: TestimonialsData } };
+  Blogs?: { variants?: { NGOBlogs1?: BlogsData } };
+  BlogDetail?: { variants?: { NGOBlogDetail1?: BlogDetailData } };
+  Causes?: { variants?: { NGOCauses1?: CausesData } };
+  CauseDetail?: { variants?: { NGOCauseDetail1?: CauseDetailData } };
+  Team?: { variants?: { NGOTeam1?: TeamData } };
+  Gallery?: { variants?: { NGOGallery1?: GalleryData } };
+  Faq?: { variants?: { NGOFaq1?: FaqData } };
+  Contact?: { variants?: { NGOContact1?: ContactData } };
 }
 
 export interface TemplateComponentEntry {
@@ -433,7 +527,7 @@ export interface TemplateComponentEntry {
   component: string;
 }
 
-export interface TemplateComponents {
+export interface TemplateComponentsData {
   shared: {
     Header: string;
     Footer: string;
@@ -441,14 +535,12 @@ export interface TemplateComponents {
   pages: Record<string, { components: TemplateComponentEntry[] }>;
 }
 
-export interface NGOCategory {
-  sections: NGOSections;
-  templateComponents: TemplateComponents;
-}
-
 export interface NGOTemplateData {
   common: CommonData;
   categories: {
-    NGO: NGOCategory;
+    NGO: {
+      sections: NGOSections;
+      templateComponents?: TemplateComponentsData;
+    };
   };
 }

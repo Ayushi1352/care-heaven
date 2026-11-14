@@ -19,22 +19,288 @@
       "icon": "/favicon.ico",
       "lang": "en"
     },
-    "company": {
-      "name": "CareHaven Foundation",
-      "logo": "/images/logo.webp",
-      "logoWhite": "/images/logo-white.webp",
-      "logoAlt": "CareHaven Foundation - A Better World For Everyone",
+    "globalUI": {
+      "breadcrumbLabel": "Breadcrumb",
+      "breadcrumbSeparator": "/"
+    },
+    "aboutBreadcrumb": {
+      "title": "About Us",
+      "seo": {
+        "title": "About Us",
+        "description": "Learn about CareHaven Foundation, our mission, our values and the people working to build a better world for everyone."
+      },
+      "bgImage": "/images/page-banner.webp",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "about-us",
+          "label": "About Us",
+          "url": ""
+        }
+      ]
+    },
+    "causesBreadcrumb": {
+      "title": "Our Causes",
+      "seo": {
+        "title": "Our Causes",
+        "description": "Explore CareHaven's causes in education, healthcare, food, relief and animal welfare, and choose where your support goes."
+      },
+      "bgImage": "/images/page-banner.webp",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "our-causes",
+          "label": "Our Causes",
+          "url": ""
+        }
+      ]
+    },
+    "causeDetailBreadcrumb": {
+      "title": "Causes Details",
+      "seo": {
+        "title": "Causes Details",
+        "description": "See how this CareHaven cause works, the people it reaches and how your donation makes a difference."
+      },
+      "bgImage": "/images/page-banner.webp",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "our-causes",
+          "label": "Our Causes",
+          "url": "/our-causes"
+        },
+        {
+          "id": "causes-details",
+          "label": "Causes Details",
+          "url": ""
+        }
+      ]
+    },
+    "teamsBreadcrumb": {
+      "title": "Our Teams",
+      "seo": {
+        "title": "Our Teams",
+        "description": "Meet the CareHaven team of volunteers and staff who run our programs on the ground."
+      },
+      "bgImage": "/images/page-banner.webp",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "our-teams",
+          "label": "Our Teams",
+          "url": ""
+        }
+      ]
+    },
+    "galleryBreadcrumb": {
+      "title": "Our Gallery",
+      "seo": {
+        "title": "Our Gallery",
+        "description": "Photos from CareHaven's classes, health camps, food drives and relief work."
+      },
+      "bgImage": "/images/page-banner.webp",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "our-gallery",
+          "label": "Our Gallery",
+          "url": ""
+        }
+      ]
+    },
+    "blogsBreadcrumb": {
+      "title": "Our Blog",
+      "seo": {
+        "title": "Our Blog",
+        "description": "News, stories and updates from CareHaven Foundation's programs and communities."
+      },
+      "bgImage": "/images/page-banner.webp",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "our-blog",
+          "label": "Our Blog",
+          "url": ""
+        }
+      ]
+    },
+    "blogDetailBreadcrumb": {
+      "title": "Blog Detail",
+      "seo": {
+        "title": "Blog Detail",
+        "description": "Read the full story from the CareHaven Foundation blog."
+      },
+      "bgImage": "/images/page-banner.webp",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "our-blog",
+          "label": "Our Blog",
+          "url": "/our-blog"
+        },
+        {
+          "id": "blog-detail",
+          "label": "Blog Detail",
+          "url": ""
+        }
+      ]
+    },
+    "faqsBreadcrumb": {
+      "title": "Faqs",
+      "seo": {
+        "title": "Faqs",
+        "description": "Answers to common questions about donating, volunteering and working with CareHaven Foundation."
+      },
+      "bgImage": "/images/page-banner.webp",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "faqs",
+          "label": "Faqs",
+          "url": ""
+        }
+      ]
+    },
+    "contactBreadcrumb": {
+      "title": "Contact Us",
+      "seo": {
+        "title": "Contact Us",
+        "description": "Get in touch with CareHaven Foundation by phone, email or our contact form."
+      },
+      "bgImage": "/images/page-banner.webp",
+      "paths": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "/"
+        },
+        {
+          "id": "contact-us",
+          "label": "Contact Us",
+          "url": ""
+        }
+      ]
+    },
+    "Footer": {
+      "logo": {
+        "src": "/images/logo-white.webp",
+        "alt": "CareHaven Foundation - A Better World For Everyone",
+        "width": 960,
+        "height": 329
+      },
       "logoUrl": "/",
-      "logoWidth": 960,
-      "logoHeight": 329,
-      "phone": "+1 0000000000",
-      "email": "info@xyz.com",
-      "address": [
-        "123 Main Street,",
-        "New York, NY 10001, USA"
+      "logoLabel": "CareHaven Foundation",
+      "menuTitle": "Menu Links",
+      "links": [
+        {
+          "id": "home",
+          "label": "Home",
+          "href": "/"
+        },
+        {
+          "id": "about-us",
+          "label": "About Us",
+          "href": "/about-us"
+        },
+        {
+          "id": "our-causes",
+          "label": "Our Causes",
+          "href": "/our-causes"
+        },
+        {
+          "id": "our-teams",
+          "label": "Our Teams",
+          "href": "/our-teams"
+        },
+        {
+          "id": "our-gallery",
+          "label": "Our Gallery",
+          "href": "/our-gallery"
+        },
+        {
+          "id": "our-blog",
+          "label": "Our Blog",
+          "href": "/our-blog"
+        },
+        {
+          "id": "faqs",
+          "label": "Faqs",
+          "href": "/faqs"
+        },
+        {
+          "id": "contact-us",
+          "label": "Contact Us",
+          "href": "/contact-us"
+        }
       ],
-      "mapEmbedUrl": "https://maps.google.com/maps?q={query}&z=12&output=embed",
-      "mapOpenUrl": "https://www.google.com/maps/search/?api=1&query={query}",
+      "contactCards": [
+        {
+          "id": "our-location",
+          "icon": "FaMapMarkerAlt",
+          "title": "Our Location",
+          "lines": [
+            "123 Main Street,",
+            "New York, NY 10001, USA"
+          ]
+        },
+        {
+          "id": "email-address",
+          "icon": "FaRegEnvelope",
+          "title": "Email Address",
+          "lines": [
+            "info@xyz.com"
+          ],
+          "type": "mailto"
+        },
+        {
+          "id": "call-us",
+          "icon": "FaPhoneAlt",
+          "title": "Call Us",
+          "lines": [
+            "+1 0000000000"
+          ],
+          "type": "tel"
+        }
+      ],
+      "contactCircle": {
+        "top": "CONTACT",
+        "bottom": "US",
+        "href": "/contact-us"
+      },
+      "copyright": "© 2026 All Rights Reserved. Powered by Lestow.",
+      "poweredBy": "Powered by Lestow",
       "socialLinks": [
         {
           "id": "facebook",
@@ -72,251 +338,6 @@
           "label": "CareHaven Foundation on X"
         }
       ]
-    },
-    "globalUI": {
-      "mainNav": "Main",
-      "openMenu": "Open menu",
-      "closeMenu": "Close menu",
-      "breadcrumbLabel": "Breadcrumb",
-      "breadcrumbImage": "/images/page-banner.webp",
-      "previousSlide": "Previous",
-      "nextSlide": "Next",
-      "goToSlide": "Go to slide {n}",
-      "pagination": "Pagination",
-      "previousPage": "Previous page",
-      "nextPage": "Next page",
-      "goToPage": "Page {n}",
-      "openImage": "Open image: {name}",
-      "close": "Close",
-      "previousImage": "Previous image",
-      "nextImage": "Next image",
-      "rating": "{n} out of 5 stars",
-      "readMoreAbout": "Read more about {title}",
-      "months": [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-      ]
-    },
-    "aboutBreadcrumb": {
-      "title": "About Us",
-      "seo": {
-        "title": "About Us",
-        "description": "Learn about CareHaven Foundation, our mission, our values and the people working to build a better world for everyone."
-      },
-      "paths": [
-        {
-          "id": "home",
-          "label": "Home",
-          "url": "/"
-        },
-        {
-          "id": "about-us",
-          "label": "About Us",
-          "url": ""
-        }
-      ]
-    },
-    "causesBreadcrumb": {
-      "title": "Our Causes",
-      "seo": {
-        "title": "Our Causes",
-        "description": "Explore CareHaven's causes in education, healthcare, food, relief and animal welfare, and choose where your support goes."
-      },
-      "paths": [
-        {
-          "id": "home",
-          "label": "Home",
-          "url": "/"
-        },
-        {
-          "id": "our-causes",
-          "label": "Our Causes",
-          "url": ""
-        }
-      ]
-    },
-    "causeDetailBreadcrumb": {
-      "title": "Causes Details",
-      "seo": {
-        "title": "Causes Details",
-        "description": "See how this CareHaven cause works, the people it reaches and how your donation makes a difference."
-      },
-      "paths": [
-        {
-          "id": "home",
-          "label": "Home",
-          "url": "/"
-        },
-        {
-          "id": "our-causes",
-          "label": "Our Causes",
-          "url": "/our-causes"
-        },
-        {
-          "id": "causes-details",
-          "label": "Causes Details",
-          "url": ""
-        }
-      ]
-    },
-    "teamsBreadcrumb": {
-      "title": "Our Teams",
-      "seo": {
-        "title": "Our Teams",
-        "description": "Meet the CareHaven team of volunteers and staff who run our programs on the ground."
-      },
-      "paths": [
-        {
-          "id": "home",
-          "label": "Home",
-          "url": "/"
-        },
-        {
-          "id": "our-teams",
-          "label": "Our Teams",
-          "url": ""
-        }
-      ]
-    },
-    "galleryBreadcrumb": {
-      "title": "Our Gallery",
-      "seo": {
-        "title": "Our Gallery",
-        "description": "Photos from CareHaven's classes, health camps, food drives and relief work."
-      },
-      "paths": [
-        {
-          "id": "home",
-          "label": "Home",
-          "url": "/"
-        },
-        {
-          "id": "our-gallery",
-          "label": "Our Gallery",
-          "url": ""
-        }
-      ]
-    },
-    "blogsBreadcrumb": {
-      "title": "Our Blog",
-      "seo": {
-        "title": "Our Blog",
-        "description": "News, stories and updates from CareHaven Foundation's programs and communities."
-      },
-      "paths": [
-        {
-          "id": "home",
-          "label": "Home",
-          "url": "/"
-        },
-        {
-          "id": "our-blog",
-          "label": "Our Blog",
-          "url": ""
-        }
-      ]
-    },
-    "blogDetailBreadcrumb": {
-      "title": "Blog Detail",
-      "seo": {
-        "title": "Blog Detail",
-        "description": "Read the full story from the CareHaven Foundation blog."
-      },
-      "paths": [
-        {
-          "id": "home",
-          "label": "Home",
-          "url": "/"
-        },
-        {
-          "id": "our-blog",
-          "label": "Our Blog",
-          "url": "/our-blog"
-        },
-        {
-          "id": "blog-detail",
-          "label": "Blog Detail",
-          "url": ""
-        }
-      ]
-    },
-    "faqsBreadcrumb": {
-      "title": "Faqs",
-      "seo": {
-        "title": "Faqs",
-        "description": "Answers to common questions about donating, volunteering and working with CareHaven Foundation."
-      },
-      "paths": [
-        {
-          "id": "home",
-          "label": "Home",
-          "url": "/"
-        },
-        {
-          "id": "faqs",
-          "label": "Faqs",
-          "url": ""
-        }
-      ]
-    },
-    "contactBreadcrumb": {
-      "title": "Contact Us",
-      "seo": {
-        "title": "Contact Us",
-        "description": "Get in touch with CareHaven Foundation by phone, email or our contact form."
-      },
-      "paths": [
-        {
-          "id": "home",
-          "label": "Home",
-          "url": "/"
-        },
-        {
-          "id": "contact-us",
-          "label": "Contact Us",
-          "url": ""
-        }
-      ]
-    },
-    "Footer": {
-      "menuTitle": "Menu Links",
-      "contactCards": [
-        {
-          "id": "our-location",
-          "icon": "FaMapMarkerAlt",
-          "title": "Our Location",
-          "source": "address"
-        },
-        {
-          "id": "email-address",
-          "icon": "FaRegEnvelope",
-          "title": "Email Address",
-          "source": "email"
-        },
-        {
-          "id": "call-us",
-          "icon": "FaPhoneAlt",
-          "title": "Call Us",
-          "source": "phone"
-        }
-      ],
-      "contactCircle": {
-        "top": "CONTACT",
-        "bottom": "US",
-        "href": "/contact-us"
-      },
-      "copyright": "© 2026 All Rights Reserved. Powered by Lestow.",
-      "poweredBy": "Powered by Lestow"
     }
   },
   "categories": {
@@ -325,6 +346,20 @@
         "Header": {
           "variants": {
             "NGOHeader1": {
+              "logo": {
+                "src": "/images/logo.webp",
+                "alt": "CareHaven Foundation - A Better World For Everyone",
+                "width": 960,
+                "height": 329
+              },
+              "logoWhite": {
+                "src": "/images/logo-white.webp",
+                "alt": "CareHaven Foundation - A Better World For Everyone",
+                "width": 960,
+                "height": 329
+              },
+              "logoUrl": "/",
+              "logoLabel": "CareHaven Foundation",
               "nav": [
                 {
                   "id": "home",
@@ -370,7 +405,53 @@
               "button": {
                 "label": "Donate Now",
                 "href": "/contact-us"
-              }
+              },
+              "phone": "+1 0000000000",
+              "email": "info@xyz.com",
+              "address": [
+                "123 Main Street,",
+                "New York, NY 10001, USA"
+              ],
+              "socialLinks": [
+                {
+                  "id": "facebook",
+                  "name": "Facebook",
+                  "icon": "FaFacebookF",
+                  "url": "https://www.facebook.com/",
+                  "label": "CareHaven Foundation on Facebook"
+                },
+                {
+                  "id": "instagram",
+                  "name": "Instagram",
+                  "icon": "FaInstagram",
+                  "url": "https://www.instagram.com/",
+                  "label": "CareHaven Foundation on Instagram"
+                },
+                {
+                  "id": "linkedin",
+                  "name": "LinkedIn",
+                  "icon": "FaLinkedinIn",
+                  "url": "https://www.linkedin.com/",
+                  "label": "CareHaven Foundation on LinkedIn"
+                },
+                {
+                  "id": "youtube",
+                  "name": "YouTube",
+                  "icon": "FaYoutube",
+                  "url": "https://www.youtube.com/",
+                  "label": "CareHaven Foundation on YouTube"
+                },
+                {
+                  "id": "x",
+                  "name": "X",
+                  "icon": "FaXTwitter",
+                  "url": "https://x.com/",
+                  "label": "CareHaven Foundation on X"
+                }
+              ],
+              "menuLabel": "Main",
+              "openMenuLabel": "Open menu",
+              "closeMenuLabel": "Close menu"
             }
           }
         },
@@ -518,7 +599,8 @@
                 "height": 736
               },
               "call": {
-                "label": "Call Us Anytime"
+                "label": "Call Us Anytime",
+                "phone": "+1 0000000000"
               },
               "lead": "We are a nonprofit that makes it easy and safe to give to projects anywhere in the world, while providing local organizations the tools, training, and support they need to become more effective.",
               "missionTitle": "Our Mission",
@@ -565,7 +647,11 @@
                   "avatar": "/images/team/daniel-carter.webp",
                   "avatarPosition": "object-[50%_18%]"
                 }
-              ]
+              ],
+              "ratingLabel": "{n} out of 5 stars",
+              "previousLabel": "Previous",
+              "nextLabel": "Next",
+              "slideLabel": "Go to slide {n}"
             }
           }
         },
@@ -629,7 +715,26 @@
                   "imageAlt": "A volunteer serving rice to children"
                 }
               ],
-              "detailPageUrl": "/our-blog/blog-detail"
+              "detailPageUrl": "/our-blog/blog-detail",
+              "months": [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+              ],
+              "readMoreLabel": "Read more about {title}",
+              "paginationLabel": "Pagination",
+              "previousPageLabel": "Previous page",
+              "nextPageLabel": "Next page",
+              "pageLabel": "Page {n}"
             }
           }
         },
@@ -685,7 +790,21 @@
                   }
                 }
               ],
-              "quote": "“A child with education is a child with hope.\nWhen we educate a child, we empower a community\nand build a brighter tomorrow.”"
+              "quote": "“A child with education is a child with hope.\nWhen we educate a child, we empower a community\nand build a brighter tomorrow.”",
+              "months": [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+              ]
             }
           }
         },
@@ -738,7 +857,12 @@
                   "imageAlt": "Relief volunteers handing supplies to an elderly woman"
                 }
               ],
-              "detailPageUrl": "/our-causes/causes-details"
+              "detailPageUrl": "/our-causes/causes-details",
+              "readMoreLabel": "Read more about {title}",
+              "paginationLabel": "Pagination",
+              "previousPageLabel": "Previous page",
+              "nextPageLabel": "Next page",
+              "pageLabel": "Page {n}"
             }
           }
         },
@@ -870,7 +994,11 @@
                   "role": "Communications Lead",
                   "image": "/images/team/lauren-wilson.webp"
                 }
-              ]
+              ],
+              "paginationLabel": "Pagination",
+              "previousPageLabel": "Previous page",
+              "nextPageLabel": "Next page",
+              "pageLabel": "Page {n}"
             }
           }
         },
@@ -943,7 +1071,15 @@
                   "src": "/images/gallery/boy-with-book.webp",
                   "alt": "A smiling boy holding a book"
                 }
-              ]
+              ],
+              "openImageLabel": "Open image: {name}",
+              "closeLabel": "Close",
+              "previousLabel": "Previous image",
+              "nextLabel": "Next image",
+              "paginationLabel": "Pagination",
+              "previousPageLabel": "Previous page",
+              "nextPageLabel": "Next page",
+              "pageLabel": "Page {n}"
             }
           }
         },
@@ -1027,23 +1163,34 @@
                   "id": "our-location",
                   "icon": "FaMapMarkerAlt",
                   "title": "Our Location",
-                  "source": "address"
+                  "lines": [
+                    "123 Main Street,",
+                    "New York, NY 10001, USA"
+                  ]
                 },
                 {
                   "id": "support-24-7",
                   "icon": "FaHeadset",
                   "title": "Support 24/7",
-                  "source": "phone"
+                  "lines": [
+                    "+1 0000000000"
+                  ],
+                  "type": "tel"
                 },
                 {
                   "id": "email-address",
                   "icon": "FaEnvelope",
                   "title": "Email Address",
-                  "source": "email"
+                  "lines": [
+                    "info@xyz.com"
+                  ],
+                  "type": "mailto"
                 }
               ],
               "map": {
-                "label": "Open in Maps"
+                "label": "Open in Maps",
+                "embedUrl": "https://maps.google.com/maps?q=123%20Main%20Street%2C%20New%20York%2C%20NY%2010001%2C%20USA&z=12&output=embed",
+                "openUrl": "https://www.google.com/maps/search/?api=1&query=123%20Main%20Street%2C%20New%20York%2C%20NY%2010001%2C%20USA"
               },
               "form": {
                 "title": "Send Us",
@@ -1098,7 +1245,8 @@
                   "phoneError": "Please enter a valid phone number.",
                   "sending": "Sending..."
                 }
-              }
+              },
+              "closeLabel": "Close"
             }
           }
         }
@@ -1106,7 +1254,7 @@
       "templateComponents": {
         "shared": {
           "Header": "NGOHeader1",
-          "Footer": "common.Footer"
+          "Footer": "NGOFooter1"
         },
         "pages": {
           "home": {
@@ -1137,7 +1285,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "NGOFooter1"
               }
             ]
           },
@@ -1169,7 +1317,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "NGOFooter1"
               }
             ]
           },
@@ -1189,7 +1337,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "NGOFooter1"
               }
             ]
           },
@@ -1209,7 +1357,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "NGOFooter1"
               }
             ]
           },
@@ -1229,7 +1377,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "NGOFooter1"
               }
             ]
           },
@@ -1249,7 +1397,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "NGOFooter1"
               }
             ]
           },
@@ -1269,7 +1417,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "NGOFooter1"
               }
             ]
           },
@@ -1289,7 +1437,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "NGOFooter1"
               }
             ]
           },
@@ -1309,7 +1457,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "NGOFooter1"
               }
             ]
           },
@@ -1329,7 +1477,7 @@
               },
               {
                 "key": "Footer",
-                "component": "common.Footer"
+                "component": "NGOFooter1"
               }
             ]
           }

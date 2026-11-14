@@ -1,7 +1,7 @@
 import { CountUp } from "@/components/ui/CountUp";
-import type { StatsData } from "@/types/templates.types";
+import type { StatsProps } from "@/types/templates.types";
 
-export const Stats = ({ data: stats }: { data?: StatsData }) => {
+export const Stats = ({ data: stats }: StatsProps) => {
   if (!stats) return null;
 
   return (

@@ -1,16 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { introHidden, kenburnsStart } from "@/components/ui/motion";
-import type { BreadcrumbData, GlobalUIData } from "@/types/templates.types";
+import type { BreadcrumbProps } from "@/types/templates.types";
 
-export const Breadcrumb = ({ data, ui }: { data?: BreadcrumbData; ui?: GlobalUIData }) => {
+export const Breadcrumb = ({ data, ui }: BreadcrumbProps) => {
   if (!data) return null;
   return (
     <section className="relative flex h-300 items-center justify-center overflow-hidden bg-accent px-16 pt-70 sm:h-340 md:h-380 xl:h-478 xl:pt-152">
       {/* The photo is a clean greyscale picture; the blue tint is this overlay, not part of the image. */}
-      {ui?.breadcrumbImage && (
+      {data.bgImage && (
         <Image
-          src={ui.breadcrumbImage}
+          src={data.bgImage}
           alt=""
           fill
           preload
@@ -37,7 +37,7 @@ export const Breadcrumb = ({ data, ui }: { data?: BreadcrumbData; ui?: GlobalUID
               ) : (
                 <li key={item.id} className="flex items-center gap-x-10 sm:gap-x-14 xl:gap-x-20">
                   <span aria-hidden="true" className="text-[var(--color-white-70)] select-none">
-                    /
+                    {ui?.breadcrumbSeparator}
                   </span>
                   {item.url ? (
                     <Link href={item.url} className="whitespace-nowrap text-[var(--color-white-90)] transition-colors duration-200 hover:text-primary">
