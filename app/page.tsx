@@ -4,7 +4,7 @@ import { HeroSection } from '@/components/sections/HeroSection';
 import { HowWeHelp } from '@/components/sections/HowWeHelp';
 import { AboutUs } from '@/components/sections/AboutUs';
 import { Testimonials } from '@/components/sections/Testimonials';
-import { BlogSection } from '@/components/sections/BlogSection';
+import { Blogs } from '@/components/sections/Blogs';
 
 export default function Home() {
   const templateData: NGOTemplateData = rawData;
@@ -18,7 +18,7 @@ export default function Home() {
       <HowWeHelp data={sectionData.HowWeHelp?.variants?.NGOHowWeHelp1} />
       <AboutUs data={sectionData.AboutUs?.variants?.NGOAboutUs1} />
       <Testimonials data={sectionData.Testimonials?.variants?.NGOTestimonials1} />
-      <BlogSection data={sectionData.Blogs?.variants?.NGOBlogs1} />
+      <Blogs data={sectionData.Blogs?.variants?.NGOBlogs1} />
     </main>
   );
 }

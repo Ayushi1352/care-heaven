@@ -4,6 +4,7 @@ import { Icon } from '@/components/ui/Icon';
 import { Field } from '@/components/ui/Field';
 import { BrushStroke, SoftLeaves } from '@/components/ui/Decor';
 import { useFormSubmit } from '@/components/ui/useFormSubmit';
+import { lines } from '@/components/ui/text';
 import type { ContactData, ContactProps } from '@/types/templates.types';
 
 // Desktop positions of the three cards (design pixels): two stacked on the left, one between them on the right.
@@ -29,8 +30,8 @@ function ContactInfo({ contact }: { contact: ContactData }) {
       </div>
 
       <ul data-reveal-stagger className="relative mt-80 grid gap-x-24 gap-y-80 sm:grid-cols-2 xl:static xl:mt-0 xl:block">
-        {contact.cards.map((card, i) => {
-          const body = card.lines.map((line) => (
+        {contact.contactItems.map((card, i) => {
+          const body = lines(card.text).map((line) => (
             <span key={line} className="block">
               {line}
             </span>
@@ -65,7 +66,7 @@ function ContactForm({ contact }: { contact: ContactData }) {
       <SoftLeaves className="pointer-events-none absolute right-0 bottom-0 w-150 rotate-[-20deg] text-[var(--color-contact-form-decor)] xl:right-10 xl:-bottom-10 xl:w-250" />
 
       <div data-reveal="left" className="relative h-320 overflow-hidden rounded-[0.5rem] border-4 border-[var(--color-white)] shadow-[0_10px_30px_var(--color-black-10)] sm:h-420 lg:h-auto lg:w-[46%] xl:mt-35 xl:mb-31 xl:ml-29 xl:w-735 xl:shrink-0 xl:rounded-[0.625rem] xl:border-[length:0.3125rem]">
-        <iframe title={contact.map.label} src={contact.map.embedUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="absolute inset-0 size-full border-0" />
+        <iframe title={contact.map.title} src={contact.map.embedUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="absolute inset-0 size-full border-0" />
         <a
           href={contact.map.openUrl}
           target="_blank"
@@ -84,10 +85,10 @@ function ContactForm({ contact }: { contact: ContactData }) {
 
         {sent ? (
           <div role="status" className="mt-32 flex items-start gap-14 rounded-[0.625rem] bg-[var(--color-white)] p-20 font-form text-[1rem] leading-26 text-accent-dark shadow-[0_8px_24px_var(--color-black-6)] xl:mt-40 xl:gap-20 xl:p-32 xl:text-[1.375rem] xl:leading-34">
-            <Icon name="FaCheckCircle" className="size-28 shrink-0 text-secondary xl:size-36" />
+            <Icon name={form.successIcon} className="size-28 shrink-0 text-secondary xl:size-36" />
             <span className="flex-1">{form.success}</span>
             <button type="button" onClick={() => setSent(false)} aria-label={contact.closeLabel} className="text-[var(--color-contact-close-icon)] transition-colors hover:text-tertiary">
-              <Icon name="FaTimes" className="size-20 xl:size-24" />
+              <Icon name={contact.closeIcon} className="size-20 xl:size-24" />
             </button>
           </div>
         ) : (
@@ -101,8 +102,8 @@ function ContactForm({ contact }: { contact: ContactData }) {
                 disabled={sending}
                 className="group inline-flex h-56 items-center justify-center gap-12 rounded-full border border-tertiary bg-tertiary px-32 font-form text-[1rem] font-bold text-[var(--color-white)] transition-colors duration-300 hover:bg-[var(--color-white)] hover:text-tertiary disabled:opacity-70 xl:h-78 xl:w-350 xl:gap-14 xl:px-0 xl:text-[1.4375rem]"
               >
-                {sending ? sendingLabel : form.button}
-                <Icon name="FaArrowRight" className="size-18 xl:size-24" />
+                {sending ? sendingLabel : form.buttonText}
+                <Icon name={form.buttonIcon} className="size-18 xl:size-24" />
               </button>
             </div>
           </form>

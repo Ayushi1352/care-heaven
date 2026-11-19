@@ -5,17 +5,17 @@ import { Icon } from '@/components/ui/Icon';
 import { OliveBranch } from '@/components/ui/Decor';
 import type { FaqProps } from '@/types/templates.types';
 
-// Icon colour and circle colour of each question (named in templates.json as "tone").
-const tones: Record<string, string> = {
-  orange: 'bg-[var(--color-faq-orange-bg)] text-[var(--color-faq-orange-icon)]',
-  green: 'bg-[var(--color-faq-green-bg)] text-[var(--color-faq-green-icon)]',
-  pink: 'bg-[var(--color-faq-pink-bg)] text-[var(--color-faq-pink-icon)]',
-  blue: 'bg-[var(--color-faq-blue-bg)] text-[var(--color-faq-blue-icon)]',
-  amber: 'bg-[var(--color-faq-amber-bg)] text-[var(--color-faq-amber-icon)]',
-  purple: 'bg-[var(--color-faq-purple-bg)] text-[var(--color-faq-purple-icon)]',
-  sage: 'bg-[var(--color-faq-sage-bg)] text-[var(--color-faq-sage-icon)]',
-  sky: 'bg-[var(--color-faq-sky-bg)] text-[var(--color-faq-sky-icon)]',
-};
+// Icon colour and circle colour of each question, in design order; more questions repeat the list.
+const tones = [
+  'bg-[var(--color-faq-orange-bg)] text-[var(--color-faq-orange-icon)]',
+  'bg-[var(--color-faq-green-bg)] text-[var(--color-faq-green-icon)]',
+  'bg-[var(--color-faq-pink-bg)] text-[var(--color-faq-pink-icon)]',
+  'bg-[var(--color-faq-blue-bg)] text-[var(--color-faq-blue-icon)]',
+  'bg-[var(--color-faq-amber-bg)] text-[var(--color-faq-amber-icon)]',
+  'bg-[var(--color-faq-purple-bg)] text-[var(--color-faq-purple-icon)]',
+  'bg-[var(--color-faq-sage-bg)] text-[var(--color-faq-sage-icon)]',
+  'bg-[var(--color-faq-sky-bg)] text-[var(--color-faq-sky-icon)]',
+];
 
 export const Faq = ({ data: faq }: FaqProps) => {
   const [open, setOpen] = useState<number | null>(0);
@@ -55,7 +55,7 @@ export const Faq = ({ data: faq }: FaqProps) => {
                   onClick={() => setOpen(isOpen ? null : i)}
                   className={`flex w-full items-center gap-14 px-14 py-12 text-left xl:min-h-118 xl:gap-0 xl:px-35 xl:py-14 ${isOpen ? 'border-b border-[var(--color-faq-divider)]' : ''}`}
                 >
-                  <span className={`flex size-52 shrink-0 items-center justify-center rounded-full xl:size-97 ${tones[item.tone] ?? tones.orange}`}>
+                  <span className={`flex size-52 shrink-0 items-center justify-center rounded-full xl:size-97 ${tones[i % tones.length]}`}>
                     <Icon name={item.icon} className="size-24 xl:size-44" />
                   </span>
                   <span className="min-w-0 flex-1 font-heading font-bold text-[1.0625rem] leading-[1.3] text-[var(--color-faq-question)] xl:pl-42 xl:text-[2.125rem] xl:leading-42">{item.question}</span>
@@ -64,7 +64,7 @@ export const Faq = ({ data: faq }: FaqProps) => {
                       isOpen ? 'rotate-180 bg-primary text-[var(--color-white)]' : 'bg-[var(--color-faq-toggle-bg)] text-accent-dark'
                     }`}
                   >
-                    <Icon name="FaChevronDown" className="size-18 xl:size-30" />
+                    <Icon name={faq.toggleIcon} className="size-18 xl:size-30" />
                   </span>
                 </button>
               </h3>

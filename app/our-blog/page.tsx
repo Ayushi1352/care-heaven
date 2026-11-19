@@ -16,7 +16,7 @@ export default function OurBlogPage() {
   return (
     <main className="flex-1">
       <Breadcrumb data={commonData.blogsBreadcrumb} ui={commonData.globalUI} />
-      <Blogs data={sectionData.Blogs?.variants?.NGOBlogs1} />
+      <Blogs data={sectionData.Blogs?.variants?.NGOBlogs1} showAll />
     </main>
   );
 }

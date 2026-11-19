@@ -211,85 +211,81 @@
       "logoHeight": 329,
       "logoUrl": "/",
       "logoLabel": "CareHaven Foundation",
-      "menuTitle": "Menu Links",
-      "links": [
-        {
-          "id": "home",
-          "label": "Home",
-          "url": "/"
-        },
-        {
-          "id": "about-us",
-          "label": "About Us",
-          "url": "/about-us"
-        },
-        {
-          "id": "our-causes",
-          "label": "Our Causes",
-          "url": "/our-causes"
-        },
-        {
-          "id": "our-teams",
-          "label": "Our Teams",
-          "url": "/our-teams"
-        },
-        {
-          "id": "our-gallery",
-          "label": "Our Gallery",
-          "url": "/our-gallery"
-        },
-        {
-          "id": "our-blog",
-          "label": "Our Blog",
-          "url": "/our-blog"
-        },
-        {
-          "id": "faqs",
-          "label": "Faqs",
-          "url": "/faqs"
-        },
-        {
-          "id": "contact-us",
-          "label": "Contact Us",
-          "url": "/contact-us"
-        }
-      ],
-      "contactCards": [
+      "quickLinks": {
+        "title": "Menu Links",
+        "links": [
+          {
+            "id": "home",
+            "label": "Home",
+            "url": "/"
+          },
+          {
+            "id": "about-us",
+            "label": "About Us",
+            "url": "/about-us"
+          },
+          {
+            "id": "our-causes",
+            "label": "Our Causes",
+            "url": "/our-causes"
+          },
+          {
+            "id": "our-teams",
+            "label": "Our Teams",
+            "url": "/our-teams"
+          },
+          {
+            "id": "our-gallery",
+            "label": "Our Gallery",
+            "url": "/our-gallery"
+          },
+          {
+            "id": "our-blog",
+            "label": "Our Blog",
+            "url": "/our-blog"
+          },
+          {
+            "id": "faqs",
+            "label": "Faqs",
+            "url": "/faqs"
+          },
+          {
+            "id": "contact-us",
+            "label": "Contact Us",
+            "url": "/contact-us"
+          }
+        ]
+      },
+      "linkIcon": "FaChevronRight",
+      "contactItems": [
         {
           "id": "our-location",
           "icon": "FaMapMarkerAlt",
           "title": "Our Location",
-          "lines": [
-            "123 Main Street,",
-            "New York, NY 10001, USA"
-          ]
+          "text": "123 Main Street,\nNew York, NY 10001, USA"
         },
         {
           "id": "email-address",
           "icon": "FaRegEnvelope",
           "title": "Email Address",
-          "lines": [
-            "info@xyz.com"
-          ],
+          "text": "info@xyz.com",
           "url": "mailto:info@xyz.com"
         },
         {
           "id": "call-us",
           "icon": "FaPhoneAlt",
           "title": "Call Us",
-          "lines": [
-            "+1 0000000000"
-          ],
+          "text": "+1 0000000000",
           "url": "tel:+10000000000"
         }
       ],
       "contactCircle": {
         "top": "CONTACT",
         "bottom": "US",
-        "url": "/contact-us"
+        "url": "/contact-us",
+        "icon": "FaArrowRight"
       },
-      "copyrightText": "© 2026 All Rights Reserved. Powered by Lestow.",
-      "poweredBy": "Powered by Lestow",
+      "copyrightText": "© {year} All Rights Reserved. Powered by Lestow.",
       "socialLinks": [
         {
           "id": "facebook",
@@ -382,18 +378,18 @@
                   "url": "/contact-us"
                 }
               ],
-              "button": {
-                "label": "Donate Now",
-                "url": "/contact-us"
-              },
+              "linkIcon": "FaChevronRight",
+              "buttonText": "Donate Now",
+              "buttonUrl": "/contact-us",
+              "buttonIcon": "FaChevronRight",
+              "phoneIcon": "FaPhoneAlt",
               "phone": "+1 0000000000",
               "phoneUrl": "tel:+10000000000",
+              "emailIcon": "FaEnvelope",
               "email": "info@xyz.com",
               "emailUrl": "mailto:info@xyz.com",
-              "address": [
-                "123 Main Street,",
-                "New York, NY 10001, USA"
-              ],
+              "addressIcon": "FaMapMarkerAlt",
+              "address": "123 Main Street,\nNew York, NY 10001, USA",
               "socialLinks": [
                 {
                   "id": "facebook",
@@ -428,7 +424,8 @@
               ],
               "menuLabel": "Main",
               "openMenuLabel": "Open menu",
-              "closeMenuLabel": "Close menu"
+              "closeMenuLabel": "Close menu",
+              "closeMenuIcon": "FaTimes"
             }
           }
         },
@@ -445,10 +442,20 @@
               "mission": {
                 "title": "Our Mission",
                 "text": "Our mission is to rescue, protect, and care for animals in need, providing with safe.",
+                "pointIcon": "FaCheckCircle",
                 "points": [
-                  "Second Chance Animal Mission",
-                  "Safe Haven for Animals",
-                  "Guardians of Compassion"
+                  {
+                    "id": "second-chance-animal-mission",
+                    "text": "Second Chance Animal Mission"
+                  },
+                  {
+                    "id": "safe-haven-for-animals",
+                    "text": "Safe Haven for Animals"
+                  },
+                  {
+                    "id": "guardians-of-compassion",
+                    "text": "Guardians of Compassion"
+                  }
                 ]
               }
             }
@@ -465,29 +472,25 @@
                   "id": "child-assistance",
                   "icon": "FaGraduationCap",
                   "title": "Child Assistance",
-                  "text": "Education is the first to independence child.",
-                  "tone": "navy"
+                  "text": "Education is the first to independence child."
                 },
                 {
                   "id": "crisis-response",
                   "icon": "FaHandHoldingHeart",
                   "title": "Crisis Response",
-                  "text": "Health care are essential for a child's growth.",
-                  "tone": "orange"
+                  "text": "Health care are essential for a child's growth."
                 },
                 {
                   "id": "animal-welfare",
                   "icon": "FaBookOpen",
                   "title": "Animal Welfare",
-                  "text": "We are protects animals across the globe.",
-                  "tone": "green"
+                  "text": "We are protects animals across the globe."
                 },
                 {
                   "id": "emergency-support",
                   "icon": "FaAmbulance",
                   "title": "Emergency Support",
-                  "text": "Health care are essential for a child's growth.",
-                  "tone": "navy"
+                  "text": "Health care are essential for a child's growth."
                 }
               ]
             }
@@ -506,14 +509,14 @@
               "feature": {
                 "icon": "FaUsers",
                 "title": "Empowering Communities",
+                "textIcon": "FaCheckCircle",
                 "text": "We work closely with community to I dentify real needs and create lasting change.",
                 "image": "/images/about/kids-reading.webp",
                 "imageAlt": "Children reading a book together"
               },
-              "button": {
-                "label": "More About Us",
-                "url": "/about-us"
-              }
+              "buttonText": "More About Us",
+              "buttonUrl": "/about-us",
+              "buttonIcon": "FaArrowRight"
             }
           }
         },
@@ -561,6 +564,7 @@
               "image": "/images/about/smiling-girl.webp",
               "imageAlt": "A smiling girl with her friends",
               "call": {
+                "icon": "FaPhoneAlt",
                 "label": "Call Us Anytime",
                 "phone": "+1 0000000000",
                 "phoneUrl": "tel:+10000000000"
@@ -568,10 +572,9 @@
               "lead": "We are a nonprofit that makes it easy and safe to give to projects anywhere in the world, while providing local organizations the tools, training, and support they need to become more effective.",
               "missionTitle": "Our Mission",
               "missionText": "We are committed to providing the highest level of care and support. Trust us to help create lasting change and a better world for future generations.",
-              "button": {
-                "label": "More About Us",
-                "url": "/our-causes"
-              }
+              "buttonText": "More About Us",
+              "buttonUrl": "/our-causes",
+              "buttonIcon": "FaArrowRight"
             }
           }
         },
@@ -590,8 +593,7 @@
                   "role": "Monthly Donor",
                   "rating": 5,
                   "avatar": "/images/team/lauren-wilson.webp",
-                  "avatarAlt": "Lauren Wilson",
-                  "avatarPosition": "object-[50%_22%]"
+                  "avatarAlt": "Lauren Wilson"
                 },
                 {
                   "id": "arc-joan",
@@ -600,8 +602,7 @@
                   "role": "Verified Supporter",
                   "rating": 5,
                   "avatar": "/images/testimonials/arc-joan.webp",
-                  "avatarAlt": "Arc Joan",
-                  "avatarPosition": "object-[50%_50%]"
+                  "avatarAlt": "Arc Joan"
                 },
                 {
                   "id": "daniel-carter",
@@ -610,14 +611,17 @@
                   "role": "Volunteer",
                   "rating": 5,
                   "avatar": "/images/team/daniel-carter.webp",
-                  "avatarAlt": "Daniel Carter",
-                  "avatarPosition": "object-[50%_18%]"
+                  "avatarAlt": "Daniel Carter"
                 }
               ],
               "sliderIntervalMs": 6000,
+              "starIcon": "FaStar",
               "ratingLabel": "{n} out of 5 stars",
+              "quoteIcon": "FaQuoteLeft",
               "previousLabel": "Previous",
               "nextLabel": "Next",
+              "previousIcon": "FaArrowLeft",
+              "nextIcon": "FaArrowRight",
               "slideLabel": "Go to slide {n}"
             }
           }
@@ -630,137 +634,128 @@
               "titleHighlight": "Change",
               "description": "Insights, updates and stories from our journey towards a better tomorrow.",
               "readMore": "Read More",
-              "homeCount": 2,
+              "readMoreIcon": "FaArrowRight",
+              "dateIcon": "FaRegCalendarAlt",
               "rowsPerPage": 3,
+              "homePostIds": [
+                "education-empowers-dreams",
+                "together-for-a-healthier-tomorrow"
+              ],
+              "listingPostIds": [
+                "education-empowers-dreams",
+                "together-for-a-healthier-tomorrow",
+                "small-actions-create-big-impact",
+                "building-stronger-communities",
+                "healthcare-within-reach",
+                "food-support-for-brighter-lives"
+              ],
+              "detailPostId": "education-empowers-dreams",
               "posts": [
                 {
                   "id": "education-empowers-dreams",
-                  "title": "Education Empowers Dreams",
-                  "date": "2026-10-12",
+                  "title": "Education Empowers",
+                  "titleHighlight": "Dreams",
+                  "date": "12 Oct 2026",
                   "excerpt": "Discover how access to quality education is helping children build brighter futures and stronger communities.",
                   "image": "/images/blog/education-empowers-dreams.webp",
-                  "imageAlt": "A schoolgirl holding her notebooks"
+                  "imageAlt": "A schoolgirl holding her notebooks",
+                  "detail": {
+                    "author": {
+                      "prefix": "By",
+                      "name": "Priya Sharma",
+                      "role": "Education & Community Development",
+                      "avatar": "/images/blog/author-priya.webp",
+                      "avatarAlt": "Priya Sharma"
+                    },
+                    "intro": "Education is one of the most powerful tools to break the cycle of poverty and create equal opportunities for every child. At our organization, we believe that every child, regardless of their background, deserves access to quality education, a safe learning environment, and the support they need to reach their full potential.",
+                    "sections": [
+                      {
+                        "id": "creating-opportunities",
+                        "title": "Creating Opportunities",
+                        "titleHighlight": "Through Education",
+                        "text": "Our education programs focus on providing school supplies, learning materials, tuition support, and mentorship to children from underprivileged communities. By removing barriers to education, we help children stay in school, gain confidence, and develop the skills they need for a brighter future.",
+                        "image": "/images/blog/detail-girl-writing.webp",
+                        "imageAlt": "A smiling girl writing in her notebook"
+                      },
+                      {
+                        "id": "real-impact",
+                        "title": "Real Impact",
+                        "titleHighlight": "in Communities",
+                        "text": "Through the support of our donors, volunteers, and community partners, we have helped hundreds of children continue their education. Many of them are now excelling in their studies, pursuing higher education, and inspiring others in their communities.",
+                        "image": "/images/blog/detail-kids-group.webp",
+                        "imageAlt": "A group of happy school children"
+                      },
+                      {
+                        "id": "looking",
+                        "title": "Looking",
+                        "titleHighlight": "Ahead",
+                        "text": "We remain committed to expanding our education initiatives to reach more children and communities. With continued support, we can create lasting change and ensure that every child has the opportunity to learn, grow, and achieve their dreams.",
+                        "image": "/images/blog/detail-boy-reading.webp",
+                        "imageAlt": "A smiling boy reading at his desk"
+                      }
+                    ],
+                    "quote": "“A child with education is a child with hope.\nWhen we educate a child, we empower a community\nand build a brighter tomorrow.”"
+                  }
                 },
                 {
                   "id": "together-for-a-healthier-tomorrow",
-                  "title": "Together for a Healthier Tomorrow",
-                  "date": "2026-10-05",
+                  "title": "Together for a Healthier",
+                  "titleHighlight": "Tomorrow",
+                  "date": "05 Oct 2026",
                   "excerpt": "Our community health initiatives are creating healthier and happier lives for underprivileged families.",
                   "image": "/images/blog/healthier-tomorrow.webp",
                   "imageAlt": "A volunteer helping two girls with their studies"
                 },
                 {
                   "id": "small-actions-create-big-impact",
-                  "title": "Small Actions Create Big Impact",
-                  "date": "2026-09-28",
+                  "title": "Small Actions Create Big",
+                  "titleHighlight": "Impact",
+                  "date": "28 Sep 2026",
                   "excerpt": "Learn how community participation and small acts of kindness are bringing positive change to vulnerable communities.",
                   "image": "/images/blog/small-actions.webp",
                   "imageAlt": "A boy holding a young plant in his hands"
                 },
                 {
                   "id": "building-stronger-communities",
-                  "title": "Building Stronger Communities",
-                  "date": "2026-09-18",
+                  "title": "Building Stronger",
+                  "titleHighlight": "Communities",
+                  "date": "18 Sep 2026",
                   "excerpt": "From education to livelihood support, our programs are empowering families and strengthening communities.",
                   "image": "/images/blog/stronger-communities.webp",
                   "imageAlt": "Smiling students sitting in a classroom"
                 },
                 {
                   "id": "healthcare-within-reach",
-                  "title": "Healthcare Within Reach",
-                  "date": "2026-09-10",
+                  "title": "Healthcare Within",
+                  "titleHighlight": "Reach",
+                  "date": "10 Sep 2026",
                   "excerpt": "Our health camps are providing essential medical support to children and families in underserved areas.",
                   "image": "/images/blog/healthcare-within-reach.webp",
                   "imageAlt": "A doctor checking a young boy at a health camp"
                 },
                 {
                   "id": "food-support-for-brighter-lives",
-                  "title": "Food Support for Brighter Lives",
-                  "date": "2026-09-02",
+                  "title": "Food Support for Brighter",
+                  "titleHighlight": "Lives",
+                  "date": "02 Sep 2026",
                   "excerpt": "Our food distribution programs help ensure that no child or family goes to bed hungry.",
                   "image": "/images/blog/food-support.webp",
                   "imageAlt": "A volunteer serving rice to children"
                 }
               ],
               "detailPageUrl": "/our-blog/blog-detail",
-              "months": [
-                "January",
-                "February",
-                "March",
-                "April",
-                "May",
-                "June",
-                "July",
-                "August",
-                "September",
-                "October",
-                "November",
-                "December"
-              ],
               "readMoreLabel": "Read more about {title}",
-              "paginationLabel": "Pagination",
-              "previousPageLabel": "Previous page",
-              "nextPageLabel": "Next page",
-              "pageLabel": "Page {n}"
-            }
-          }
-        },
-        "BlogDetail": {
-          "variants": {
-            "NGOBlogDetail1": {
-              "date": "2026-10-12",
-              "title": "Education Empowers",
-              "titleHighlight": "Dreams",
-              "author": {
-                "prefix": "By",
-                "name": "Priya Sharma",
-                "role": "Education & Community Development",
-                "avatar": "/images/blog/author-priya.webp",
-                "avatarAlt": "Priya Sharma"
+              "detail": {
+                "quoteIcon": "FaQuoteLeft"
               },
-              "intro": "Education is one of the most powerful tools to break the cycle of poverty and create equal opportunities for every child. At our organization, we believe that every child, regardless of their background, deserves access to quality education, a safe learning environment, and the support they need to reach their full potential.",
-              "sections": [
-                {
-                  "id": "creating-opportunities",
-                  "title": "Creating Opportunities",
-                  "titleHighlight": "Through Education",
-                  "text": "Our education programs focus on providing school supplies, learning materials, tuition support, and mentorship to children from underprivileged communities. By removing barriers to education, we help children stay in school, gain confidence, and develop the skills they need for a brighter future.",
-                  "image": "/images/blog/detail-girl-writing.webp",
-                  "imageAlt": "A smiling girl writing in her notebook",
-                  "titleBreak": true
-                },
-                {
-                  "id": "real-impact",
-                  "title": "Real Impact",
-                  "titleHighlight": "in Communities",
-                  "text": "Through the support of our donors, volunteers, and community partners, we have helped hundreds of children continue their education. Many of them are now excelling in their studies, pursuing higher education, and inspiring others in their communities.",
-                  "image": "/images/blog/detail-kids-group.webp",
-                  "imageAlt": "A group of happy school children"
-                },
-                {
-                  "id": "looking",
-                  "title": "Looking",
-                  "titleHighlight": "Ahead",
-                  "text": "We remain committed to expanding our education initiatives to reach more children and communities. With continued support, we can create lasting change and ensure that every child has the opportunity to learn, grow, and achieve their dreams.",
-                  "image": "/images/blog/detail-boy-reading.webp",
-                  "imageAlt": "A smiling boy reading at his desk"
-                }
-              ],
-              "quote": "“A child with education is a child with hope.\nWhen we educate a child, we empower a community\nand build a brighter tomorrow.”",
-              "months": [
-                "January",
-                "February",
-                "March",
-                "April",
-                "May",
-                "June",
-                "July",
-                "August",
-                "September",
-                "October",
-                "November",
-                "December"
-              ]
+              "pagination": {
+                "label": "Pagination",
+                "previousLabel": "Previous page",
+                "nextLabel": "Next page",
+                "pageLabel": "Page {n}",
+                "previousIcon": "FaChevronLeft",
+                "nextIcon": "FaChevronRight"
+              }
             }
           }
         },
@@ -768,6 +763,7 @@
           "variants": {
             "NGOCauses1": {
               "readMore": "Read More",
+              "readMoreIcon": "FaArrowRight",
               "rowsPerPage": 3,
               "items": [
                 {
@@ -815,10 +811,14 @@
               ],
               "detailPageUrl": "/our-causes/causes-details",
               "readMoreLabel": "Read more about {title}",
-              "paginationLabel": "Pagination",
-              "previousPageLabel": "Previous page",
-              "nextPageLabel": "Next page",
-              "pageLabel": "Page {n}"
+              "pagination": {
+                "label": "Pagination",
+                "previousLabel": "Previous page",
+                "nextLabel": "Next page",
+                "pageLabel": "Page {n}",
+                "previousIcon": "FaChevronLeft",
+                "nextIcon": "FaChevronRight"
+              }
             }
           }
         },
@@ -838,22 +838,19 @@
                   "id": "identify-support",
                   "icon": "FaBookOpen",
                   "title": "Identify & Support",
-                  "text": "We work with local communities to identify children who need educational support.",
-                  "tone": "rose"
+                  "text": "We work with local communities to identify children who need educational support."
                 },
                 {
                   "id": "provide-resources",
                   "icon": "FaUsers",
                   "title": "Provide Resources",
-                  "text": "We provide school supplies, learning materials, and financial support for their education.",
-                  "tone": "green"
+                  "text": "We provide school supplies, learning materials, and financial support for their education."
                 },
                 {
                   "id": "track-progress",
                   "icon": "FaGraduationCap",
                   "title": "Track Progress",
-                  "text": "We monitor their progress and offer continuous guidance to help them achieve their goals.",
-                  "tone": "rose"
+                  "text": "We monitor their progress and offer continuous guidance to help them achieve their goals."
                 }
               ],
               "sideImage": "/images/causes/details-girl.webp",
@@ -948,10 +945,14 @@
                   "imageAlt": "Lauren Wilson"
                 }
               ],
-              "paginationLabel": "Pagination",
-              "previousPageLabel": "Previous page",
-              "nextPageLabel": "Next page",
-              "pageLabel": "Page {n}"
+              "pagination": {
+                "label": "Pagination",
+                "previousLabel": "Previous page",
+                "nextLabel": "Next page",
+                "pageLabel": "Page {n}",
+                "previousIcon": "FaChevronLeft",
+                "nextIcon": "FaChevronRight"
+              }
             }
           }
         },
@@ -1026,13 +1027,21 @@
                 }
               ],
               "openImageLabel": "Open image: {name}",
+              "openIcon": "FaPlus",
               "closeLabel": "Close",
+              "closeIcon": "FaTimes",
               "previousLabel": "Previous image",
               "nextLabel": "Next image",
-              "paginationLabel": "Pagination",
-              "previousPageLabel": "Previous page",
-              "nextPageLabel": "Next page",
-              "pageLabel": "Page {n}"
+              "previousIcon": "FaChevronLeft",
+              "nextIcon": "FaChevronRight",
+              "pagination": {
+                "label": "Pagination",
+                "previousLabel": "Previous page",
+                "nextLabel": "Next page",
+                "pageLabel": "Page {n}",
+                "previousIcon": "FaChevronLeft",
+                "nextIcon": "FaChevronRight"
+              }
             }
           }
         },
@@ -1047,60 +1056,53 @@
                 {
                   "id": "what-is-the-main-focus-of-your-organization",
                   "icon": "FaBookOpen",
-                  "tone": "orange",
                   "question": "What is the main focus of your organization?",
                   "answer": "Our main focus is to support underprivileged children and communities through education, healthcare, and essential resources. We work to create equal opportunities so that every child can learn, grow, and build a brighter future."
                 },
                 {
                   "id": "how-can-i-support-your-cause",
                   "icon": "FaUsers",
-                  "tone": "green",
                   "question": "How can I support your cause?",
                   "answer": "You can support us by donating, sponsoring a child, volunteering your time, or sharing our work with friends and family. Every contribution, big or small, helps us reach more children and families."
                 },
                 {
                   "id": "are-my-donations-tax-deductible",
                   "icon": "FaHeart",
-                  "tone": "pink",
                   "question": "Are my donations tax deductible?",
                   "answer": "Yes. Donations made to CareHaven Foundation are eligible for tax benefits as per applicable laws. You will receive an official receipt by email after every donation."
                 },
                 {
                   "id": "how-do-you-select-the-communities-or-children-to-support",
                   "icon": "FaGraduationCap",
-                  "tone": "blue",
                   "question": "How do you select the communities or children to support?",
                   "answer": "We work with local schools, community leaders and field volunteers to identify families with the greatest need. Each case is reviewed so support reaches the children who need it most."
                 },
                 {
                   "id": "what-types-of-programs-do-you-run",
                   "icon": "FaHandHoldingHeart",
-                  "tone": "amber",
                   "question": "What types of programs do you run?",
                   "answer": "We run education support, hunger relief, health and nutrition camps, women empowerment, animal welfare and disaster relief programs across the communities we serve."
                 },
                 {
                   "id": "how-can-i-stay-updated-on-your-work",
                   "icon": "FaFileAlt",
-                  "tone": "purple",
                   "question": "How can I stay updated on your work?",
                   "answer": "Follow us on social media and read our blog for regular stories and updates. Donors also receive periodic reports showing how their contributions are being used."
                 },
                 {
                   "id": "can-i-volunteer-with-your-organization",
                   "icon": "FaHandshake",
-                  "tone": "sage",
                   "question": "Can I volunteer with your organization?",
                   "answer": "Absolutely. We welcome volunteers for teaching, health camps, food drives and events. Contact us with your interests and availability, and our team will get in touch."
                 },
                 {
                   "id": "do-you-work-with-schools-and-local-communities",
                   "icon": "FaComments",
-                  "tone": "sky",
                   "question": "Do you work with schools and local communities?",
                   "answer": "Yes. We partner closely with schools, local organizations and community groups to run our programs and make sure our support creates lasting change."
                 }
-              ]
+              ],
+              "toggleIcon": "FaChevronDown"
             }
           }
         },
@@ -1111,36 +1113,30 @@
               "title": "Ready to Get More",
               "titleHighlight": "Information",
               "description": "We'd love to hear from you. Reach out to learn more about our programs, volunteer opportunities, or how you can support our mission.",
-              "cards": [
+              "contactItems": [
                 {
                   "id": "our-location",
                   "icon": "FaMapMarkerAlt",
                   "title": "Our Location",
-                  "lines": [
-                    "123 Main Street,",
-                    "New York, NY 10001, USA"
-                  ]
+                  "text": "123 Main Street,\nNew York, NY 10001, USA"
                 },
                 {
                   "id": "support-24-7",
                   "icon": "FaHeadset",
                   "title": "Support 24/7",
-                  "lines": [
-                    "+1 0000000000"
-                  ],
+                  "text": "+1 0000000000",
                   "url": "tel:+10000000000"
                 },
                 {
                   "id": "email-address",
                   "icon": "FaEnvelope",
                   "title": "Email Address",
-                  "lines": [
-                    "info@xyz.com"
-                  ],
+                  "text": "info@xyz.com",
                   "url": "mailto:info@xyz.com"
                 }
               ],
               "map": {
+                "title": "Map showing 123 Main Street, New York, NY 10001, USA",
                 "label": "Open in Maps",
                 "embedUrl": "https://maps.google.com/maps?q=123%20Main%20Street%2C%20New%20York%2C%20NY%2010001%2C%20USA&z=12&output=embed",
                 "openUrl": "https://www.google.com/maps/search/?api=1&query=123%20Main%20Street%2C%20New%20York%2C%20NY%2010001%2C%20USA"
@@ -1190,8 +1186,10 @@
                     "icon": "FaRegCommentDots"
                   }
                 ],
-                "button": "Send Us Message",
+                "buttonText": "Send Us Message",
+                "buttonIcon": "FaArrowRight",
                 "success": "Thank you! Your message has been sent. Our team will get back to you soon.",
+                "successIcon": "FaCheckCircle",
                 "messages": {
                   "requiredError": "Please fill in this field.",
                   "emailError": "Please enter a valid email address.",
@@ -1199,7 +1197,8 @@
                   "sending": "Sending..."
                 }
               },
-              "closeLabel": "Close"
+              "closeLabel": "Close",
+              "closeIcon": "FaTimes"
             }
           }
         }
@@ -1233,8 +1232,8 @@
                 "component": "Testimonials"
               },
               {
-                "key": "BlogSection",
-                "component": "BlogSection"
+                "key": "Blogs",
+                "component": "Blogs"
               },
               {
                 "key": "Footer",

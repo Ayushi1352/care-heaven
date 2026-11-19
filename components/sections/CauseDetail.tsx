@@ -3,10 +3,8 @@ import { Icon } from '@/components/ui/Icon';
 import { BrushStroke, LeafSprig } from '@/components/ui/Decor';
 import type { CauseDetailData, CauseDetailProps } from '@/types/templates.types';
 
-const tones: Record<string, string> = {
-  rose: 'bg-[var(--color-step-rose-bg)] text-[var(--color-step-rose-icon)]',
-  green: 'bg-[var(--color-step-green-bg)] text-[var(--color-step-green-icon)]',
-};
+// Step circles alternate rose, green, rose ... as in the design.
+const tones = ['bg-[var(--color-step-rose-bg)] text-[var(--color-step-rose-icon)]', 'bg-[var(--color-step-green-bg)] text-[var(--color-step-green-icon)]'];
 
 function CauseIntro({ detail }: { detail: CauseDetailData }) {
   return (
@@ -37,9 +35,9 @@ function ProgramSteps({ detail }: { detail: CauseDetailData }) {
         <h2 className="mt-12 font-heading font-bold text-[1.90625rem] leading-[1.15] text-[var(--color-cause-heading)] xl:mt-16 xl:text-[3.4375rem] xl:leading-60">{detail.howTitle}</h2>
         <p className="mt-12 font-alt text-[1rem] leading-28 text-[var(--color-cause-text)] xl:mt-12 xl:text-[1.34375rem] xl:leading-[2.21875rem]">{detail.howText}</p>
         <ul className="mt-28 flex flex-col gap-24 xl:mt-37 xl:gap-34">
-          {detail.steps.map((step) => (
+          {detail.steps.map((step, i) => (
             <li key={step.id} className="group flex items-center gap-18 xl:gap-25">
-              <span className={`flex size-84 shrink-0 items-center justify-center rounded-full transition-transform duration-500 group-hover:scale-110 xl:size-113 ${tones[step.tone] ?? tones.rose}`}>
+              <span className={`flex size-84 shrink-0 items-center justify-center rounded-full transition-transform duration-500 group-hover:scale-110 xl:size-113 ${tones[i % tones.length]}`}>
                 <Icon name={step.icon} className="size-32 xl:size-42" />
               </span>
               <span>

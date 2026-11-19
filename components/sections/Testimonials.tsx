@@ -7,11 +7,14 @@ import { SoftLeaves } from '@/components/ui/Decor';
 import { fill } from '@/components/ui/text';
 import type { TestimonialsProps } from '@/types/templates.types';
 
-function Stars({ rating, label, className = '' }: { rating: number; label?: string; className?: string }) {
+// How each avatar photo is cropped in its circle (keeps the face in view), in the order of the testimonials.
+const avatarPositions = ['object-[50%_22%]', 'object-[50%_50%]', 'object-[50%_18%]'];
+
+function Stars({ rating, icon, label, className = '' }: { rating: number; icon: string; label?: string; className?: string }) {
   return (
     <span role="img" aria-label={label} className={`flex gap-3 text-star xl:gap-4 ${className}`}>
       {Array.from({ length: 5 }, (_, i) => (
-        <Icon key={i} name="FaStar" className={`size-16 xl:size-22 ${i < rating ? '' : 'opacity-25'}`} />
+        <Icon key={i} name={icon} className={`size-16 xl:size-22 ${i < rating ? '' : 'opacity-25'}`} />
       ))}
     </span>
   );
@@ -36,7 +39,7 @@ export const Testimonials = ({ data: testimonials, detailed = false }: Testimoni
     return () => window.clearTimeout(id);
   }, [index, paused, go, items.length, interval]);
 
-  if (!testimonials) return null;
+  if (!testimonials || !items.length) return null;
 
   const arrow = 'absolute top-[32%] z-10 flex size-48 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--color-white)] text-tertiary-dark shadow-[0_8px_24px_var(--color-shadow-testimonial-arrow)] transition-colors hover:bg-primary hover:text-[var(--color-white)] max-sm:top-auto max-sm:-bottom-59 max-sm:size-40 max-sm:translate-y-0 xl:size-70';
 
@@ -75,7 +78,7 @@ export const Testimonials = ({ data: testimonials, detailed = false }: Testimoni
         <div className="flex items-center justify-center gap-16 xl:gap-22">
           <span className="h-px w-70 bg-[var(--color-testimonial-divider)] xl:w-111" />
           <span className="flex size-52 items-center justify-center rounded-full bg-[var(--color-bg-subtle)] text-tertiary-dark xl:size-64">
-            <Icon name="FaQuoteLeft" className="size-20 xl:size-24" />
+            <Icon name={testimonials.quoteIcon} className="size-20 xl:size-24" />
           </span>
           <span className="h-px w-70 bg-[var(--color-testimonial-divider)] xl:w-111" />
         </div>
@@ -83,10 +86,10 @@ export const Testimonials = ({ data: testimonials, detailed = false }: Testimoni
         {/* All slides share one grid cell, so the box is as tall as the longest quote and never jumps. */}
         <div className="relative grid sm:px-64 xl:px-0">
           <button type="button" aria-label={testimonials.previousLabel} onClick={() => go(index - 1)} className={`${arrow} left-0`}>
-            <Icon name="FaArrowLeft" className="size-20 xl:size-24" />
+            <Icon name={testimonials.previousIcon} className="size-20 xl:size-24" />
           </button>
           <button type="button" aria-label={testimonials.nextLabel} onClick={() => go(index + 1)} className={`${arrow} right-0`}>
-            <Icon name="FaArrowRight" className="size-20 xl:size-24" />
+            <Icon name={testimonials.nextIcon} className="size-20 xl:size-24" />
           </button>
 
           {items.map((item, i) => (
@@ -103,12 +106,12 @@ export const Testimonials = ({ data: testimonials, detailed = false }: Testimoni
               </blockquote>
               <figcaption className="mt-24 flex items-center gap-16 text-left xl:mt-31 xl:gap-22">
                 <span className="relative size-80 shrink-0 overflow-hidden rounded-full xl:size-99">
-                  <Image src={item.avatar} alt={item.avatarAlt} fill quality={90} sizes="100px" className={`object-cover ${item.avatarPosition}`} />
+                  <Image src={item.avatar} alt={item.avatarAlt} fill quality={90} sizes="100px" className={`object-cover ${avatarPositions[i % avatarPositions.length]}`} />
                 </span>
                 <span>
                   <span className="block font-dm text-[1.0625rem] font-bold text-tertiary-dark xl:text-[1.34375rem]">{item.name}</span>
                   <span className="mt-2 block font-dm text-[0.875rem] text-[var(--color-testimonial-role)] xl:text-[length:max(1.0625rem,var(--text-min))]">{item.role}</span>
-                  <Stars rating={item.rating} label={fill(testimonials.ratingLabel, { n: item.rating })} className="mt-8 xl:mt-10" />
+                  <Stars rating={item.rating} icon={testimonials.starIcon} label={fill(testimonials.ratingLabel, { n: item.rating })} className="mt-8 xl:mt-10" />
                 </span>
               </figcaption>
             </figure>

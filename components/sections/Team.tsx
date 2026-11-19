@@ -25,7 +25,7 @@ export const Team = ({ data: team }: TeamProps) => {
 
       <div className="relative mt-40 xl:mt-58">
         <Sparks className="pointer-events-none absolute -top-60 right-0 hidden w-50 text-primary xl:-top-66 xl:-right-58 xl:block xl:w-78" />
-        <Paginated labels={team} rows={team.rowsPerPage} columns={3} className="grid gap-24 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-32 xl:gap-y-38">
+        <Paginated data={team.pagination} rows={team.rowsPerPage} columns={3} className="grid gap-24 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-32 xl:gap-y-38">
           {team.members.map((member, i) => (
             <li key={member.id} className="group overflow-hidden rounded-[0.5rem] bg-[var(--color-bg-team-card)] shadow-[0_10px_30px_var(--color-shadow-team-card)] xl:rounded-[0.4375rem]">
               <div className={`relative aspect-[467/465] overflow-hidden ${i < 3 ? '' : i < 6 ? 'xl:aspect-[467/453]' : 'xl:aspect-[467/421]'}`}>

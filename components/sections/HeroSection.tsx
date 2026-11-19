@@ -45,9 +45,9 @@ export const HeroSection = ({ data: hero }: HeroSectionProps) => {
           <p className="mt-10 max-w-420 font-nunito text-[1rem] leading-28 text-[var(--color-hero-mission-text)] xl:mt-12 xl:max-w-none xl:text-[1.21875rem] xl:leading-35">{hero.mission.text}</p>
           <ul className="mt-18 flex flex-col gap-12 xl:mt-26 xl:gap-17">
             {hero.mission.points.map((point) => (
-              <li key={point} className="flex items-center gap-10 font-nunito text-[1rem] font-bold text-[var(--color-hero-mission-link)] xl:gap-8 xl:text-[1.21875rem] xl:leading-30">
-                <Icon name="FaCheckCircle" className="size-22 shrink-0 text-accent xl:size-24" />
-                {point}
+              <li key={point.id} className="flex items-center gap-10 font-nunito text-[1rem] font-bold text-[var(--color-hero-mission-link)] xl:gap-8 xl:text-[1.21875rem] xl:leading-30">
+                <Icon name={hero.mission.pointIcon} className="size-22 shrink-0 text-accent xl:size-24" />
+                {point.text}
               </li>
             ))}
           </ul>

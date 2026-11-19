@@ -5,25 +5,25 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Icon } from '@/components/ui/Icon';
-import type { HeaderProps, LinkData } from '@/types/templates.types';
+import type { HeaderData, HeaderProps } from '@/types/templates.types';
 
 function isActive(pathname: string, href: string) {
   return href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`);
 }
 
 /** The red "Donate Now" button: a chevron block, a divider and the label. */
-function DonateButton({ button, onClick, className = '' }: { button: LinkData; onClick?: () => void; className?: string }) {
+function DonateButton({ header, onClick, className = '' }: { header: HeaderData; onClick?: () => void; className?: string }) {
   return (
     <Link
-      href={button.url}
+      href={header.buttonUrl}
       onClick={onClick}
       className={`group shrink-0 items-center overflow-hidden rounded-[0.375rem] border border-[var(--color-donate-border)] bg-[linear-gradient(180deg,var(--color-donate-light)_0%,var(--color-donate)_55%,var(--color-donate-dark)_100%)] text-[var(--color-white)] shadow-[0_4px_10px_var(--color-black-28)] transition-colors duration-300 hover:border-[var(--color-donate)] hover:bg-[var(--color-white)] hover:bg-none hover:text-[var(--color-donate)] xl:rounded-[0.5rem] ${className}`}
     >
       <span className="flex h-full w-38 items-center justify-center border-r border-[var(--color-black-25)] shadow-[1px_0_0_var(--color-white-22)] xl:w-73">
-        <Icon name="FaChevronRight" className="size-18 xl:size-38" />
+        <Icon name={header.buttonIcon} className="size-18 xl:size-38" />
       </span>
       <span className="px-12 font-alt text-[0.8125rem] leading-none font-medium whitespace-nowrap tracking-[0.01em] uppercase xl:pr-22 xl:pl-14 xl:text-[1.4375rem]">
-        {button.label}
+        {header.buttonText}
       </span>
     </Link>
   );
@@ -40,6 +40,13 @@ export const Header = ({ data: header }: HeaderProps) => {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Close the menu when another page opens (also through the browser's back / forward buttons).
+  const [menuPath, setMenuPath] = useState(pathname);
+  if (pathname !== menuPath) {
+    setMenuPath(pathname);
+    setOpen(false);
+  }
 
   // While the menu is open the page behind it is locked; Escape closes it.
   useEffect(() => {
@@ -85,7 +92,7 @@ export const Header = ({ data: header }: HeaderProps) => {
         </Link>
 
         <div className="flex items-center gap-14 xl:gap-43">
-          <DonateButton button={header.button} className="hidden h-42 sm:inline-flex xl:h-68 xl:min-w-261" />
+          <DonateButton header={header} className="hidden h-42 sm:inline-flex xl:h-68 xl:min-w-261" />
           <button
             type="button"
             aria-label={open ? header.closeMenuLabel : header.openMenuLabel}
@@ -128,7 +135,7 @@ export const Header = ({ data: header }: HeaderProps) => {
             onClick={() => setOpen(false)}
             className="flex size-40 items-center justify-center rounded-full border border-[var(--color-white-30)] transition-colors hover:border-primary hover:bg-primary xl:size-54"
           >
-            <Icon name="FaTimes" className="size-20 xl:size-26" />
+            <Icon name={header.closeMenuIcon} className="size-20 xl:size-26" />
           </button>
         </div>
 
@@ -146,7 +153,7 @@ export const Header = ({ data: header }: HeaderProps) => {
                   }`}
                 >
                   <span className="whitespace-nowrap">{link.label}</span>
-                  <Icon name="FaChevronRight" className="size-18 shrink-0 transition-transform duration-300 group-hover:translate-x-4 xl:size-22" />
+                  <Icon name={header.linkIcon} className="size-18 shrink-0 transition-transform duration-300 group-hover:translate-x-4 xl:size-22" />
                 </Link>
               </li>
             );
@@ -154,18 +161,18 @@ export const Header = ({ data: header }: HeaderProps) => {
         </ul>
 
         <div className="mt-auto flex flex-col gap-14 border-t border-[var(--color-white-12)] px-24 py-22 font-main text-[0.875rem] text-[var(--color-white-85)] xl:gap-18 xl:px-40 xl:py-32 xl:text-[length:max(1.125rem,var(--text-min))]">
-          <DonateButton button={header.button} onClick={() => setOpen(false)} className="inline-flex h-44 self-start sm:hidden" />
+          <DonateButton header={header} onClick={() => setOpen(false)} className="inline-flex h-44 self-start sm:hidden" />
           <a href={header.phoneUrl} className="flex items-center gap-12 transition-colors hover:text-primary">
-            <Icon name="FaPhoneAlt" className="size-18 shrink-0 text-primary xl:size-22" />
+            <Icon name={header.phoneIcon} className="size-18 shrink-0 text-primary xl:size-22" />
             {header.phone}
           </a>
           <a href={header.emailUrl} className="flex items-center gap-12 break-all transition-colors hover:text-primary">
-            <Icon name="FaEnvelope" className="size-18 shrink-0 text-primary xl:size-22" />
+            <Icon name={header.emailIcon} className="size-18 shrink-0 text-primary xl:size-22" />
             {header.email}
           </a>
           <p className="flex items-start gap-12">
-            <Icon name="FaMapMarkerAlt" className="mt-1 size-18 shrink-0 text-primary xl:size-22" />
-            <span className="whitespace-pre-line">{header.address.join('\n')}</span>
+            <Icon name={header.addressIcon} className="mt-1 size-18 shrink-0 text-primary xl:size-22" />
+            <span className="whitespace-pre-line">{header.address}</span>
           </p>
           <ul className="flex gap-10 pt-4">
             {header.socialLinks.map((social) => (

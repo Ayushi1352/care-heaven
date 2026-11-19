@@ -2,14 +2,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Icon } from '@/components/ui/Icon';
 import { Sparks } from '@/components/ui/Decor';
+import { fill, lines } from '@/components/ui/text';
 import type { FooterProps } from '@/types/templates.types';
 
 // Tailwind only sees complete class names, so the row count of the two-column menu (half the links, rounded up) is picked from this list.
 const menuRows = ['', 'grid-rows-[repeat(1,auto)]', 'grid-rows-[repeat(2,auto)]', 'grid-rows-[repeat(3,auto)]', 'grid-rows-[repeat(4,auto)]', 'grid-rows-[repeat(5,auto)]', 'grid-rows-[repeat(6,auto)]'];
 
-export const Footer = ({ data: footer }: FooterProps) => {
+/** Fills `{year}` in the copyright line; cached so the footer can still be prerendered. */
+async function currentYear() {
+  'use cache';
+  return new Date().getFullYear();
+}
+
+export const Footer = async ({ data: footer }: FooterProps) => {
   if (!footer) return null;
-  const nav = footer.links;
+  const copyright = fill(footer.copyrightText, { year: await currentYear() });
+  const nav = footer.quickLinks.links;
   const rows = menuRows[Math.min(Math.ceil(nav.length / 2), menuRows.length - 1)];
 
   return (
@@ -21,13 +29,13 @@ export const Footer = ({ data: footer }: FooterProps) => {
             <Link href={footer.logoUrl} aria-label={footer.logoLabel} className="block w-260 max-w-full sm:w-320 xl:w-420">
               <Image src={footer.logo} alt={footer.logoAlt} width={footer.logoWidth} height={footer.logoHeight} quality={90} sizes="(min-width: 1024px) 25vw, 320px" className="h-auto w-full" />
             </Link>
-            <p className="mt-32 font-main text-[1.125rem] leading-none font-semibold tracking-[0.01em] uppercase xl:mt-35 xl:ml-19 xl:text-[1.375rem]">{footer.menuTitle}</p>
+            <p className="mt-32 font-main text-[1.125rem] leading-none font-semibold tracking-[0.01em] uppercase xl:mt-35 xl:ml-19 xl:text-[1.375rem]">{footer.quickLinks.title}</p>
             <span className="mt-12 block h-3 w-52 bg-primary xl:ml-19 xl:w-62" />
             <ul className={`mt-22 grid max-w-420 grid-flow-col grid-cols-2 gap-x-20 gap-y-12 font-main text-[1rem] sm:gap-x-32 xl:mt-26 xl:ml-23 xl:max-w-none xl:grid-flow-col xl:grid-cols-[16.375rem_1fr] xl:gap-y-0 ${rows}`}>
               {nav.map((link) => (
                 <li key={link.id} className="xl:h-38">
                   <Link href={link.url} className="group inline-flex items-center gap-12 whitespace-nowrap text-[var(--color-white-90)] transition-colors hover:text-primary xl:gap-20 xl:text-[1.25rem] xl:leading-26">
-                    <Icon name="FaChevronRight" className="size-14 shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-3 xl:size-16" />
+                    <Icon name={footer.linkIcon} className="size-14 shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-3 xl:size-16" />
                     <span className="whitespace-nowrap">{link.label}</span>
                   </Link>
                 </li>
@@ -37,8 +45,8 @@ export const Footer = ({ data: footer }: FooterProps) => {
 
           {/* Contact cards */}
           <ul data-reveal="up" className="flex flex-col gap-16 xl:mt-40 xl:gap-24">
-            {footer.contactCards.map((card) => {
-              const body = card.lines.map((line) => (
+            {footer.contactItems.map((card) => {
+              const body = lines(card.text).map((line) => (
                 <span key={line} className="block">
                   {line}
                 </span>
@@ -78,7 +86,7 @@ export const Footer = ({ data: footer }: FooterProps) => {
                   <HeartDoodle className="w-56 text-primary xl:w-76" />
                   <span className="mt-6 font-display text-[1.875rem] leading-[1.05] text-accent-dark xl:mt-10 xl:text-[2.5rem]">{footer.contactCircle.top}</span>
                   <span className="font-display text-[1.875rem] leading-[1.15] text-primary xl:text-[2.5rem]">{footer.contactCircle.bottom}</span>
-                  <Icon name="FaArrowRight" className="mt-4 size-22 text-primary xl:mt-8 xl:size-30" />
+                  <Icon name={footer.contactCircle.icon} className="mt-4 size-22 text-primary xl:mt-8 xl:size-30" />
                 </span>
               </Link>
             </div>
@@ -102,7 +110,7 @@ export const Footer = ({ data: footer }: FooterProps) => {
 
         <div className="mt-48 border-t border-[var(--color-white-25)] py-24 xl:mt-87 xl:pt-30 xl:pb-46">
           <p className="font-main text-[0.875rem] text-[var(--color-white-90)] xl:pl-20 xl:text-[length:max(1.125rem,var(--text-min))]">
-            {footer.copyrightText}
+            {copyright}
           </p>
         </div>
       </div>

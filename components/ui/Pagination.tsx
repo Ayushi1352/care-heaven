@@ -3,7 +3,7 @@
 import { Children, useEffect, useRef, useState, type ReactNode } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { fill } from '@/components/ui/text';
-import type { PaginationLabels } from '@/types/templates.types';
+import type { PaginationData } from '@/types/templates.types';
 
 interface PaginatedProps {
   children: ReactNode;
@@ -18,8 +18,8 @@ interface PaginatedProps {
   variant?: 'boxed' | 'round';
   /** Classes for the pagination row (spacing above it). */
   navClassName?: string;
-  /** Screen-reader labels, from the data of the section that shows the list. */
-  labels?: PaginationLabels;
+  /** Screen-reader labels and arrow icons, from the data of the section that shows the list. */
+  data: PaginationData;
 }
 
 // Page numbers to show: all of them when there are few, else 1 2 3 … last (around the current page).
@@ -31,7 +31,7 @@ function pageList(current: number, count: number): (number | 'gap')[] {
 }
 
 // Shows `rows` rows of its children at a time, on every screen size, with numbered page buttons below (the row shows even with one page, as in the design).
-export const Paginated = ({ children, rows, columns, className, variant = 'boxed', navClassName = 'mt-48 xl:mt-85', labels }: PaginatedProps) => {
+export const Paginated = ({ children, rows, columns, className, variant = 'boxed', navClassName = 'mt-48 xl:mt-85', data }: PaginatedProps) => {
   const items = Children.toArray(children);
   const [gridColumns, setGridColumns] = useState(columns);
   const perPage = rows * gridColumns;
@@ -69,9 +69,9 @@ export const Paginated = ({ children, rows, columns, className, variant = 'boxed
       <ul key={current} data-reveal-stagger className={className}>
         {items.slice(current * perPage, current * perPage + perPage)}
       </ul>
-      <nav aria-label={labels?.paginationLabel} className={`flex items-center justify-center ${boxed ? 'gap-6 sm:gap-8 xl:gap-12' : 'gap-6 sm:gap-10 xl:gap-20'} ${navClassName}`}>
-        <button type="button" aria-label={labels?.previousPageLabel} disabled={current === 0} onClick={() => go(current - 1)} className={`flex items-center justify-center transition-colors enabled:hover:bg-primary enabled:hover:text-[var(--color-white)] disabled:opacity-60 ${arrow}`}>
-          <Icon name="FaChevronLeft" className="size-16 sm:size-20 xl:size-26" />
+      <nav aria-label={data.label} className={`flex items-center justify-center ${boxed ? 'gap-6 sm:gap-8 xl:gap-12' : 'gap-6 sm:gap-10 xl:gap-20'} ${navClassName}`}>
+        <button type="button" aria-label={data.previousLabel} disabled={current === 0} onClick={() => go(current - 1)} className={`flex items-center justify-center transition-colors enabled:hover:bg-primary enabled:hover:text-[var(--color-white)] disabled:opacity-60 ${arrow}`}>
+          <Icon name={data.previousIcon} className="size-16 sm:size-20 xl:size-26" />
         </button>
         {pageList(current, pageCount).map((p, i) =>
           p === 'gap' ? (
@@ -82,7 +82,7 @@ export const Paginated = ({ children, rows, columns, className, variant = 'boxed
             <button
               key={p}
               type="button"
-              aria-label={fill(labels?.pageLabel, { n: p + 1 })}
+              aria-label={fill(data.pageLabel, { n: p + 1 })}
               aria-current={p === current ? 'page' : undefined}
               onClick={() => go(p)}
               className={
@@ -95,8 +95,8 @@ export const Paginated = ({ children, rows, columns, className, variant = 'boxed
             </button>
           ),
         )}
-        <button type="button" aria-label={labels?.nextPageLabel} disabled={current === pageCount - 1} onClick={() => go(current + 1)} className={`flex items-center justify-center transition-colors enabled:hover:bg-primary enabled:hover:text-[var(--color-white)] disabled:opacity-60 ${arrow}`}>
-          <Icon name="FaChevronRight" className="size-16 sm:size-20 xl:size-26" />
+        <button type="button" aria-label={data.nextLabel} disabled={current === pageCount - 1} onClick={() => go(current + 1)} className={`flex items-center justify-center transition-colors enabled:hover:bg-primary enabled:hover:text-[var(--color-white)] disabled:opacity-60 ${arrow}`}>
+          <Icon name={data.nextIcon} className="size-16 sm:size-20 xl:size-26" />
         </button>
       </nav>
     </div>

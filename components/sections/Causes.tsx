@@ -10,7 +10,7 @@ export const Causes = ({ data: causes }: CausesProps) => {
 
   return (
     <section className="bg-[var(--color-white)] px-20 pt-64 pb-64 sm:px-32 md:pt-80 md:pb-80 xl:pt-100 xl:pr-64 xl:pb-100 xl:pl-68">
-      <Paginated labels={causes} rows={causes.rowsPerPage} columns={3} variant="round" navClassName="mt-40 xl:mt-47" className="grid gap-28 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-36 xl:gap-y-35">
+      <Paginated data={causes.pagination} rows={causes.rowsPerPage} columns={3} variant="round" navClassName="mt-40 xl:mt-47" className="grid gap-28 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-36 xl:gap-y-35">
         {causes.items.map((cause, i) => {
           const orange = accentAt(i) === 'orange';
           return (
@@ -33,7 +33,7 @@ export const Causes = ({ data: causes }: CausesProps) => {
                   }`}
                 >
                   {causes.readMore}
-                  <Icon name="FaArrowRight" className="size-20 xl:size-24" />
+                  <Icon name={causes.readMoreIcon} className="size-20 xl:size-24" />
                 </Link>
               </div>
             </li>

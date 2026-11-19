@@ -1,11 +1,12 @@
 import { Icon } from '@/components/ui/Icon';
 import type { HowWeHelpProps } from '@/types/templates.types';
 
-const tones: Record<string, { bg: string; icon: string }> = {
-  navy: { bg: 'bg-[var(--color-help-navy)]', icon: 'text-[var(--color-help-navy)]' },
-  orange: { bg: 'bg-[var(--color-help-orange)]', icon: 'text-[var(--color-help-orange)]' },
-  green: { bg: 'bg-[var(--color-help-green)]', icon: 'text-[var(--color-help-green)]' },
-};
+const navy = { bg: 'bg-[var(--color-help-navy)]', icon: 'text-[var(--color-help-navy)]' };
+const orange = { bg: 'bg-[var(--color-help-orange)]', icon: 'text-[var(--color-help-orange)]' };
+const green = { bg: 'bg-[var(--color-help-green)]', icon: 'text-[var(--color-help-green)]' };
+
+// Card colours in design order (navy, orange, green, navy); more cards repeat the row.
+const tones = [navy, orange, green, navy];
 
 export const HowWeHelp = ({ data: help }: HowWeHelpProps) => {
   if (!help) return null;
@@ -24,8 +25,8 @@ export const HowWeHelp = ({ data: help }: HowWeHelpProps) => {
       </div>
 
       <ul data-reveal-stagger className="mt-36 grid sm:grid-cols-2 xl:mt-41 xl:grid-cols-4">
-        {help.cards.map((card) => {
-          const tone = tones[card.tone] ?? tones.navy;
+        {help.cards.map((card, i) => {
+          const tone = tones[i % tones.length];
           return (
             <li key={card.id} className={`group relative overflow-hidden px-32 pt-32 pb-40 text-[var(--color-white)] xl:h-394 xl:px-55 xl:pt-34 xl:pb-0 ${tone.bg}`}>
               <span className="absolute inset-0 origin-bottom scale-y-0 bg-[var(--color-black-10)] transition-transform duration-500 group-hover:scale-y-100" />

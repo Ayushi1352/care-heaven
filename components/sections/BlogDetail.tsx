@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { Icon } from '@/components/ui/Icon';
-import { formatDate } from '@/components/ui/text';
 import type { BlogDetailProps, BlogDetailSection } from '@/types/templates.types';
 
 // Rule and text sizes differ a little per section in the design, so each section passes its own desktop classes.
@@ -9,16 +8,19 @@ function SectionText({
   className = '',
   ruleClassName = 'xl:mt-22 xl:w-78',
   textClassName = 'xl:mt-34 xl:text-[1.6875rem] xl:leading-[2.65625rem]',
+  breakTitle = false,
 }: {
   section: BlogDetailSection;
   className?: string;
   ruleClassName?: string;
   textClassName?: string;
+  /** Puts the highlighted part of the title on its own line on desktop */
+  breakTitle?: boolean;
 }) {
   return (
     <div data-reveal="up" className={`min-w-0 ${className}`}>
       <h2 className="font-heading font-bold text-[1.3125rem] leading-[1.22] text-[var(--color-blog-heading)] xs:text-[1.5rem] sm:text-[2.25rem] xl:text-[3.625rem] xl:leading-70 xl:whitespace-nowrap">
-        {section.title} {section.titleBreak && <br className="hidden xl:block" />}<span className="text-secondary-dark">{section.titleHighlight}</span>
+        {section.title} {breakTitle && <br className="hidden xl:block" />}<span className="text-secondary-dark">{section.titleHighlight}</span>
       </h2>
       <span className={`mt-14 block h-3 w-60 bg-primary xl:h-4 ${ruleClassName}`} />
       <p className={`mt-18 font-dm text-[1rem] leading-28 text-[var(--color-blog-detail-text)] ${textClassName}`}>{section.text}</p>
@@ -34,19 +36,23 @@ function SectionImage({ section, className = '' }: { section: BlogDetailSection;
   );
 }
 
-export const BlogDetail = ({ data: detail }: BlogDetailProps) => {
-  if (!detail) return null;
+/** The common blog detail page: the full article of the post with id `postId`. */
+export const BlogDetail = ({ data: blog, postId }: BlogDetailProps) => {
+  const post = blog?.posts.find((item) => item.id === postId);
+  const detail = post?.detail;
+  // The layout is drawn for exactly three sections.
+  if (!blog || !post || !detail || detail.sections.length < 3) return null;
   const [first, second, third] = detail.sections;
 
   return (
     <article className="bg-[var(--color-white)] px-20 pt-64 pb-64 sm:px-32 md:pt-80 md:pb-80 xl:pt-100 xl:pr-74 xl:pb-100 xl:pl-108">
       <header data-reveal="up" className="flex flex-col items-center text-center">
         <p className="inline-flex h-38 items-center gap-8 rounded-full bg-[var(--color-blog-detail-tag-bg)] px-16 font-dm text-[0.9375rem] font-medium text-[var(--color-blog-tag-text)] xl:h-53 xl:gap-12 xl:px-26 xl:text-[1.40625rem]">
-          <Icon name="FaRegCalendarAlt" className="size-16 xl:size-24" />
-          <time dateTime={detail.date}>{formatDate(detail.date, detail.months)}</time>
+          <Icon name={blog.dateIcon} className="size-16 xl:size-24" />
+          <time>{post.date}</time>
         </p>
         <h1 className="mt-16 font-heading font-bold text-[1.5rem] leading-[1.2] text-[var(--color-blog-heading)] xs:text-[1.75rem] sm:text-[2.84375rem] xl:mt-25 xl:text-[4.75rem] xl:leading-90">
-          {detail.title} <span className="text-secondary-dark">{detail.titleHighlight}</span>
+          {post.title} <span className="text-secondary-dark">{post.titleHighlight}</span>
         </h1>
         <div className="mt-16 flex items-center gap-14 text-left xl:mt-20 xl:gap-25">
           <span className="relative size-64 shrink-0 overflow-hidden rounded-full xl:size-93">
@@ -67,12 +73,12 @@ export const BlogDetail = ({ data: detail }: BlogDetailProps) => {
 
       <div className="mt-36 flex flex-col gap-28 lg:flex-row lg:items-start xl:mt-88 xl:gap-50">
         <SectionImage section={first} className="aspect-[740/505] lg:w-[48%] xl:w-740 xl:shrink-0" />
-        <SectionText section={first} className="flex-1 xl:pt-10" />
+        <SectionText section={first} className="flex-1 xl:pt-10" breakTitle />
       </div>
 
       <figure data-reveal="up" className="mt-40 flex flex-col items-center gap-20 rounded-[0.625rem] bg-[var(--color-bg-blog-quote)] px-20 py-28 text-center sm:flex-row sm:text-left xl:mt-51 xl:-ml-13 xl:h-215 xl:gap-0 xl:px-0 xl:py-0 xl:pl-113">
         <span className="flex size-80 shrink-0 items-center justify-center rounded-full bg-secondary-dark text-[var(--color-white)] xl:size-125">
-          <Icon name="FaQuoteLeft" className="size-34 xl:size-54" />
+          <Icon name={blog.detail.quoteIcon} className="size-34 xl:size-54" />
         </span>
         <span className="hidden h-140 w-2 bg-[var(--color-blog-quote-divider)] sm:mx-24 sm:block xl:mx-58" />
         <blockquote className="font-quote text-[1.1875rem] leading-[1.45] font-semibold text-secondary-dark italic xl:max-w-none xl:text-[2.1875rem] xl:leading-50 xl:whitespace-pre-line">{detail.quote}</blockquote>

@@ -39,7 +39,7 @@ export const AboutUs = ({ data: about, detailed = false }: AboutUsProps) => {
               <h3 className="mt-12 font-main text-[1.125rem] font-semibold text-tertiary-dark xl:mt-14 xl:text-[1.25rem]">{about.feature.title}</h3>
               <span className="mt-12 block h-px bg-[var(--color-about-divider)] xl:mt-14 xl:w-279" />
               <p className="mt-14 flex gap-12 font-main text-[0.875rem] leading-22 text-[var(--color-text-dark)] xl:mt-18 xl:gap-16 xl:text-[1rem] xl:leading-22">
-                <Icon name="FaCheckCircle" className="mt-1 size-22 shrink-0 text-primary xl:size-26" />
+                <Icon name={about.feature.textIcon} className="mt-1 size-22 shrink-0 text-primary xl:size-26" />
                 <span className="xl:max-w-285">{about.feature.text}</span>
               </p>
             </div>
@@ -49,11 +49,11 @@ export const AboutUs = ({ data: about, detailed = false }: AboutUsProps) => {
           </div>
 
           <Link
-            href={about.button.url}
+            href={about.buttonUrl}
             className="group mt-30 inline-flex h-52 items-center gap-14 rounded-full border border-highlight bg-highlight px-30 font-main text-[1.0625rem] font-semibold text-tertiary-dark transition-colors duration-300 hover:border-tertiary-dark hover:bg-[var(--color-white)] xl:h-58 xl:w-279 xl:justify-center xl:gap-22 xl:px-0 xl:text-[1.25rem]"
           >
-            {about.button.label}
-            <Icon name="FaArrowRight" className="size-18 xl:size-20" />
+            {about.buttonText}
+            <Icon name={about.buttonIcon} className="size-18 xl:size-20" />
           </Link>
         </div>
       </div>

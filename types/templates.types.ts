@@ -26,6 +26,12 @@ export interface NavLink extends LinkData {
   id: string;
 }
 
+/** A list item that is just a line of text. */
+export interface TextItem {
+  id: string;
+  text: string;
+}
+
 export interface SocialLink {
   id: string;
   icon: string;
@@ -33,20 +39,23 @@ export interface SocialLink {
   label: string;
 }
 
-/** Screen-reader labels for the page numbers under a paged list; "{n}" is the page number. */
-export interface PaginationLabels {
-  paginationLabel: string;
-  previousPageLabel: string;
-  nextPageLabel: string;
+/** Screen-reader labels and arrow icons of the page numbers under a paged list; "{n}" in pageLabel is the page number. */
+export interface PaginationData {
+  label: string;
+  previousLabel: string;
+  nextLabel: string;
   pageLabel: string;
+  previousIcon: string;
+  nextIcon: string;
 }
 
+/** Address, phone or email card; "\n" in `text` starts a new line. */
 export interface ContactCard {
   id: string;
   icon: string;
   title: string;
-  lines: string[];
-  /** tel: / mailto: link for the first line; cards without it are plain text */
+  text: string;
+  /** tel: / mailto: link; cards without it are plain text */
   url?: string;
 }
 
@@ -117,6 +126,13 @@ export interface ContactCircle {
   top: string;
   bottom: string;
   url: string;
+  icon: string;
+}
+
+/** The footer's page links; `title` is the heading above them. */
+export interface FooterQuickLinks {
+  title: string;
+  links: NavLink[];
 }
 
 export interface FooterData {
@@ -126,12 +142,12 @@ export interface FooterData {
   logoHeight: number;
   logoUrl: string;
   logoLabel: string;
-  menuTitle: string;
-  links: NavLink[];
-  contactCards: ContactCard[];
+  quickLinks: FooterQuickLinks;
+  linkIcon: string;
+  contactItems: ContactCard[];
   contactCircle: ContactCircle;
+  /** "{year}" is the current year */
   copyrightText: string;
-  poweredBy?: string;
   socialLinks: SocialLink[];
 }
 
@@ -170,16 +186,24 @@ export interface HeaderData {
   logoUrl: string;
   logoLabel: string;
   navLinks: NavLink[];
-  button: LinkData;
+  linkIcon: string;
+  buttonText: string;
+  buttonUrl: string;
+  buttonIcon: string;
+  phoneIcon: string;
   phone: string;
   phoneUrl: string;
+  emailIcon: string;
   email: string;
   emailUrl: string;
-  address: string[];
+  addressIcon: string;
+  /** "\n" starts a new line */
+  address: string;
   socialLinks: SocialLink[];
   menuLabel: string;
   openMenuLabel: string;
   closeMenuLabel: string;
+  closeMenuIcon: string;
 }
 
 export interface HeaderProps {
@@ -197,7 +221,8 @@ export interface HeroData {
   mission: {
     title: string;
     text: string;
-    points: string[];
+    pointIcon: string;
+    points: TextItem[];
   };
 }
 
@@ -210,7 +235,6 @@ export interface HelpCard {
   icon: string;
   title: string;
   text: string;
-  tone: string;
 }
 
 export interface HowWeHelpData {
@@ -235,11 +259,14 @@ export interface AboutUsData {
   feature: {
     icon: string;
     title: string;
+    textIcon: string;
     text: string;
     image: string;
     imageAlt: string;
   };
-  button: LinkData;
+  buttonText: string;
+  buttonUrl: string;
+  buttonIcon: string;
 }
 
 export interface AboutUsProps {
@@ -274,6 +301,7 @@ export interface WhyChooseUsData {
   image: string;
   imageAlt: string;
   call: {
+    icon: string;
     label: string;
     phone: string;
     phoneUrl: string;
@@ -281,7 +309,9 @@ export interface WhyChooseUsData {
   lead: string;
   missionTitle: string;
   missionText: string;
-  button: LinkData;
+  buttonText: string;
+  buttonUrl: string;
+  buttonIcon: string;
 }
 
 export interface WhyChooseUsProps {
@@ -296,7 +326,6 @@ export interface TestimonialItem {
   rating: number;
   avatar: string;
   avatarAlt: string;
-  avatarPosition: string;
 }
 
 export interface TestimonialsData {
@@ -307,10 +336,14 @@ export interface TestimonialsData {
   items: TestimonialItem[];
   /** Time each slide stays before the next one slides in */
   sliderIntervalMs: number;
+  starIcon: string;
   /** "{n}" is the star rating */
   ratingLabel: string;
+  quoteIcon: string;
   previousLabel: string;
   nextLabel: string;
+  previousIcon: string;
+  nextIcon: string;
   /** "{n}" is the slide number */
   slideLabel: string;
 }
@@ -321,39 +354,6 @@ export interface TestimonialsProps {
   detailed?: boolean;
 }
 
-export interface BlogPost {
-  id: string;
-  title: string;
-  date: string;
-  excerpt: string;
-  image: string;
-  imageAlt: string;
-}
-
-export interface BlogsData extends PaginationLabels {
-  label: string;
-  title: string;
-  titleHighlight: string;
-  description: string;
-  readMore: string;
-  homeCount: number;
-  rowsPerPage: number;
-  posts: BlogPost[];
-  detailPageUrl: string;
-  /** Month names for the post dates */
-  months: string[];
-  /** "{title}" is the post title */
-  readMoreLabel: string;
-}
-
-export interface BlogSectionProps {
-  data?: BlogsData;
-}
-
-export interface BlogsProps {
-  data?: BlogsData;
-}
-
 export interface BlogDetailSection {
   id: string;
   title: string;
@@ -361,13 +361,10 @@ export interface BlogDetailSection {
   text: string;
   image: string;
   imageAlt: string;
-  titleBreak?: boolean;
 }
 
-export interface BlogDetailData {
-  date: string;
-  title: string;
-  titleHighlight: string;
+/** The full article of a post, shown on the common blog detail page. */
+export interface BlogPostDetail {
   author: {
     prefix: string;
     name: string;
@@ -376,14 +373,66 @@ export interface BlogDetailData {
     avatarAlt: string;
   };
   intro: string;
+  /** The page is drawn for three sections */
   sections: BlogDetailSection[];
+  /** "\n" starts a new line (on desktop) */
   quote: string;
-  /** Month names for the post date */
-  months: string[];
+}
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  titleHighlight: string;
+  /** Shown as written, e.g. "12 Oct 2026" */
+  date: string;
+  excerpt: string;
+  image: string;
+  imageAlt: string;
+  /** Only the post the detail page shows (detailPostId) needs it */
+  detail?: BlogPostDetail;
+}
+
+/** Every blog post; the home page, the Our Blog page and the detail page each pick theirs by id. */
+export interface BlogsData {
+  label: string;
+  title: string;
+  titleHighlight: string;
+  description: string;
+  readMore: string;
+  readMoreIcon: string;
+  dateIcon: string;
+  rowsPerPage: number;
+  homePostIds: string[];
+  listingPostIds: string[];
+  /** Post the common /our-blog/blog-detail page shows */
+  detailPostId: string;
+  posts: BlogPost[];
+  detailPageUrl: string;
+  /** "{title}" is the post title */
+  readMoreLabel: string;
+  detail: {
+    quoteIcon: string;
+  };
+  pagination: PaginationData;
+}
+
+export interface BlogsProps {
+  data?: BlogsData;
+  /** true on the Our Blog page: the paged list of listingPostIds instead of the home cards */
+  showAll?: boolean;
+}
+
+export interface BlogCardProps {
+  post: BlogPost;
+  /** Link, labels and icons the cards share */
+  blog: BlogsData;
+  /** The Our Blog page's card instead of the home card */
+  listing?: boolean;
 }
 
 export interface BlogDetailProps {
-  data?: BlogDetailData;
+  data?: BlogsData;
+  postId?: string;
 }
 
 export interface CauseItem {
@@ -394,13 +443,15 @@ export interface CauseItem {
   imageAlt: string;
 }
 
-export interface CausesData extends PaginationLabels {
+export interface CausesData {
   readMore: string;
+  readMoreIcon: string;
   rowsPerPage: number;
   items: CauseItem[];
   detailPageUrl: string;
   /** "{title}" is the cause title */
   readMoreLabel: string;
+  pagination: PaginationData;
 }
 
 export interface CausesProps {
@@ -412,7 +463,6 @@ export interface CauseStep {
   icon: string;
   title: string;
   text: string;
-  tone: string;
 }
 
 export interface CauseDetailData {
@@ -444,20 +494,21 @@ export interface TeamMember {
   imageAlt: string;
 }
 
-export interface TeamData extends PaginationLabels {
+export interface TeamData {
   label: string;
   title: string;
   titleHighlight: string;
   description: string;
   rowsPerPage: number;
   members: TeamMember[];
+  pagination: PaginationData;
 }
 
 export interface TeamProps {
   data?: TeamData;
 }
 
-export interface GalleryData extends PaginationLabels {
+export interface GalleryData {
   label: string;
   title: string;
   titleHighlight: string;
@@ -466,9 +517,14 @@ export interface GalleryData extends PaginationLabels {
   images: ImageItem[];
   /** "{name}" is the image's alt text */
   openImageLabel: string;
+  openIcon: string;
   closeLabel: string;
+  closeIcon: string;
   previousLabel: string;
   nextLabel: string;
+  previousIcon: string;
+  nextIcon: string;
+  pagination: PaginationData;
 }
 
 export interface GalleryProps {
@@ -478,7 +534,6 @@ export interface GalleryProps {
 export interface FaqItem {
   id: string;
   icon: string;
-  tone: string;
   question: string;
   answer: string;
 }
@@ -489,6 +544,7 @@ export interface FaqData {
   titleHighlight: string;
   description: string;
   items: FaqItem[];
+  toggleIcon: string;
 }
 
 export interface FaqProps {
@@ -515,8 +571,10 @@ export interface ContactFormData {
   title: string;
   titleHighlight: string;
   fields: FormFieldData[];
-  button: string;
+  buttonText: string;
+  buttonIcon: string;
   success: string;
+  successIcon: string;
   messages: FormMessages;
 }
 
@@ -525,8 +583,11 @@ export interface ContactData {
   title: string;
   titleHighlight: string;
   description: string;
-  cards: ContactCard[];
+  contactItems: ContactCard[];
   map: {
+    /** Read out by screen readers for the embedded map */
+    title: string;
+    /** The "open in maps" link on the map */
     label: string;
     embedUrl: string;
     openUrl: string;
@@ -534,6 +595,7 @@ export interface ContactData {
   form: ContactFormData;
   /** Closes the thank-you message */
   closeLabel: string;
+  closeIcon: string;
 }
 
 export interface ContactProps {
@@ -583,7 +645,6 @@ export interface NGOSections {
   WhyChooseUs?: { variants?: { NGOWhyChooseUs1?: WhyChooseUsData } };
   Testimonials?: { variants?: { NGOTestimonials1?: TestimonialsData } };
   Blogs?: { variants?: { NGOBlogs1?: BlogsData } };
-  BlogDetail?: { variants?: { NGOBlogDetail1?: BlogDetailData } };
   Causes?: { variants?: { NGOCauses1?: CausesData } };
   CauseDetail?: { variants?: { NGOCauseDetail1?: CauseDetailData } };
   Team?: { variants?: { NGOTeam1?: TeamData } };

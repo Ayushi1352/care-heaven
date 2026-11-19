@@ -36,7 +36,7 @@ export const WhyChooseUs = ({ data: whyChoose }: WhyChooseUsProps) => {
           </div>
           <a href={whyChoose.call.phoneUrl} className="group flex items-center gap-18 bg-highlight-dark px-20 py-22 text-accent-dark xl:h-146 xl:gap-26 xl:px-31 xl:py-0">
             <span className="flex size-60 shrink-0 items-center justify-center rounded-full border-[1.5px] border-accent-dark transition-[background-color,color] duration-300 group-hover:bg-accent-dark group-hover:text-highlight-dark xl:size-82">
-              <Icon name="FaPhoneAlt" className="size-24 xl:size-32" />
+              <Icon name={whyChoose.call.icon} className="size-24 xl:size-32" />
             </span>
             <span>
               <span className="block font-alt text-[0.875rem] xl:text-[1.1875rem]">{whyChoose.call.label}</span>
@@ -51,11 +51,11 @@ export const WhyChooseUs = ({ data: whyChoose }: WhyChooseUsProps) => {
           <h3 className="mt-14 font-heading text-[1.625rem] font-semibold xl:mt-16 xl:text-[2.5625rem] xl:leading-46">{whyChoose.missionTitle}</h3>
           <p className="mt-10 max-w-540 font-alt text-[0.9375rem] leading-26 text-[var(--color-white-95)] xl:mt-6 xl:max-w-524 xl:text-[1.296875rem] xl:leading-30">{whyChoose.missionText}</p>
           <Link
-            href={whyChoose.button.url}
+            href={whyChoose.buttonUrl}
             className="group mt-26 inline-flex h-50 items-center gap-12 rounded-[0.25rem] border border-primary bg-primary px-24 font-alt text-[0.9375rem] font-semibold uppercase transition-colors duration-300 hover:bg-[var(--color-white)] hover:text-primary xl:mt-19 xl:rounded-[0.625rem] xl:h-58 xl:w-276 xl:justify-center xl:gap-14 xl:px-0 xl:text-[1.21875rem]"
           >
-            {whyChoose.button.label}
-            <Icon name="FaArrowRight" className="size-17 xl:size-20" />
+            {whyChoose.buttonText}
+            <Icon name={whyChoose.buttonIcon} className="size-17 xl:size-20" />
           </Link>
         </div>
       </div>
